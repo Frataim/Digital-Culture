@@ -4,12 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.17.2",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.13.0",
+    "sequelize-cli": "^6.3.0"
+  },
   "devDependencies": {
     "eslint": "^8.6.0",
     "eslint-config-airbnb": "^19.0.4",
