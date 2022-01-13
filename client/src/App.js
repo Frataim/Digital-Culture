@@ -1,10 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
+import Tasks from './components/Tasks/Tasks';
 
 function App() {
   return (
     <div className="App">
-      <h2>App</h2>
+      <Tasks />
     </div>
   );
 }
