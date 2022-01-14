@@ -19,8 +19,7 @@ function App() {
   }, [])
 
   return (
-    <div>
-      123
+    <Container>
       <Header />
       <Routes>
         {user && <Route path="/" element={<Signin />} />}
@@ -28,7 +27,7 @@ function App() {
         <Route path="signup" element={<Signup />} />
         <Route path="signout" element={<Signout />} />
       </Routes>
-    </div>
+    </Container>
   )
 }
 
