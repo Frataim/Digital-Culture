@@ -1,7 +1,6 @@
-
 import TaskPage from "./components/TaskPage/TaskPage"
 import TasksList from "./components/TasksList/TasksList"
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Signin from './components/Authentication/Signin/Signin';
@@ -19,25 +18,20 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-    <div>
-      Hello
-    </div>
-    <Signup />
-    <Signin />
-
+    <>
+      <Header />
       <Routes>
-      <Route path="signin" element={<Signin />} />
+        {user && <Route path='/' element={
+          <>
+          </>}
+        />}
+        <Route path="signin" element={<Signin />} />
         <Route path="signup" element={<Signup />} />
         <Route path="signout" element={<Signout />} />
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 
 export default App
 
-{/* {user && <Route path='/' element={
-    <>
-    </>}
-  />} */}
