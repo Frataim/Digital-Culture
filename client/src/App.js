@@ -1,5 +1,3 @@
-import { Route, Routes } from "react-router-dom"
-import "./App.css"
 import TaskPage from "./components/TaskPage/TaskPage"
 import TasksList from "./components/TasksList/TasksList"
 import React, { useEffect } from 'react'
@@ -7,10 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Signin from './components/Authentication/Signin/Signin';
 import Signup from './components/Authentication/Signup/Signup';
-import Signout from './components/Authentication/Signout/Signout';
-import Header from './components/Header/Header';
-import Form from './components/Form/Form';
-import List from './components/List/List';
+import Signout from './components/Authentication/Signout/Signout'
 import { checkUser } from './redux/actions/userAction';
 
 
@@ -21,6 +16,7 @@ function App() {
   useEffect(() => {
     dispatch(checkUser());
   }, []);
+
   return (
     <>
       <Header />
@@ -38,3 +34,4 @@ function App() {
 }
 
 export default App
+
