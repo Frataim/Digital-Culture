@@ -8,8 +8,8 @@ function validateEmail(email) {
   return re.test(email);
 }
 router.route('/signup').post(async (req, res) => {
-  console.log(req.body.fromData);
-  const { name, email, password } = req.body.formData;
+  console.log(await req.body.fromData);
+  const { name, email, password } = await req.body.formData;
   req.session.user = {};
   if (validateEmail(email) && password) {
     const hashPass = await bcrypt.hash(password, +process.env.SALT);
@@ -18,7 +18,7 @@ router.route('/signup').post(async (req, res) => {
         name,
         email,
         password: hashPass,
-        avatar: 'https://cs6.pikabu.ru/avatars/1576/v1576985-1962120878.jpg'
+        avatar: 'https://cs6.pikabu.ru/avatars/1576/v1576985-1962120878.jpg',
       });
       req.session.user = {
         id: newUser.id,
@@ -63,6 +63,11 @@ router.route('/check').get((req, res) => {
     return res.json({ id: req.session.user.id, email: req.session.user.name });
   }
   res.sendStatus(401);
+});
+
+router.route('/test').post((req, res) => {
+  console.log('TEST', req.body);
+  res.sendStatus(200);
 });
 
 router.route('/signout').get((req, res) => {
