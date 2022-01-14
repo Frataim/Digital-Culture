@@ -1,4 +1,4 @@
 const initState = {
-  user: []
+  user: null
 };
 export default initState;

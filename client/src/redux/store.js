@@ -10,6 +10,6 @@ import initialState from './initialState'
 
 // const sagaMiddleware = createSagaMiddleware();
 
-export const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(thunk)));
+export const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(thunk)))
 
 // sagaMiddleware.run(rootSaga);

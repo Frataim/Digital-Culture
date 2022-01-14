@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import {addUser}  from '../../../redux/actions/userAction'
+import {signinUser}  from '../../../redux/actions/userAction'
 
 const Signin = () => {
   const [log, setLog] = useState({})
   const navigate = useNavigate()
-  // чтоб изменить состояние внутри компонента получаем диспатч
-  const dispatch = useDispatch()
-  // получаем состояние 
-  const user = useSelector((state) => state.user)
-// если пользователь зашел под своей учетной записью то мы его направляем на его заметки
+  const dispatch = useDispatch()// чтоб изменить состояние внутри компонента получаем диспатч
+  const user = useSelector((state) => state.user) // получаем состояние 
+
+// если пользователь зашел под своей учетной записью переходим ...
   useEffect (() => {
     if (user) {
-      navigate('/...')
+      navigate('/')
     }
   }, [user])
 
@@ -23,8 +22,8 @@ const Signin = () => {
 
   const logHandler = (e) => {
     e.preventDefault()
-    dispatch(addUser(log)) // функция аддюзер также используется в регистрации - это странно
-    navigate('/...')
+    dispatch(signinUser(log)) 
+    navigate('/')
   }
 
 

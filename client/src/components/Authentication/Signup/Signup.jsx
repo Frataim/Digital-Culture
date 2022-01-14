@@ -5,17 +5,15 @@ import { addUser } from '../../../redux/actions/userAction';
 
 // зарегистрироваться
 const Signup = () => {
-  // состояние регистрации
-  const [reg, setReg] = useState({})
+  const [reg, setReg] = useState({}) // состояние регистрации
   const navigate = useNavigate()
-  // чтоб изменить состояние внутри компонента получаем диспатч
-  const dispatch = useDispatch()
-  // получаем состояние 
-const user = useSelector((state) => state.user)
+  const dispatch = useDispatch() // чтоб изменить состояние внутри компонента получаем диспатч
+  const user = useSelector((state) => state.user) // получаем состояние 
+
 // если пользователь прошел регистрацию то мы его направляем на его заметки
 useEffect(() => {
   if (user) {
-    navigate('/posts')
+    navigate('/')
   }
 }, [user])
 
@@ -27,13 +25,13 @@ const inputChange = (e) => {
 const regHandler = (e) => {
   e.preventDefault()
   dispatch(addUser(reg))
-  navigate('/posts')
+  navigate('/')
 
 
 }
   return (
     <form onSubmit={(e) => regHandler(e)}>
-    {/* <div className="container my-3">
+    <div className="container my-3">
         <label htmlFor="exampleInputText" className="form-label">
           Name
         </label>
@@ -46,7 +44,7 @@ const regHandler = (e) => {
           id="exampleInputText"
           aria-describedby="emailHelp"
         />
-      </div> */}
+      </div>
       <div className="container my-3">
         <label htmlFor="exampleInputEmail1" className="form-label">
           Email address

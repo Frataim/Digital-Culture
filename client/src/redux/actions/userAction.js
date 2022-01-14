@@ -1,35 +1,11 @@
 import axios from 'axios'
-import {ADD_USER, DEL_USER} from '../types/user.types'
-// import {addUserToServer} from '../utils/user.utils'
+import {ADD_USER, DEL_USER, SIGNIN_USER, AUTH_CHECK} from '../types/userTypes'
 
-export const addUserAction = (user) => async (dispatch) =>{
-  try {
-    // const newUser = await addUserToServer(user)
-    
-    dispatch({
-      type: ADD_USER,
-      payload: user
-    })
-  } catch (error) {
-    console.log(error)
-  }
-}
-
-export const delUser = (user) => ({
-  type: DEL_USER,
-  payload: user
+// signup - регистрация пользователя
+export const addUserAction = (responce) => ({
+  type: ADD_USER,
+  payload: responce,
 })
-
-
-
-// // user action
-// import axios from 'axios'
-// import {ADD_USER, DEL_USER} from '../types/user.types'
-
-// export const addUserAction = (responce) => ({
-//   type: ADD_USER,
-//   payload: responce,
-// })
 
 export const addUser = (formData) => async (dispatch) => {
   const userFromBack = await axios.post('http://localhost:3001/users/signup', {formData})
@@ -37,34 +13,38 @@ export const addUser = (formData) => async (dispatch) => {
   dispatch(addUserAction(responce))
 }
 
-// export const delUserAction = () => ({
-//   type: DEL_USER,
-//   payload: null,
-// })
+// signout - выход пользователя
+export const delUserAction = (user) => ({
+  type: DEL_USER,
+  payload: user
+})
 
-// export const delUser = () => async (dispatch) => {
-//   axios.get('http://localhost:3001/signout')
-//   dispatch(delUserAction())
-// }
+export const delUser = () => (dispatch) => {
+  console.log('===>>>>delAct')
+  axios.get('http://localhost:3001/users/signout')
+  dispatch(delUserAction())
+}
 
-// export const loginUserAction = (responce) => ({
-//   type: ADD_USER,
-//   payload: responce
-// })
+// signup - авторизация пользователя
+export const signinUserAction = (responce) => ({
+  type: SIGNIN_USER,
+  payload: responce,
+})
 
-// export const loginUser = (loginForm) => async (dispatch) => {
-//   const userFromBack = await axios.post('http://localhost:3001/users/signin', {loginForm})
-//   const responce = userFromBack.data
-//   dispatch(loginUserAction(responce))
-// }
+export const signinUser = (signinForm) => async (dispatch) => {
+  const userFromBack = await axios.post('http://localhost:3001/users/signin', { signinForm })
+  const responce = userFromBack.data
+  dispatch(signinUserAction(responce))
+}
 
-// export const authCheckAction = (responce) => ({
-//   type: ADD_USER,
-//   payload: responce
-// })
+// проверка пользователя
+export const checkUserAction = (responce) => ({
+  type: AUTH_CHECK,
+  payload: responce,
+})
 
-// export const authCheck = () => async (dispatch) => {
-//   const userFromBack = await axios.post('http://localhost:3001/users/check')
-//   const responce = userFromBack.data
-//   dispatch(authCheckAction(responce))
-// }
+export const checkUser = () => async (dispatch) => {
+  const userFromBack = await axios('http://localhost:3001/users/check')
+  const responce = userFromBack.data
+  dispatch(checkUserAction(responce))
+}
