@@ -12,6 +12,7 @@ const app = express();
 const checkUser = require('./middlewares/checkUser');
 const indexRouter = require('./routes/index'); // вот так прописываем роуты
 const authRouter = require('./routes/auth'); // вот так прописываем роуты
+const taskRouter = require('./routes/task');
 
 const PORT = 3001;
 
@@ -39,5 +40,6 @@ app.use(checkUser);
 
 app.use('/', indexRouter); // а вот так перенаправляем ручку на роут
 app.use('/users/', authRouter); // а вот так перенаправляем ручку на роут
+app.use('/task/', taskRouter);
 
 app.listen(PORT, () => console.log('Server started at port: ', PORT));
