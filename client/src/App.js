@@ -1,37 +1,35 @@
-import TaskPage from "./components/TaskPage/TaskPage"
-import TasksList from "./components/TasksList/TasksList"
+import TaskPage from './components/TaskPage/TaskPage'
+import TasksList from './components/TasksList/TasksList'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Signin from './components/Authentication/Signin/Signin';
-import Signup from './components/Authentication/Signup/Signup';
+import Signin from './components/Authentication/Signin/Signin'
+import Signup from './components/Authentication/Signup/Signup'
 import Signout from './components/Authentication/Signout/Signout'
-import { checkUser } from './redux/actions/userAction';
-
+import { checkUser } from './redux/actions/userAction'
+import { Container } from '@mui/material'
+import Header from './components/Header/Header'
 
 function App() {
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user)
 
   useEffect(() => {
-    dispatch(checkUser());
-  }, []);
+    dispatch(checkUser())
+  }, [])
 
   return (
-    <>
+    <div>
+      123
       <Header />
       <Routes>
-        {user && <Route path='/' element={
-          <>
-          </>}
-        />}
+        {user && <Route path="/" element={<Signin />} />}
         <Route path="signin" element={<Signin />} />
         <Route path="signup" element={<Signup />} />
         <Route path="signout" element={<Signout />} />
       </Routes>
-    </>
-  );
+    </div>
+  )
 }
 
 export default App
-
