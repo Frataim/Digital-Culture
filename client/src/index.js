@@ -9,6 +9,11 @@ import { BrowserRouter } from "react-router-dom"
 import { Route, Routes } from "react-router-dom"
 import TaskPage from "./components/TaskPage/TaskPage"
 import TasksList from "./components/TasksList/TasksList"
+import axios from 'axios'
+
+
+axios.defaults.withCredentials = true; // куки отсылает на бэк
+axios.defaults.baseURL = 'http://localhost:3001'; // дляя аксиоса автоматически подставляет
 
 ReactDOM.render(
   <React.StrictMode>
