@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import { store } from './redux/store'
 import { BrowserRouter } from 'react-router-dom'
 
+
 axios.defaults.withCredentials = true // куки отсылает на бэк
 axios.defaults.baseURL = 'http://localhost:3001' // дляя аксиоса автоматически подставляет
 
