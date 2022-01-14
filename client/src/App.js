@@ -1,3 +1,7 @@
+import { Route, Routes} from "react-router-dom"
+import "./App.css"
+import TaskPage from "./components/TaskPage/TaskPage"
+import TasksList from "./components/TasksList/TasksList"
 import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
@@ -35,4 +39,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
