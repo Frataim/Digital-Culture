@@ -1,0 +1,12 @@
+.containerTaskPage {
+       display: flex; 
+       flex-direction: row
+}
+.leftRow {
+              margin: 20px;
+
+}
+.rightRow {
+              margin: 20px;
+              
+}
