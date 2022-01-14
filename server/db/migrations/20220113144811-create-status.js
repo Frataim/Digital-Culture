@@ -12,7 +12,11 @@ module.exports = {
         type: Sequelize.STRING
       },
       task_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Tasks',
+          key: 'id',
+        },
       },
       createdAt: {
         allowNull: false,
