@@ -35,7 +35,8 @@ router.route('/signup').post(async (req, res) => {
   }
 });
 router.route('/signin').post(async (req, res) => {
-  const { email, password } = req.body.loginForm;
+  console.log(req.body)
+  const { email, password } = req.body.signinForm;
   if (email && password) {
     try {
       const currentUser = await User.findOne({ where: { email } });
