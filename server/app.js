@@ -40,6 +40,6 @@ app.use(checkUser);
 
 app.use('/', indexRouter); // а вот так перенаправляем ручку на роут
 app.use('/users/', authRouter); // а вот так перенаправляем ручку на роут
-app.use('/task/', taskRouter);
+app.use('/tasks/', taskRouter);
 
 app.listen(PORT, () => console.log('Server started at port: ', PORT));

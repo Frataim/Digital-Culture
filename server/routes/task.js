@@ -1,11 +1,31 @@
 const express = require('express');
 
-const { Task } = require('../db/models');
+const {
+  Task, User, Comment, Tag, Status,
+} = require('../db/models');
 
 const router = express.Router();
 
 router.route('/').get(async (req, res) => {
-  const tasks = await Task.findAll();
+  const tasks = await Task.findAll({
+    include: [{
+      model: User,
+      required: false,
+    },
+    {
+      model: Comment,
+      required: false,
+    },
+    {
+      model: Tag,
+      required: false,
+    },
+    {
+      model: Status,
+      required: false,
+    },
+    ],
+  });
   res.json(tasks);
 });
 
