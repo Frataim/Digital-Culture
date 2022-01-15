@@ -51,10 +51,8 @@
   padding: 0 2rem;
 }
 
-@media (max-width: 900px) {
-  width: 100vw;
-  position: absolute;
-  padding: 0;
+.signupContainer {
+  padding-bottom: 120px;
 }
 /* 
 .logoWrapper img {
