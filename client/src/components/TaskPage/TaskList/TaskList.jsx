@@ -1,4 +1,6 @@
 import React from 'react'
+import Task from './Task/Task'
+import style from './style.module.css'
 
 function TaskList({ flag }) {
   const base = [
@@ -12,10 +14,11 @@ function TaskList({ flag }) {
 
 
   return (
-    <div>
-      {base.map((el) => {
-        return <div>{el.title}</div>
-      })}
+    <div className={style.taskListContainer}>
+      <Task />
+      <Task />
+      <Task />
+      <Task />
     </div>
   )
 }

@@ -1,0 +1,4 @@
+.filterSectorContainer {
+  display: flex;
+  flex-direction: column;
+}

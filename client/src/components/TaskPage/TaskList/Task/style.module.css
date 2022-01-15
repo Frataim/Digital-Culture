@@ -1,0 +1,76 @@
+.taskContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border: 1px solid black ;
+  border-radius: 25px;
+  margin-bottom: 25px;
+  max-width: 650px;
+}
+
+
+.taskDescription {
+  display: inline-block;
+  color: black;
+  text-decoration: none;
+}
+.taskDescription:hover {
+  color: black;
+}
+
+.ownerContainer {
+  display: flex
+}
+.taskAbout {
+  font-size: 9px;
+}
+
+
+.taskAboutOwner {
+  font-size: 10px;
+  margin-left: 15px;
+  font-family: Roboto;
+}
+
+.ownerImg {
+  border-radius: 36px;
+  width: 20px;
+  height: 20px;
+}
+
+.taskHeader {
+  font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 25px;
+line-height: 57px;
+margin-bottom: 15px;
+}
+
+.taskDescription {
+  font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 11px;
+line-height: 27px;
+}
+
+.taskAbout {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.taskDeadline{
+  color: #e64825;
+  margin-right: 15px;
+}
+
+.taskBorn {
+  margin-right: 15px;
+}
+
+.taskTagContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}

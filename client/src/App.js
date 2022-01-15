@@ -8,8 +8,7 @@ import Signout from './components/Authentication/Signout/Signout'
 import { checkUser } from './redux/actions/userAction';
 import Header from './components/Header/Header'
 import Greet from './components/Greet/Greet'
-import style from './App.module.css'
-import {Container} from '@mui/material'
+import Footer from './components/Footer/Footer'
 
 
 function App() {
@@ -32,6 +31,7 @@ function App() {
           }
           <Route path="tasks" element={<TaskPage />} />
         </Routes>
+        <Footer />
       </Container>
     </div>
   );

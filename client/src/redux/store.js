@@ -2,7 +2,7 @@ import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 // import createSagaMiddleware from 'redux-saga';
-import {rootReducer} from './reducers/rootReducer';
+import { rootReducer } from './reducers/rootReducer';
 import initialState from './initialState'
 
 // redux saga middleware
