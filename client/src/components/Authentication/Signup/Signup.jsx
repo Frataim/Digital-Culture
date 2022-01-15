@@ -31,39 +31,39 @@ const Signup = () => {
     <div className={style.signupContainer}>
       <form className={style.form} onSubmit={(e) => regHandler(e)}>
         <div className={style.container}>
-          <h3 className={style.h3}>Имя</h3>
+          <label className={style.label}>Имя</label>
           <input
             type="text"
             name="name"
             value={reg.name}
             onChange={inputChange}
-            className="form-control"
+            className={style.input}
           />
         </div>
         <div className={style.container}>
-          <h3>Адрес электронной почты</h3>
+          <label className={style.label}>Адрес электронной почты</label>
           <input
             type="email"
             name="email"
             value={reg.email}
             onChange={inputChange}
-            className="form-control"
+            className={style.input}
           />
         </div>
         <div className={style.container}>
-          <h3>Пароль</h3>
+          <label className={style.label}> Пароль</label>
           <input
             type="password"
             name="password"
             value={reg.password}
             onChange={inputChange}
+            className={style.input}
           />
         </div>
         <div className={style.container}>
           <button
             className={style.button}
             type="submit"
-            className="btn btn-success"
           >
             Поехали
           </button>
