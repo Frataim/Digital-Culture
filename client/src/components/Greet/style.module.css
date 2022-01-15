@@ -77,3 +77,43 @@ margin-bottom: 25px;
   display: flex;
   flex-direction: column;
 }
+
+.workerHeader {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.separatorAbout {
+  margin-top: 75px;
+  height: 1px;
+  background-color: black;
+  position: relative;
+}
+
+.aboutContainer {
+  margin-top: 75px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.aboutImg {
+  width: 220px;
+  height: 300px;
+  border-radius: 36px;
+}
+
+.aboutBlock {
+  display: flex;
+  flex-direction: column;
+  border-radius: 36px;
+  width: 250px;
+}
+
+.aboutDescription {
+  font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 27px;
+}

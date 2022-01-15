@@ -1,4 +1,6 @@
+
 import React from 'react'
+import style from './style.module.css'
 
 function Category() {
 
@@ -10,11 +12,14 @@ function Category() {
 
 
   return (
-    <div>
-      {category.map((el) => {
-        return <div>{el.title}</div>
-      })}
-    </div>
+    <>
+      <div className={style.categorySeparator}></div>
+      <div className={style.categoryContainer}>
+        {category.map((el) => {
+          return <div className={style.currentCategory}>{el.title}</div>
+        })}
+      </div>
+    </>
   )
 }
 

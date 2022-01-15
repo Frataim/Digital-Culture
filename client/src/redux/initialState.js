@@ -1,4 +1,5 @@
 const initState = {
-  user: null
+  user: null,
+  tasks: []
 };
 export default initState;

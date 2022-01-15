@@ -10,6 +10,7 @@ import Header from './components/Header/Header'
 import style from './App.module.css'
 import TaskPage from './components/TaskPage/HomePage'
 import Greet from './components/Greet/Greet'
+import Footer from './components/Footer/Footer'
 
 function App() {
   const dispatch = useDispatch()
@@ -32,6 +33,7 @@ function App() {
           }
           <Route path='tasks' element={<TaskPage />} />
         </Routes>
+        <Footer />
       </Container>
     </div>
   )
