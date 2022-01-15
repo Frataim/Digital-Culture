@@ -1,6 +1,8 @@
 const express = require('express');
 
-const { User } = require('../db/models');
+const {
+  User, Role, Task, Status,
+} = require('../db/models');
 
 const router = express.Router();
 
@@ -8,9 +10,42 @@ router.get('/', (req, res, next) => {
   res.sendStatus(200);
 });
 
-router.get('/test', async (req, res, next) => {
+router.get('/testRoles', async (req, res, next) => {
   try {
-    const test = await User.findAll();
+    const test = await User.findAll({
+      include: [{
+        model: Role,
+        where: { role: 'owner' },
+      }],
+    });
+    res.json(test);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get('/testStatuses', async (req, res, next) => {
+  try {
+    const test = await Task.findAll({
+      include: [{
+        model: Status,
+        where: { status: 'open' },
+      }],
+    });
+    res.json(test);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get('/testTaskOwner', async (req, res, next) => {
+  try {
+    const test = await Task.findAll({
+      include: [{
+        model: User,
+        where: { id: 3 },
+      }],
+    });
     res.json(test);
   } catch (error) {
     console.log(error);

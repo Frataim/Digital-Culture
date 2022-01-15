@@ -18,7 +18,7 @@ router.route('/signup').post(async (req, res) => {
         name,
         email,
         password: hashPass,
-        avatar: 'https://cs6.pikabu.ru/avatars/1576/v1576985-1962120878.jpg'
+        avatar: 'https://cs6.pikabu.ru/avatars/1576/v1576985-1962120878.jpg',
       });
       req.session.user = {
         id: newUser.id,
@@ -35,7 +35,7 @@ router.route('/signup').post(async (req, res) => {
   }
 });
 router.route('/signin').post(async (req, res) => {
-  console.log(req.body)
+  console.log(req.body);
   const { email, password } = req.body.signinForm;
   if (email && password) {
     try {

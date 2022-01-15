@@ -12,7 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate({
       Status, User, Comment, Feedback, Tag, TaskTag,
     }) {
-      this.hasOne(Status, { foreignKey: 'task_id' });
+      this.belongsTo(Status, { foreignKey: 'status' });
+      this.belongsTo(User, { foreignKey: 'worker' });
       this.belongsToMany(User, { through: Comment, foreignKey: 'task_id' });
       this.belongsToMany(User, { through: Feedback, foreignKey: 'task_id' });
       this.belongsToMany(Tag, { through: TaskTag, foreignKey: 'task_id' });
@@ -23,9 +24,10 @@ module.exports = (sequelize, DataTypes) => {
     category: DataTypes.STRING,
     description: DataTypes.TEXT,
     deadline: DataTypes.DATE,
+    status: DataTypes.INTEGER,
     isDone: DataTypes.BOOLEAN,
     user_Owner: DataTypes.INTEGER,
-    user_Worker: DataTypes.INTEGER,
+    worker: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Task',
