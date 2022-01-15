@@ -11,12 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ User }) {
       this.belongsTo(User, { foreignKey: 'user_id' });
-      this.belongsTo(User, { foreignKey: 'user_rated' });
     }
   }
   Rate.init({
+    rate: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER,
-    user_rated: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Rate',

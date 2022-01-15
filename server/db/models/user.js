@@ -18,7 +18,6 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(Comment, { foreignKey: 'user_id' });
       this.hasMany(Feedback, { foreignKey: 'user_id' });
       this.hasMany(Rate, { foreignKey: 'user_id' });
-      this.hasMany(Rate, { foreignKey: 'user_rated' });
     }
   }
   User.init({

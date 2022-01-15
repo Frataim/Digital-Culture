@@ -1,7 +1,7 @@
 const express = require('express');
 
 const {
-  User, Role, Task, Status, Feedback, Tag,
+  User, Role, Task, Status, Feedback, Tag, Rate,
 } = require('../db/models');
 
 const router = express.Router();
@@ -92,6 +92,22 @@ router.get('/testTags', async (req, res, next) => {
       include: [
         {
           model: Task,
+        },
+      ],
+    });
+    res.json(test);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get('/testRate', async (req, res, next) => {
+  try {
+    const test = await Rate.findAll({
+      include: [
+        {
+          model: User,
+          id: 2,
         },
       ],
     });
