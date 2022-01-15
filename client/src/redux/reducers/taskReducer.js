@@ -1,4 +1,4 @@
-import { ALL_TASKS, TASK_USER } from '../types/tasksTypes'
+import { ALL_TASKS } from '../types/tasksTypes'
 
 
 export const taskReducer = (state = [], action) => {
@@ -7,10 +7,6 @@ export const taskReducer = (state = [], action) => {
   switch (type) {
     case ALL_TASKS: {
       return payload
-    }
-
-    case TASK_USER: {
-
     }
 
     default: {

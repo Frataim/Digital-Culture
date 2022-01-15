@@ -1,4 +1,4 @@
-import { TASK_USER, ALL_TASKS } from '../types/tasksTypes'
+import { ALL_TASKS } from '../types/tasksTypes'
 
 export const allTasks = () => (dispatch) => {
   fetch('http://localhost:3001/tasks')
