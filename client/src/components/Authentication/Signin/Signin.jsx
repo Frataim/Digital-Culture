@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import {signinUser}  from '../../../redux/actions/userAction'
+import style from './style.module.css'
 
 const Signin = () => {
   const [log, setLog] = useState({})
@@ -28,40 +29,39 @@ const Signin = () => {
 
 
   return (
-    <form onSubmit={(e) => logHandler(e)}>
-      <div className="container my-3">
-        <label htmlFor="exampleInputEmail1" className="form-label">
-          Email address
+    <div className={style.signinContainer}>
+    <form className={style.form} onSubmit={(e) => logHandler(e)}>
+      <div className={style.container}>
+        <label className={style.label}>
+        Адрес электронной почты
         </label>
         <input
           type="email"
           name="email"
           value={log.email}
           onChange={inputLogChange}
-          className="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
+          className={style.input}
         />
       </div>
-      <div className="container mb-3">
-        <label htmlFor="exampleInputPassword1" className="form-label">
-          Password
+      <div className={style.container}>
+        <label className={style.label}>
+          Пароль
         </label>
         <input
           type="password"
           name="password"
           value={log.password}
           onChange={inputLogChange}
-          className="form-control"
-          id="exampleInputPassword1"
+          className={style.input}
         />
       </div>
-      <div className="container mb-3">
-        <button type="submit" className="btn btn-success">
-          Signin
+      <div className={style.container}>
+        <button type="submit" className={style.button}>
+          Входим в культуру
         </button>
       </div>
     </form>
+    </div>
   )
 }
 
