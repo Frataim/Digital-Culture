@@ -1,0 +1,11 @@
+.input {
+  background: linear-gradient(180deg, #99FF91 0%, #61D1F2 100%);
+border: 1px solid #333333;
+box-sizing: border-box;
+border-radius: 36px;
+width: 300px;
+}
+
+.inputContainer {
+  margin-bottom: 25px;
+}

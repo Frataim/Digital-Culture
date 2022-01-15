@@ -1,33 +1,39 @@
-import TaskPage from './components/TaskPage/TaskPage'
-import TasksList from './components/TasksList/TasksList'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Signin from './components/Authentication/Signin/Signin'
 import Signup from './components/Authentication/Signup/Signup'
 import Signout from './components/Authentication/Signout/Signout'
 import { checkUser } from './redux/actions/userAction'
 import { Container } from '@mui/material'
 import Header from './components/Header/Header'
+import style from './App.module.css'
+import TaskPage from './components/TaskPage/HomePage'
+import Greet from './components/Greet/Greet'
 
 function App() {
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user)
+
 
   useEffect(() => {
     dispatch(checkUser())
   }, [])
 
   return (
-    <Container>
-      <Header />
-      <Routes>
-        {user && <Route path="/" element={<Signin />} />}
-        <Route path="signin" element={<Signin />} />
-        <Route path="signup" element={<Signup />} />
-        <Route path="signout" element={<Signout />} />
-      </Routes>
-    </Container>
+    <div className={style.content}>
+      <Container>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Greet />} />
+          {user ? <Route path="signout" element={<Signout />} /> :
+            <Route path="signin" element={<Signin />} /> &&
+            <Route path="signup" element={<Signup />} />
+          }
+          <Route path='tasks' element={<TaskPage />} />
+        </Routes>
+      </Container>
+    </div>
   )
 }
 

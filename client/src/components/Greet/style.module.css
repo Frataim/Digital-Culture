@@ -1,0 +1,79 @@
+.greetContainer {
+  display: flex;
+  font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 54px;
+line-height: 98px;
+/* or 100% */
+letter-spacing: 2.8px;
+text-transform: uppercase;
+position: relative;
+}
+
+.img {
+  position: relative;
+  z-index: 1;
+  bottom: 230px;
+  left: 100px;
+  width: 492px;
+  height: 589px;
+}
+.hotHeader {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 3;
+  
+}
+
+.description {
+  margin-top: 25px;
+  font-size: 18px;
+line-height: 27px;
+}
+
+.separator {
+height: 1px;
+position: relative;
+bottom: 100px;
+background: #000000;
+margin-bottom: 25px;
+}
+
+.hotTasksContainer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+}
+.hotTask {
+  display: flex;
+  padding: 15px;
+  width: 50%;
+  border: 1px solid black;
+  border-radius: 36px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+
+.hotImage {
+  width: 110px;
+  height: 100px;
+}
+
+.bestHot {
+  position: absolute;
+  z-index: 0;
+  bottom:100px;
+  left: 550px;
+  width: 800px;
+  height: 850px;
+}
+
+.hotDescription {
+  display: flex;
+  flex-direction: column;
+}
