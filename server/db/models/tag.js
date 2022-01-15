@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Tag.init({
-    title: DataTypes.STRING,
+    tag: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Tag',

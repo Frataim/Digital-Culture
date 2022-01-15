@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      text: {
+      feedback: {
         type: Sequelize.TEXT
       },
       task_id: {
