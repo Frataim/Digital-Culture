@@ -1,7 +1,7 @@
 const express = require('express');
 
 const {
-  User, Role, Task, Status, Comment,
+  User, Role, Task, Status, Feedback,
 } = require('../db/models');
 
 const router = express.Router();
@@ -68,7 +68,7 @@ router.get('/testTaskOwner', async (req, res, next) => {
 
 router.get('/testComment', async (req, res, next) => {
   try {
-    const test = await Comment.findAll({
+    const test = await Feedback.findAll({
       include: [
         {
           model: User,
