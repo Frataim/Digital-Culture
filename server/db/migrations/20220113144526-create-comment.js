@@ -7,6 +7,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      comment: {
+        type: Sequelize.STRING,
+      },
       task_id: {
         type: Sequelize.INTEGER,
         references: {
