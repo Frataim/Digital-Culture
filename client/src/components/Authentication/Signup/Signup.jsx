@@ -28,52 +28,49 @@ const Signup = () => {
     navigate('/')
   }
   return (
-    <form className={style.form} onSubmit={(e) => regHandler(e)}>
-      <div className={style.container}>
-        <h3 className={style.h3}>Имя</h3>
-        <input
-          type="text"
-          name="name"
-          value={reg.name}
-          onChange={inputChange}
-          className="form-control"
-          id="exampleInputText"
-          aria-describedby="emailHelp"
-        />
-      </div>
-      <div className={style.container}>
-        <h3>Адрес электронной почты</h3>
-        <input
-          type="email"
-          name="email"
-          value={reg.email}
-          onChange={inputChange}
-          className="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-        />
-      </div>
-      <div className={style.container}>
-        <h3>Пароль</h3>
-        <input
-          type="password"
-          name="password"
-          value={reg.password}
-          onChange={inputChange}
-          className="form-control"
-          id="exampleInputPassword1"
-        />
-      </div>
-      <div className={style.container}>
-        <button
-          className={style.button}
-          type="submit"
-          className="btn btn-success"
-        >
-          Поехали
-        </button>
-      </div>
-    </form>
+    <div className={style.signupContainer}>
+      <form className={style.form} onSubmit={(e) => regHandler(e)}>
+        <div className={style.container}>
+          <h3 className={style.h3}>Имя</h3>
+          <input
+            type="text"
+            name="name"
+            value={reg.name}
+            onChange={inputChange}
+            className="form-control"
+          />
+        </div>
+        <div className={style.container}>
+          <h3>Адрес электронной почты</h3>
+          <input
+            type="email"
+            name="email"
+            value={reg.email}
+            onChange={inputChange}
+            className="form-control"
+          />
+        </div>
+        <div className={style.container}>
+          <h3>Пароль</h3>
+          <input
+            type="password"
+            name="password"
+            value={reg.password}
+            onChange={inputChange}
+          />
+        </div>
+        <div className={style.container}>
+          <button
+            className={style.button}
+            type="submit"
+            className="btn btn-success"
+          >
+            Поехали
+          </button>
+        </div>
+      </form>
+    </div>
+
   )
 }
 
