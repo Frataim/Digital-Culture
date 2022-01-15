@@ -37,8 +37,12 @@ module.exports = {
           key: 'id',
         },
       },
-      user_Owner: {
-        type: Sequelize.INTEGER
+      owner: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Users',
+          key: 'id',
+        },
       },
       createdAt: {
         allowNull: false,

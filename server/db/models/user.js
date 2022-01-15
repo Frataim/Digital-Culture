@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }) {
       this.belongsTo(Role, { foreignKey: 'role' });
       this.hasMany(Task, { foreignKey: 'worker' });
+      this.hasMany(Task, { foreignKey: 'owner' });
       this.hasMany(Rate, { foreignKey: 'user_id' });
       this.hasMany(Rate, { foreignKey: 'user_rated' });
       this.belongsToMany(Task, { through: Comment, foreignKey: 'user_id' });

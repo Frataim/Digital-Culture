@@ -38,12 +38,26 @@ router.get('/testStatuses', async (req, res, next) => {
   }
 });
 
-router.get('/testTaskOwner', async (req, res, next) => {
+router.get('/testTaskWorker', async (req, res, next) => {
   try {
     const test = await Task.findAll({
       include: [{
         model: User,
-        where: { id: 3 },
+        where: { id: 1 },
+      }],
+    });
+    res.json(test);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get('/testTaskOwner', async (req, res, next) => {
+  try {
+    const test = await User.findAll({
+      include: [{
+        model: Task,
+        where: { owner: 1 },
       }],
     });
     res.json(test);
