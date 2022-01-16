@@ -11,6 +11,7 @@ import Greet from './components/Greet/Greet'
 import Footer from './components/Footer/Footer'
 import {Container} from '@mui/material'
 import style from './App.module.css'
+import CreateTask from "./components/TaskPage/CrateTask/CreateTask";
 
 
 
@@ -28,6 +29,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Greet />} />
+          <Route path="/create" element={<CreateTask />} />
           {user ? <Route path="signout" element={<Signout />} /> :
             <Route path="signin" element={<Signin />} /> &&
             <Route path="signup" element={<Signup />} />

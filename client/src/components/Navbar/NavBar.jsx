@@ -34,6 +34,9 @@ function NavBar() {
         <Link to={'/signup'} className={style.link}>
           Зарегистрироваться
         </Link>
+        <Link to={'/create'} className={style.link}>
+          Создать задачу
+        </Link>
       </div>
     </div>
   )
