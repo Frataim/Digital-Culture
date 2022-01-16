@@ -12,6 +12,7 @@ import Footer from './components/Footer/Footer'
 import { Container } from '@mui/material'
 import style from './App.module.css'
 import { allTasks } from './redux/actions/tasksAc'
+import { getAllUsers } from './redux/actions/usersAc'
 
 
 
@@ -25,6 +26,10 @@ function App() {
 
   useEffect(() => {
     dispatch(allTasks())
+  }, [])
+
+  useEffect(() => {
+    dispatch(getAllUsers())
   }, [])
 
   return (
