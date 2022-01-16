@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import sanya from '../../../../sanya.jpg'
 
 
-function Task() {
+function Task({ title, category, description, deadline, status }) {
 
   const kek = 1
 

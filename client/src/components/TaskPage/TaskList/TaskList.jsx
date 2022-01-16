@@ -1,24 +1,15 @@
 import React from 'react'
 import Task from './Task/Task'
 import style from './style.module.css'
+import { useSelector } from 'react-redux'
 
-function TaskList({ flag }) {
-  const base = [
-    { title: 'Создайте сайт плиз' },
-    { title: 'Создайте сайт плиз' },
-    { title: 'Создайте сайт плиз' },
-    { title: 'Создайте сайт плиз' },
-    { title: 'Создайте сайт плиз' },
-    { title: 'Создайте сайт плиз' },
-  ]
+function TaskList() {
+  const tasks = useSelector(store => store.tasks)
 
 
   return (
     <div className={style.taskListContainer}>
-      <Task />
-      <Task />
-      <Task />
-      <Task />
+      {tasks.map((el) => <Task key={el.id} {...el} />)}
     </div>
   )
 }

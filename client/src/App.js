@@ -9,9 +9,11 @@ import { checkUser } from './redux/actions/userAction';
 import Header from './components/Header/Header'
 import Greet from './components/Greet/Greet'
 import Footer from './components/Footer/Footer'
-import {Container} from '@mui/material'
+import { Container } from '@mui/material'
 import style from './App.module.css'
 import CreateTask from "./components/TaskPage/CrateTask/CreateTask";
+import { allTasks } from './redux/actions/tasksAc'
+
 
 
 
@@ -22,6 +24,10 @@ function App() {
   useEffect(() => {
     dispatch(checkUser());
   }, []);
+
+  useEffect(() => {
+    dispatch(allTasks())
+  }, [])
 
   return (
     <div className={style.content}>
