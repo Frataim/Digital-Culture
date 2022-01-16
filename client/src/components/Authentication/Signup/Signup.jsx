@@ -24,6 +24,7 @@ const Signup = () => {
 
   const regHandler = (e) => {
     e.preventDefault()
+    console.log('=>>>>>>', reg)
     dispatch(addUser(reg))
     navigate('/')
   }
@@ -49,6 +50,23 @@ const Signup = () => {
             onChange={inputChange}
             className={style.input}
           />
+        </div>
+        <div className={style.container}>
+          <label className={style.label}>Расскажите о себе</label>
+          <input
+            type="resume"
+            name="resume"
+            value={reg.resume}
+            onChange={inputChange}
+            className={style.input}
+          />
+        </div>
+        <div className={style.container}>
+          <label className={style.label}>Роль</label>
+          <select className={style.select}>
+            <option type="role" value="role" onChange={inputChange} className={style.option}>Заказчик</option>
+            <option type="role" value="role" onChange={inputChange} className={style.option}>Волонтер</option>
+          </select>
         </div>
         <div className={style.container}>
           <label className={style.label}> Пароль</label>
