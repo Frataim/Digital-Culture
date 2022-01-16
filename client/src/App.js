@@ -1,5 +1,5 @@
 import TaskPage from "./components/TaskPage/HomePage"
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Routes, Route } from 'react-router-dom'
 import Signin from './components/Authentication/Signin/Signin';
@@ -13,6 +13,7 @@ import {Container} from '@mui/material'
 import style from './App.module.css'
 
 
+
 function App() {
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user)
@@ -22,7 +23,7 @@ function App() {
   }, []);
 
   return (
-<div className={style.content}>
+    <div className={style.content}>
       <Container>
         <Header />
         <Routes>
