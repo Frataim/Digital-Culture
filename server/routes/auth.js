@@ -8,7 +8,7 @@ function validateEmail(email) {
   return re.test(email);
 }
 router.route('/signup').post(async (req, res) => {
-  console.log(req.body.formData);
+  console.log('------------------->', req.body);
   const {
     name, email, password, resume, role,
   } = req.body.formData;
