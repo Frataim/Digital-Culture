@@ -1,5 +1,5 @@
 import TaskPage from "./components/TaskPage/HomePage"
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Routes, Route } from 'react-router-dom'
 import Signin from './components/Authentication/Signin/Signin';
@@ -9,8 +9,9 @@ import { checkUser } from './redux/actions/userAction';
 import Header from './components/Header/Header'
 import Greet from './components/Greet/Greet'
 import Footer from './components/Footer/Footer'
-import { Container } from '@mui/material'
+import {Container} from '@mui/material'
 import style from './App.module.css'
+
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
   }, []);
 
   return (
-<div className={style.content}>
+    <div className={style.content}>
       <Container>
         <Header />
         <Routes>
