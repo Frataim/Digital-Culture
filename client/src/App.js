@@ -9,6 +9,8 @@ import { checkUser } from './redux/actions/userAction';
 import Header from './components/Header/Header'
 import Greet from './components/Greet/Greet'
 import Footer from './components/Footer/Footer'
+import {Container} from '@mui/material'
+import style from './App.module.css'
 
 
 function App() {
