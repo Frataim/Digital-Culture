@@ -13,6 +13,7 @@ import { Container } from '@mui/material'
 import style from './App.module.css'
 import CreateTask from "./components/TaskPage/CrateTask/CreateTask";
 import { allTasks } from './redux/actions/tasksAc'
+import { getAllUsers } from './redux/actions/usersAc'
 
 
 
@@ -27,6 +28,10 @@ function App() {
 
   useEffect(() => {
     dispatch(allTasks())
+  }, [])
+
+  useEffect(() => {
+    dispatch(getAllUsers())
   }, [])
 
   return (

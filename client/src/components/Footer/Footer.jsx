@@ -1,15 +1,11 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import style from './style.module.css'
 
 function Footer() {
+  const tasks = useSelector(store => store.tasks)
 
-  const base = [
-    { title: 'Сделать сайт' },
-    { title: 'Сделать сайт' },
-    { title: 'Сделать сайт' },
-    { title: 'Сделать сайт' },
-  ]
   return (
     <>
       <div className={style.footerSeparator}></div>
@@ -18,7 +14,7 @@ function Footer() {
           <Link className={style.link} to={'/'}>DC</Link>
         </div>
         <div className={style.footerStat}>
-          Всего проектов в работе: {base.length}
+          Всего проектов в работе: {tasks.length}
         </div>
         <div className={style.social}>
           <p></p>

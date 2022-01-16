@@ -5,7 +5,8 @@
   border: 1px solid black ;
   border-radius: 25px;
   margin-bottom: 25px;
-  max-width: 650px;
+  min-width: 550px;
+  
 }
 
 
