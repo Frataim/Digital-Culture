@@ -22,7 +22,7 @@ router.route('/signup').post(async (req, res) => {
         password: hashPass,
         avatar: 'https://cs6.pikabu.ru/avatars/1576/v1576985-1962120878.jpg',
         resume,
-        role,
+        role:+role,
       });
       req.session.user = {
         id: newUser.id,
