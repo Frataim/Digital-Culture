@@ -22,10 +22,17 @@ const Signup = () => {
     setReg((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
+  const [select, setSelect] = useState('')
+
+  console.log('-------->> seletc', select)
+
   const regHandler = (e) => {
     e.preventDefault()
     console.log('=>>>>>>', reg)
-    dispatch(addUser(reg))
+    dispatch(addUser({
+      ...reg,
+      role:select
+    }))
     navigate('/')
   }
   return (
@@ -63,9 +70,26 @@ const Signup = () => {
         </div>
         <div className={style.container}>
           <label className={style.label}>Роль</label>
-          <select className={style.select}>
-            <option type="role" value="role" onChange={inputChange} className={style.option}>Заказчик</option>
-            <option type="role" value="role" onChange={inputChange} className={style.option}>Волонтер</option>
+          <select
+            type="role"
+            name="role"
+            onChange={inputChange}
+            onChange={(e) => setSelect(e.target.value)}
+            value={select}
+            className={style.select}
+          >
+            <option
+              value="2"
+              className={style.option}
+            >
+              Заказчик
+            </option>
+            <option
+              value="3"
+              className={style.option}
+            >
+              Волонтер
+            </option>
           </select>
         </div>
         <div className={style.container}>
@@ -79,16 +103,12 @@ const Signup = () => {
           />
         </div>
         <div className={style.container}>
-          <button
-            className={style.button}
-            type="submit"
-          >
+          <button className={style.button} type="submit">
             Поехали
           </button>
         </div>
       </form>
     </div>
-
   )
 }
 
