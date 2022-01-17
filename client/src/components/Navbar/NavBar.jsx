@@ -8,6 +8,9 @@ function NavBar() {
   return user ? (
     <div className={style.navBar}>
       <div>
+        <Link to={'/create'} className={style.link}>
+          Создать задачу
+        </Link>
         <Link to={'/tasks'} className={style.link}>
           Задачи
         </Link>
@@ -33,9 +36,6 @@ function NavBar() {
         </Link>
         <Link to={'/signup'} className={style.link}>
           Зарегистрироваться
-        </Link>
-        <Link to={'/create'} className={style.link}>
-          Создать задачу
         </Link>
       </div>
     </div>
