@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import style from './style.module.css'
-import { addUser } from '../../../redux/actions/userAction'
+import { addUser, checkUser } from '../../../redux/actions/userAction'
 
 // зарегистрироваться
 const Signup = () => {
@@ -11,7 +11,7 @@ const Signup = () => {
   const dispatch = useDispatch() // чтоб изменить состояние внутри компонента получаем диспатч
   const user = useSelector((state) => state.user) // получаем состояние
 
-  // если пользователь прошел регистрацию то мы его направляем на его заметки
+  // если пользователь прошел регистрацию то мы его направляем на его на главную страницу
   useEffect(() => {
     if (user) {
       navigate('/')
@@ -22,9 +22,18 @@ const Signup = () => {
     setReg((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
+  const [select, setSelect] = useState('')
+
+  console.log('-------->> seletc', select)
+
   const regHandler = (e) => {
     e.preventDefault()
-    dispatch(addUser(reg))
+    console.log('=>>>>>>', reg)
+    dispatch(addUser({
+      ...reg,
+      role: select
+    }))
+    dispatch(checkUser())
     navigate('/')
   }
   return (
@@ -51,6 +60,40 @@ const Signup = () => {
           />
         </div>
         <div className={style.container}>
+          <label className={style.label}>Расскажите о себе</label>
+          <input
+            type="resume"
+            name="resume"
+            value={reg.resume}
+            onChange={inputChange}
+            className={style.input}
+          />
+        </div>
+        <div className={style.container}>
+          <label className={style.label}>Роль</label>
+          <select
+            type="role"
+            name="role"
+            onChange={inputChange}
+            onChange={(e) => setSelect(e.target.value)}
+            value={select}
+            className={style.select}
+          >
+            <option
+              value="2"
+              className={style.option}
+            >
+              Заказчик
+            </option>
+            <option
+              value="3"
+              className={style.option}
+            >
+              Волонтер
+            </option>
+          </select>
+        </div>
+        <div className={style.container}>
           <label className={style.label}> Пароль</label>
           <input
             type="password"
@@ -61,16 +104,12 @@ const Signup = () => {
           />
         </div>
         <div className={style.container}>
-          <button
-            className={style.button}
-            type="submit"
-          >
+          <button className={style.button} type="submit">
             Поехали
           </button>
         </div>
       </form>
     </div>
-
   )
 }
 

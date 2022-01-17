@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {ADD_USER, DEL_USER, SIGNIN_USER, AUTH_CHECK} from '../types/userTypes'
+import { ADD_USER, DEL_USER, SIGNIN_USER, AUTH_CHECK } from '../types/userTypes'
 
 // signup - регистрация пользователя
 export const addUserAction = (responce) => ({
@@ -8,7 +8,8 @@ export const addUserAction = (responce) => ({
 })
 
 export const addUser = (formData) => async (dispatch) => {
-  const userFromBack = await axios.post('http://localhost:3001/users/signup', {formData})
+  console.log(formData)
+  const userFromBack = await axios.post('http://localhost:3001/users/signup', { formData })
   const responce = userFromBack.data
   dispatch(addUserAction(responce))
 }
