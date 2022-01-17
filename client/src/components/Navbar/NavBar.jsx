@@ -28,6 +28,9 @@ function NavBar() {
         <Link to={'/worker'} className={style.link}>
           Исполнители
         </Link>
+        <Link to={'/profile'} className={style.link}>
+          Личный кабинет
+        </Link>
         <button onClick={signOut} className={style.link}>
           Выход
         </button>

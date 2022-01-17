@@ -36,8 +36,8 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease-in;
-  
 }
+
 .button hover {
   transform: translateY(-3px);
 }
