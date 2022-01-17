@@ -7,7 +7,7 @@ function TaskList() {
   const tasks = useSelector(store => store.tasks)
 
 
-
+  console.log(tasks);
 
   return (
     <div className={style.taskListContainer}>

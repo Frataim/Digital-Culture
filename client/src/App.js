@@ -19,10 +19,7 @@ import EditUserProfile from "./components/UserProfile/EditUserProfile";
 import { allComments } from "./redux/actions/commentsAc";
 import FeedbackList from "./components/TaskPage/FeedbackList/FeebackList";
 import { allFeedbacks } from "./redux/actions/feedbacksAc";
-
-
-
-
+import CurrentTask from "./components/TaskPage/TaskList/CurrentTask/CurrentTask";
 
 function App() {
   const dispatch = useDispatch()
@@ -48,7 +45,6 @@ function App() {
     dispatch(allFeedbacks())
   }, [])
 
-
   return (
     <div className={style.content}>
       <Container>
@@ -61,7 +57,7 @@ function App() {
           <Route path="create" element={<CreateTask />} />
           <Route path="profile" element={<UserProfile />} />
           <Route path="edit" element={<EditUserProfile />} />
-
+          <Route path="tasks/:id" element={<CurrentTask />} />
           {user ? <Route path="signout" element={<Signout />} /> :
             <Route path="signin" element={<Signin />} /> &&
             <Route path="signup" element={<Signup />} />
