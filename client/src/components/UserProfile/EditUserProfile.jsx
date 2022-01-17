@@ -5,7 +5,6 @@ import style from './style.module.css';
 import {editUser} from './../../redux/actions/userAction'
 
 const EditUserProfile = () => {
-
   const navigate = useNavigate()
   const dispatch = useDispatch()
   // // пользователь который зарегестрирован/авторизирован

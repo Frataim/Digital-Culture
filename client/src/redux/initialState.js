@@ -3,5 +3,6 @@ const initState = {
   tasks: [],
   users: [],
   comments: [],
+  feedbacks: [],
 };
 export default initState;
