@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import style from './style.module.css'
-import { addUser } from '../../../redux/actions/userAction'
+import { addUser, checkUser } from '../../../redux/actions/userAction'
 
 // зарегистрироваться
 const Signup = () => {
@@ -31,8 +31,9 @@ const Signup = () => {
     console.log('=>>>>>>', reg)
     dispatch(addUser({
       ...reg,
-      role:select
+      role: select
     }))
+    dispatch(checkUser())
     navigate('/')
   }
   return (

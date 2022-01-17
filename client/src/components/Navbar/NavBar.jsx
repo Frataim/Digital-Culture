@@ -1,10 +1,21 @@
 import style from './style.module.css'
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { delUser } from '../../redux/actions/userAction'
 
 function NavBar() {
   const user = useSelector((state) => state.user)
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const signOut = () => {
+    window.localStorage.clear()
+    dispatch(delUser())
+    // dispatch(signOut())
+    navigate('/')
+  }
+
+
   return user ? (
     <div className={style.navBar}>
       <div>
@@ -17,9 +28,9 @@ function NavBar() {
         <Link to={'/worker'} className={style.link}>
           Исполнители
         </Link>
-        <Link to={'/signout'} className={style.link}>
+        <button onClick={signOut} className={style.link}>
           Выход
-        </Link>
+        </button>
       </div>
     </div>
   ) : (
