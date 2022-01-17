@@ -120,5 +120,11 @@ router.route('/users').get(async (req, res) => {
   res.json(users)
 })
 
+router.route('/edit/:id').patch(async (req, res) => {
+  const id = req.params.id;
+  const { name, email, password, resume, role  } = req.body
+  await User.update(name, email, password, resume, role , { where: { id, userId: req.session.user.id } })
+  res.json(name, email, password, resume, role )
+})
 module.exports = router
 
