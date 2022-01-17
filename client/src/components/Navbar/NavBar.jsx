@@ -48,6 +48,9 @@ function NavBar() {
         <Link to={'/signup'} className={style.link}>
           Зарегистрироваться
         </Link>
+        <Link to={'/commentCreateTest'} className={style.link}>
+          Тест
+        </Link>
       </div>
     </div>
   )

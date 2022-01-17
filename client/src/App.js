@@ -14,6 +14,7 @@ import style from './App.module.css'
 import CreateTask from "./components/TaskPage/CrateTask/CreateTask";
 import { allTasks } from './redux/actions/tasksAc'
 import { getAllUsers } from './redux/actions/usersAc'
+import CommentForm from "./components/TaskPage/CommentForm/CommentForm";
 
 
 
@@ -43,6 +44,7 @@ function App() {
           <Route path="/" element={<Greet />} />
           <Route path="signin" element={<Signin />} />
           <Route path="/create" element={<CreateTask />} />
+          <Route path="/commentCreateTest" element={<CommentForm />} />
           {user ? <Route path="signout" element={<Signout />} /> :
             <Route path="signin" element={<Signin />} /> &&
             <Route path="signup" element={<Signup />} />

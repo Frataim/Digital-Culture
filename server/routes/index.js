@@ -1,13 +1,24 @@
 const express = require('express');
 
 const {
-  User, Role, Task, Status, Feedback, Tag, Rate,
+  User, Role, Task, Status, Feedback, Tag, Rate, Comment,
 } = require('../db/models');
 
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
   res.sendStatus(200);
+});
+
+router.post('/comment', async (req, res, next) => {
+  const { comment, task_id } = req.body;
+  const newComment = await Comment.create({ comment, task_id, user_id: req.session.user.id });
+  console.log('коммент ------------>', newComment);
+  res.json({
+    comment: newComment.comment,
+    task_id: newComment.task_id,
+    user_id: newComment.user_id,
+  });
 });
 
 router.get('/testRoles', async (req, res, next) => {
