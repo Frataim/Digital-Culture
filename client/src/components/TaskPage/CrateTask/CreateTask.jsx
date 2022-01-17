@@ -4,7 +4,7 @@ import img from '../../../task_create_img.png'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { addUserThunk } from '../../../redux/actions/tasksAc'
+import { addTaskThunk } from '../../../redux/actions/tasksAc'
 
 function CreateTask () {
 
@@ -21,7 +21,7 @@ function CreateTask () {
   const taskHandler = (e) => {
     e.preventDefault()
     console.log('send form >>>>>>', task)
-    dispatch(addUserThunk(task))
+    dispatch(addTaskThunk(task))
     navigate('/')
   }
 
