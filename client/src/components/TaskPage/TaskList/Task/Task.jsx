@@ -9,22 +9,12 @@ import { useEffect } from 'react'
 
 function Task({ id, title, category, description, deadline, status, owner, createdAt, Comments, Tags, User }) {
 
-  const param = useParams()
-
-  const [showCurrent, setShowCurrent] = useState(false)
-
-  useEffect(() => {
-    if (param.id) {
-      setShowCurrent(!showCurrent)
-    }
-  }, [param])
 
   return (
     <div className={style.taskContainer}>
       <div className={style.ownerContainer}>
         <img className={style.ownerImg} src={User.avatar} alt=''></img>
         <p className={style.taskAboutOwner}>{User.name}</p>
-
       </div>
       <div className={style.taskHeader}>{title}</div>
       <div className={style.taskAbout}>
