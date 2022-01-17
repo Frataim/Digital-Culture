@@ -14,6 +14,8 @@ import style from './App.module.css'
 import CreateTask from "./components/TaskPage/CrateTask/CreateTask";
 import { allTasks } from './redux/actions/tasksAc'
 import { getAllUsers } from './redux/actions/usersAc'
+import UserProfile from "./components/UserProfile/UserProfile";
+import EditUserProfile from "./components/UserProfile/EditUserProfile";
 
 
 
@@ -42,7 +44,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Greet />} />
           <Route path="signin" element={<Signin />} />
-          <Route path="/create" element={<CreateTask />} />
+          <Route path="create" element={<CreateTask />} />
+          <Route path="profile" element={<UserProfile />} />
+          <Route path="edit" element={<EditUserProfile />} />
           {user ? <Route path="signout" element={<Signout />} /> :
             <Route path="signin" element={<Signin />} /> &&
             <Route path="signup" element={<Signup />} />
