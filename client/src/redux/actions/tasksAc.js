@@ -14,9 +14,21 @@ export const addTask = (response) => ({
   payload: response,
 })
 
-export const addUserThunk = (task) => async (dispatch) => {
+export const addTaskThunk = (task) => async (dispatch) => {
   console.log('thunk check ---------->', task)
   const userFromBack = await axios.post('http://localhost:3001/tasks', {task})
   const response = userFromBack.data
   dispatch(addTask(response))
+}
+
+export const upTask = (response) => ({
+  type: ADD_TASK,
+  payload: response,
+})
+
+export const upTaskThunk = (task_id, user_id) => async (dispatch) => {
+  console.log('thunk upTask ---------->', task_id, user_id)
+  const userFromBack = await axios.patch('http://localhost:3001/tasks', {task_id, user_id})
+  const response = userFromBack.data
+  dispatch(upTask(response))
 }

@@ -1,11 +1,13 @@
 import React from 'react'
 import style from './style.module.css'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addCommentThunk } from '../../../../redux/actions/commentsAc'
 
 function CommentForm () {
+
+  const {id} = useParams()
 
   const [comment, setComment] = useState('')
   const navigate = useNavigate()
@@ -15,7 +17,7 @@ function CommentForm () {
     setComment(e.target.value)
   }
 
-  const task_id = 1
+  const task_id = +id
 
   const commentHandler = (e) => {
     e.preventDefault()
@@ -26,7 +28,7 @@ function CommentForm () {
 
   return (
       <form className={style.mainContainer} onSubmit={(e) => commentHandler(e)}>
-        <input 
+        <textarea 
           className={style.input}
           type='text'
           name='comment'

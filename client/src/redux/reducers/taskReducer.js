@@ -1,4 +1,4 @@
-import { ADD_TASK, ALL_TASKS } from '../types/tasksTypes'
+import { ADD_TASK, ALL_TASKS, TASK_UP } from '../types/tasksTypes'
 
 
 export const taskReducer = (state = [], action) => {
@@ -15,6 +15,11 @@ export const taskReducer = (state = [], action) => {
         ...state,
         payload
       ]
+    }
+
+    case TASK_UP: {
+      console.log('reducer ========>', payload);
+      return state
     }
 
     default: {

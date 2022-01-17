@@ -1,6 +1,7 @@
 import React from 'react'
 import style from './style.module.css'
 import sanya from '../../../../sanya.jpg'
+import CommentList from '../../CommentList/CommentList'
 
 function CurrentTask() {
   return (
@@ -68,7 +69,8 @@ function CurrentTask() {
             </div>
 
           </div>
-
+      <br/>
+      <CommentList />
         </div>
       </div>
     </div>

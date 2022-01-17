@@ -29,6 +29,34 @@ router.route('/').get(async (req, res) => {
   res.json(tasks);
 });
 
+router.route('/').patch(async (req, res) => {
+  const { task_id, user_id } = req.body;
+  console.log('PATCH ------------> id', task_id, user_id);
+  const currentTask = await Task.findByPk(task_id);
+  const status = currentTask.status + 1;
+  if (status === 2) {
+    const updatedTask = await Task.update(
+      {
+        status,
+        worker: user_id,
+      },
+      { where: { id: task_id } },
+    );
+    console.log(updatedTask);
+  }
+  if (status === 3) {
+    const updatedTask = await Task.update(
+      {
+        status,
+        isDone: true,
+      },
+      { where: { id: task_id } },
+    );
+    console.log(updatedTask);
+  }
+  res.sendStatus(200);
+});
+
 router.route('/').post(async (req, res) => {
   const {
     title, description, deadline,

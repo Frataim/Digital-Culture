@@ -1,9 +1,17 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { upTaskThunk } from '../../../../redux/actions/tasksAc';
 import style from './style.module.css'
 
 function Comment( { comment, user_id, task_id, User }) {
-console.log(User);
-  
+
+  const dispatch = useDispatch()
+
+  const handleMatch = () => {
+    console.log('CLICK', User, comment, user_id, task_id);
+    dispatch(upTaskThunk(task_id, user_id))
+  }
+
   return (
     <div className={style.mainContainer}>
       <div className={style.userContainer}>
@@ -13,7 +21,7 @@ console.log(User);
       <div>
         {comment}
       </div>
-      <button className={style.btn}>
+      <button type='button' onClick={handleMatch} className={style.btn}>
         ВЫБРАТЬ ИСПОЛНИТЕЛЯ
       </button>
     </div>

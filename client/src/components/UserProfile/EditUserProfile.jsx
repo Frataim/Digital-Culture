@@ -9,7 +9,7 @@ const EditUserProfile = () => {
   const dispatch = useDispatch()
   // // пользователь который зарегестрирован/авторизирован
   const user = useSelector((state) => state.user)
-  const qwerty = useSelector((state) => state.user)
+  // const qwerty = useSelector((state) => state.user)
 
 
 
