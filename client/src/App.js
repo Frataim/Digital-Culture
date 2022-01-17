@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 import Signin from './components/Authentication/Signin/Signin';
 import Signup from './components/Authentication/Signup/Signup';
 import Signout from './components/Authentication/Signout/Signout'
-import { checkUser } from './redux/actions/userAction';
+import { checkUser, delUser } from './redux/actions/userAction';
 import Header from './components/Header/Header'
 import Greet from './components/Greet/Greet'
 import Footer from './components/Footer/Footer'
@@ -34,12 +34,14 @@ function App() {
     dispatch(getAllUsers())
   }, [])
 
+
   return (
     <div className={style.content}>
       <Container>
         <Header />
         <Routes>
           <Route path="/" element={<Greet />} />
+          <Route path="signin" element={<Signin />} />
           <Route path="/create" element={<CreateTask />} />
           {user ? <Route path="signout" element={<Signout />} /> :
             <Route path="signin" element={<Signin />} /> &&

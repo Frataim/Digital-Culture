@@ -1,7 +1,7 @@
 const express = require('express');
 
 const {
-  Task, User, Comment, Tag, Status,
+  Task, User, Comment, Tag, Status, TaskTag,
 } = require('../db/models');
 
 const router = express.Router();
@@ -30,21 +30,44 @@ router.route('/').get(async (req, res) => {
 });
 
 router.route('/').post(async (req, res) => {
-  if (req.session?.user) {
-    const {
-      title, category, deadline, user_owner, user_worker,
-    } = req.body.data;
-    const newTask = await Task.create({
-      title,
-      category,
-      deadline,
-      isDone: false,
-      user_owner: req.session.user,
-      user_worker: null,
-    });
-    return res.json(newTask);
+  const {
+    title, description, deadline,
+  } = req.body.task;
+  let { tags } = req.body.task;
+  tags = tags.split(',').map((el) => el.trim());
+  console.log('task ------------ >', title, description, deadline, tags);
+  const newTask = await Task.create({
+    title,
+    category: 1,
+    description,
+    deadline,
+    isDone: false,
+    status: 1,
+    owner: req.session.user.id,
+    worker: null,
+  });
+  for (let i = 0; i < tags.length; i++) {
+    const tagToPush = await Tag.create({ tag: tags[i] });
+    await TaskTag.create({ tag_id: tagToPush.id, task_id: newTask.id });
   }
-  res.sendStatus(401);
+  console.log(newTask);
+  res.json(newTask);
+
+  // if (req.session?.user) {
+  //   const {
+  //     title, category, deadline,
+  //   } = req.body.data;
+  //   const newTask = await Task.create({
+  //     title,
+  //     category,
+  //     deadline,
+  //     isDone: false,
+  //     user_owner: req.session.user,
+  //     user_worker: null,
+  //   });
+  //   return res.json(newTask);
+  // }
+  // res.sendStatus(401);
 });
 
 router.route('/:id').get(async (req, res) => {
