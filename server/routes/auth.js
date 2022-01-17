@@ -8,7 +8,7 @@ function validateEmail(email) {
   return re.test(email);
 }
 router.route('/signup').post(async (req, res) => {
-  console.log(req.body.formData);
+  console.log('------------------->', req.body);
   const {
     name, email, password, resume, role,
   } = req.body.formData;
@@ -22,8 +22,9 @@ router.route('/signup').post(async (req, res) => {
         password: hashPass,
         avatar: 'https://cs6.pikabu.ru/avatars/1576/v1576985-1962120878.jpg',
         resume,
-        role:+role,
+        role: +role,
       });
+      console.log('user created', newUser);
       req.session.user = {
         id: newUser.id,
         name: newUser.email,

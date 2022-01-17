@@ -7,7 +7,7 @@ export const userReducer = (state = null, action) => {
       return payload
 
     case DEL_USER:
-      return payload
+      return state
 
     case AUTH_CHECK:
       return payload
