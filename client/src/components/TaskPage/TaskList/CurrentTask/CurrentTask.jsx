@@ -60,14 +60,6 @@ function CurrentTask() {
         </div>
         <div className={style.currentTaskSeparator}></div>
       </div>
-      <div className={style.currentRequestContainer}>
-        <form>
-          <div className={style.currentRequestInfo}></div>
-          <input type="text" />
-          <button>Откликнуться</button>
-        </form>
-      </div>
-      <div className={style.currentTaskSeparator}></div>
     </div>
   )
 }
