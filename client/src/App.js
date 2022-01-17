@@ -17,6 +17,7 @@ import { getAllUsers } from './redux/actions/usersAc'
 import CommentForm from "./components/TaskPage/CommentForm/CommentForm";
 import UserProfile from "./components/UserProfile/UserProfile";
 import EditUserProfile from "./components/UserProfile/EditUserProfile";
+import CurrentTask from "./components/TaskPage/TaskList/CurrentTask/CurrentTask";
 
 
 
@@ -51,7 +52,7 @@ function App() {
           <Route path="create" element={<CreateTask />} />
           <Route path="profile" element={<UserProfile />} />
           <Route path="edit" element={<EditUserProfile />} />
-
+          <Route path="tasks/:id" element={<CurrentTask />} />
           {user ? <Route path="signout" element={<Signout />} /> :
             <Route path="signin" element={<Signin />} /> &&
             <Route path="signup" element={<Signup />} />
