@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import style from './style.module.css'
 
-const editUserProfile = () => {
+const EditUserProfile = () => {
   const navigate = useNavigate()
   // const dispatch = useDispatch()
   // // пользователь который зарегестрирован/авторизирован
@@ -77,4 +77,4 @@ const editUserProfile = () => {
   );
 }
 
-export default editUserProfile;
+export default EditUserProfile;
