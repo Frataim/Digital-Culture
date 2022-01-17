@@ -65,12 +65,10 @@ export const checkUser = () => async (dispatch) => {
 export const editUser = (data) => async(dispatch) => {
   try {
     const reductUser = await editUserToServer(data)
-
+console.log(reductUser)
     dispatch({
       type: EDIT_USER,
-      payload: {
-        reductUser
-      }
+      payload: reductUser
     })
   } catch (err) {
     
@@ -80,8 +78,8 @@ export const editUser = (data) => async(dispatch) => {
 
 // редактировать
 export const editUserToServer = async (data) => {
-  const response = await fetch('http://localhost:3001/users/'+ data.id, {
-    method: 'POST',
+  const response = await fetch('http://localhost:3001/users/edit/'+ data.id, {
+    method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json'

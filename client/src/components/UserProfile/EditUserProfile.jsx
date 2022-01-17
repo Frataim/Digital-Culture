@@ -9,7 +9,7 @@ const EditUserProfile = () => {
   const dispatch = useDispatch()
   // // пользователь который зарегестрирован/авторизирован
   const user = useSelector((state) => state.user)
-  const qwerty = useSelector((state) => state.user)
+  // const qwerty = useSelector((state) => state.user)
 
 
 
@@ -30,13 +30,14 @@ const EditUserProfile = () => {
   // })
 
   const editHandler = (e) => {
+    console.log('editHandler', profile)
     e.preventDefault();
     dispatch(editUser(profile))
   }
 
   return (
   <div className={style.userProfileContainer}> 
-    <form className={style.form} onSubmit={editHandler}>
+    <form className={style.form} >
       <div className={style.container}>
         <label className={style.label}>Имя</label>
         <input 
@@ -76,27 +77,9 @@ const EditUserProfile = () => {
         </select>
         </div>
         <div className={style.container}>
-          <label className={style.label}>Расскажите о себе</label>
-          <input
-            type="resume"
-            name="resume"
-            value={user.resume}
-            onChange={(e) => setProfile({ ...profile, resume: e.target.value })}
-            className={style.input} />
-        </div>
-        <div className={style.container}>
-          <label className={style.label}>Роль</label>
-          <select
-            type="role"
-            name="role"
-            value={user.role}
-            onChange={(e) => setProfile({ ...profile, role: e.target.value })}
-            className={style.select}
-          >
-          </select>
-        </div>
-        <div className={style.container}>
-          <button onClick={() => navigate('/profile')} className={style.button} type="submit">
+          <button onClick={(e) => {
+            editHandler(e)
+            navigate('/profile')}} className={style.button} type="submit">
             Сохранить
           </button>
         </div>

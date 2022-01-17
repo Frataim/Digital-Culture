@@ -8,7 +8,10 @@ const UserProfile = () => {
   const dispatch = useDispatch()
   // // пользователь который зарегестрирован/авторизирован
   const user = useSelector((state) => state.user)
-  console.log('profile', user)
+  useEffect(() => {
+
+  }, [])
+  
 
   return (  
   <div className={style.userProfileContainer}> 
