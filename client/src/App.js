@@ -17,6 +17,7 @@ import { getAllUsers } from './redux/actions/usersAc'
 import CommentForm from "./components/TaskPage/CommentForm/CommentForm";
 import UserProfile from "./components/UserProfile/UserProfile";
 import EditUserProfile from "./components/UserProfile/EditUserProfile";
+import Chat from "./components/Chat/Chat";
 
 
 
@@ -57,7 +58,7 @@ function App() {
             <Route path="signup" element={<Signup />} />
           }
           <Route path="tasks" element={<TaskPage />} />
-          <Route path='rooms' element={<Rooms />} />
+          <Route path='chat' element={<Chat />} />
         </Routes>
         <Footer />
       </Container>

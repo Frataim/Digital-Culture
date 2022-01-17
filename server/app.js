@@ -14,8 +14,7 @@ const FileStore = require('session-file-store')(session)
 const app = express();
 
 
-const server = require("http").createServer(app)
-const io = require("socket.io")(server)
+
 
 const checkUser = require('./middlewares/checkUser');
 const indexRouter = require('./routes/index'); // вот так прописываем роуты
@@ -56,11 +55,8 @@ app.use(checkUser);
 app.use('/', indexRouter); // а вот так перенаправляем ручку на роут
 app.use('/users/', authRouter); // а вот так перенаправляем ручку на роут
 app.use('/tasks/', taskRouter)
-app.use("/socket.io/", roomsRouter)
 
-io.on("connection", (socket) => {
-  console.log("hkhkj", socket)
-})
+
 
 
 app.listen(PORT, () => console.log('Server started at port: ', PORT))

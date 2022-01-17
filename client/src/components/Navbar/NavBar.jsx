@@ -31,6 +31,9 @@ function NavBar() {
         <Link to={'/profile'} className={style.link}>
           Личный кабинет
         </Link>
+        <Link to={'/chat'} className={style.link}>
+          Чат
+        </Link>
         <button onClick={signOut} className={style.link}>
           Выход
         </button>
@@ -53,6 +56,9 @@ function NavBar() {
         </Link>
         <Link to={'/commentCreateTest'} className={style.link}>
           Тест
+          </Link>
+                  <Link to={'/chat'} className={style.link}>
+          Чат
         </Link>
       </div>
     </div>
