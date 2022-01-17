@@ -9,6 +9,10 @@ import { checkUser } from './redux/actions/userAction';
 import Header from './components/Header/Header'
 import Greet from './components/Greet/Greet'
 import Footer from './components/Footer/Footer'
+import { Container } from "@mui/material"
+import style from "./App.module.css"
+
+
 
 
 function App() {
@@ -20,7 +24,8 @@ function App() {
   }, []);
 
   return (
-<div className={style.content}>
+    <div className={style.content}>
+      
       <Container>
         <Header />
         <Routes>
@@ -30,6 +35,7 @@ function App() {
             <Route path="signup" element={<Signup />} />
           }
           <Route path="tasks" element={<TaskPage />} />
+          <Route path='rooms' element={<Rooms />} />
         </Routes>
         <Footer />
       </Container>

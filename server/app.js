@@ -5,14 +5,28 @@ const cors = require('cors');
 const morgan = require('morgan');
 
 const session = require('express-session');
-const FileStore = require('session-file-store')(session);
+const FileStore = require('session-file-store')(session)
+
+ // подключяаем сокеты
+
+
 
 const app = express();
+
+
+const server = require("http").createServer(app)
+const io = require("socket.io")(server)
 
 const checkUser = require('./middlewares/checkUser');
 const indexRouter = require('./routes/index'); // вот так прописываем роуты
 const authRouter = require('./routes/auth'); // вот так прописываем роуты
 const taskRouter = require('./routes/task');
+
+
+
+
+
+ 
 
 const PORT = 3001;
 
@@ -38,8 +52,15 @@ app.use((req, res, next) => {
 
 app.use(checkUser);
 
+
 app.use('/', indexRouter); // а вот так перенаправляем ручку на роут
 app.use('/users/', authRouter); // а вот так перенаправляем ручку на роут
-app.use('/tasks/', taskRouter);
+app.use('/tasks/', taskRouter)
+app.use("/socket.io/", roomsRouter)
 
-app.listen(PORT, () => console.log('Server started at port: ', PORT));
+io.on("connection", (socket) => {
+  console.log("hkhkj", socket)
+})
+
+
+app.listen(PORT, () => console.log('Server started at port: ', PORT))
