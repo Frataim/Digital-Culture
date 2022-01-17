@@ -9,8 +9,12 @@ import { checkUser } from './redux/actions/userAction';
 import Header from './components/Header/Header'
 import Greet from './components/Greet/Greet'
 import Footer from './components/Footer/Footer'
-import {Container} from '@mui/material'
+import { Container } from '@mui/material'
 import style from './App.module.css'
+import CreateTask from "./components/TaskPage/CrateTask/CreateTask";
+import { allTasks } from './redux/actions/tasksAc'
+import { getAllUsers } from './redux/actions/usersAc'
+
 
 
 
@@ -22,6 +26,14 @@ function App() {
     dispatch(checkUser());
   }, []);
 
+  useEffect(() => {
+    dispatch(allTasks())
+  }, [])
+
+  useEffect(() => {
+    dispatch(getAllUsers())
+  }, [])
+
   return (
     <div className={style.content}>
       <Container>
@@ -29,6 +41,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Greet />} />
           <Route path="signin" element={<Signin />} />
+          <Route path="/create" element={<CreateTask />} />
           {user ? <Route path="signout" element={<Signout />} /> :
             <Route path="signin" element={<Signin />} /> &&
             <Route path="signup" element={<Signup />} />

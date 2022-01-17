@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 
-const { User } = require('../db/models');
+const { User, Rate, Role } = require('../db/models');
 
 function validateEmail(email) {
   const re = /\S+@\S+\.\S+/;
@@ -67,8 +67,8 @@ router.route('/signin').post(async (req, res) => {
 
 router.route('/check').get((req, res) => {
   if (req.session?.user) {
-    return res.json({ 
-      id: req.session.user.id, email: req.session.user.name, role: req.session.user.role 
+    return res.json({
+      id: req.session.user.id, email: req.session.user.name, role: req.session.user.role,
     });
   }
   res.sendStatus(401);
@@ -78,6 +78,21 @@ router.route('/signout').get((req, res) => {
   console.log('signout', req.session.user);
   req.session.destroy();
   res.clearCookie('smth');
+});
+
+router.route('/users').get(async (req, res) => {
+  const users = await User.findAll({
+    include: [{
+      model: Rate,
+      required: false,
+    },
+    {
+      model: Role,
+      required: false,
+    },
+    ],
+  });
+  res.json(users);
 });
 
 module.exports = router;
