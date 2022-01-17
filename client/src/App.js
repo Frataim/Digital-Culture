@@ -28,6 +28,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Greet />} />
+          <Route path="signin" element={<Signin />} />
           {user ? <Route path="signout" element={<Signout />} /> :
             <Route path="signin" element={<Signin />} /> &&
             <Route path="signup" element={<Signup />} />
