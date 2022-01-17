@@ -1,18 +1,20 @@
-const router = require('express').Router()
-const bcrypt = require('bcryptjs')
+const router = require('express').Router();
+const bcrypt = require('bcryptjs');
 
-const { User, Rate, Role } = require('../db/models')
+const { User, Rate, Role } = require('../db/models');
 
 function validateEmail(email) {
-  const re = /\S+@\S+\.\S+/
-  return re.test(email)
+  const re = /\S+@\S+\.\S+/;
+  return re.test(email);
 }
 router.route('/signup').post(async (req, res) => {
-  console.log('------------------->', req.body)
-  const { name, email, password, resume, role } = req.body.formData
-  req.session.user = {}
+  console.log('------------------->', req.body);
+  const {
+    name, email, password, resume, role,
+  } = req.body.formData;
+  req.session.user = {};
   if (validateEmail(email) && password) {
-    const hashPass = await bcrypt.hash(password, +process.env.SALT)
+    const hashPass = await bcrypt.hash(password, +process.env.SALT);
     try {
       const newUser = await User.create({
         name,
@@ -21,8 +23,8 @@ router.route('/signup').post(async (req, res) => {
         avatar: 'https://cs6.pikabu.ru/avatars/1576/v1576985-1962120878.jpg',
         resume,
         role: +role,
-      })
-      console.log('user created', newUser)
+      });
+      console.log('user created', newUser);
       req.session.user = {
         id: newUser.id,
         name: newUser.name,
@@ -30,8 +32,8 @@ router.route('/signup').post(async (req, res) => {
         email: newUser.email,
         role: newUser.role,
         avatar: newUser.avatar,
-      }
-      console.log(req.session.user)
+      };
+      console.log(req.session.user);
       return res.json({
         id: newUser.id,
         name: newUser.name,
@@ -39,24 +41,24 @@ router.route('/signup').post(async (req, res) => {
         email: newUser.email,
         role: newUser.role,
         avatar: newUser.avatar,
-      })
+      });
     } catch (error) {
-      console.log('dfrgergregregerg', error)
-      return res.sendStatus(405)
+      console.log('dfrgergregregerg', error);
+      return res.sendStatus(405);
     }
   } else {
-    return res.sendStatus(403)
+    return res.sendStatus(403);
   }
-})
+});
 router.route('/signin').post(async (req, res) => {
-  console.log(req.body)
-  const { email, password } = req.body.signinForm
+  console.log(req.body);
+  const { email, password } = req.body.signinForm;
   if (email && password) {
     try {
-      const currentUser = await User.findOne({ where: { email } })
+      const currentUser = await User.findOne({ where: { email } });
       if (
-        currentUser &&
-        (await bcrypt.compare(password, currentUser.password))
+        currentUser
+        && (await bcrypt.compare(password, currentUser.password))
       ) {
         req.session.user = {
           id: currentUser.id,
@@ -65,7 +67,7 @@ router.route('/signin').post(async (req, res) => {
           email: currentUser.email,
           role: currentUser.role,
           avatar: currentUser.avatar,
-        }
+        };
         return res.json({
           id: currentUser.id,
           name: currentUser.name,
@@ -73,16 +75,16 @@ router.route('/signin').post(async (req, res) => {
           email: currentUser.email,
           role: currentUser.role,
           avatar: currentUser.avatar,
-        })
+        });
       }
-      return res.sendStatus(401)
+      return res.sendStatus(401);
     } catch (err) {
-      return res.sendStatus(401)
+      return res.sendStatus(401);
     }
   } else {
-    return res.sendStatus(401)
+    return res.sendStatus(401);
   }
-})
+});
 
 router.route('/check').get((req, res) => {
   if (req.session?.user) {
@@ -93,16 +95,16 @@ router.route('/check').get((req, res) => {
       resume: req.session.user.resume,
       role: req.session.user.role,
       avatar: req.session.user.avatar,
-    })
+    });
   }
-  res.sendStatus(401)
-})
+  res.sendStatus(401);
+});
 
 router.route('/signout').get((req, res) => {
-  console.log('signout', req.session.user)
-  req.session.destroy()
-  res.clearCookie('smth')
-})
+  console.log('signout', req.session.user);
+  req.session.destroy();
+  res.clearCookie('smth');
+});
 
 router.route('/users').get(async (req, res) => {
   const users = await User.findAll({
@@ -127,4 +129,5 @@ router.route('/edit/:id').patch(async (req, res) => {
   res.json(name, email, password, resume, role )
 })
 module.exports = router
+
 
