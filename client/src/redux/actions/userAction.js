@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ADD_USER, DEL_USER, SIGNIN_USER, AUTH_CHECK } from '../types/userTypes'
+import { ADD_USER, DEL_USER, SIGNIN_USER, AUTH_CHECK, EDIT_USER } from '../types/userTypes'
 
 // signup - регистрация пользователя
 export const addUserAction = (responce) => ({
@@ -48,4 +48,51 @@ export const checkUser = () => async (dispatch) => {
   const userFromBack = await axios('http://localhost:3001/users/check')
   const responce = userFromBack.data
   dispatch(checkUserAction(responce))
+}
+
+// // редактирование
+// export const editUserAction = (responce) => ({
+//   type: EDIT_USER,
+//   payload: responce,
+// })
+
+// export const editUser = () => async (dispatch) => {
+//   const userFromBack = await axios('http://localhost:3001/users')
+//   const responce = userFromBack.data
+//   dispatch(editUserAction(responce))
+// }
+
+export const editUser = (data) => async(dispatch) => {
+  try {
+    const reductUser = await editUserToServer(data)
+
+    dispatch({
+      type: EDIT_USER,
+      payload: {
+        reductUser
+      }
+    })
+  } catch (err) {
+    
+    console.log(err);
+  }
+}
+
+// редактировать
+export const editUserToServer = async (data) => {
+  const response = await fetch('http://localhost:3001/users/'+ data.id, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    credentials: 'include',
+    body: JSON.stringify(data)
+  })
+  console.log(response)
+  if (response.ok) {
+    return await response.json()
+  } else {
+    throw Error('Noooooooooooo :(((')
+  }
 }
