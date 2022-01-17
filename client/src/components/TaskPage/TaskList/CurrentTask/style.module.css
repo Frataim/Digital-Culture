@@ -113,6 +113,8 @@ margin-left: 15px;
 }
 .currentTaskTag{
   font-size: 13px;
+  display: flex;
+  
 }
 
 
@@ -131,4 +133,8 @@ margin-left: 15px;
 
 .currentTaskLevel::after {
   border-left: 1px solid black;
+}
+
+.tag {
+  margin-left: 15px;
 }
