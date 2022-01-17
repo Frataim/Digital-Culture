@@ -10,6 +10,33 @@ router.get('/', (req, res, next) => {
   res.sendStatus(200);
 });
 
+// FEEDBACK
+
+router.post('/feedback', async (req, res, next) => {
+  const { feedback, task_id } = req.body;
+  const newFeedback = await Comment.create({ feedback, task_id, user_id: req.session.user.id });
+  console.log('коммент ------------>', newFeedback);
+  res.json({
+    feedback: newFeedback.feedback,
+    task_id: newFeedback.task_id,
+    user_id: newFeedback.user_id,
+  });
+});
+
+router.get('/feedback', async (req, res, next) => {
+  const feedback = await Feedback.findAll({
+    include: [
+      {
+        model: User,
+      },
+    ],
+  });
+  console.log(feedback);
+  res.json(feedback);
+});
+
+// COMMENTS
+
 router.post('/comment', async (req, res, next) => {
   const { comment, task_id } = req.body;
   const newComment = await Comment.create({ comment, task_id, user_id: req.session.user.id });
@@ -20,6 +47,20 @@ router.post('/comment', async (req, res, next) => {
     user_id: newComment.user_id,
   });
 });
+
+router.get('/comment', async (req, res, next) => {
+  const comments = await Comment.findAll({
+    include: [
+      {
+        model: User,
+      },
+    ],
+  });
+  console.log(comments);
+  res.json(comments);
+});
+
+// ДАЛЕЕ -- ТЕСТЫ, потом удалим
 
 router.get('/testRoles', async (req, res, next) => {
   try {

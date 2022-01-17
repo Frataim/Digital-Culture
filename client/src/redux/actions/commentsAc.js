@@ -2,7 +2,7 @@ import axios from 'axios'
 import { ADD_COMMENT, ALL_COMMENTS } from '../types/commentsTypes'
 
 export const allComments = () => (dispatch) => {
-  fetch('http://localhost:3001/comments')
+  fetch('http://localhost:3001/comment')
     .then(res => res.json())
     .then(data => dispatch({
       type: ALL_COMMENTS,

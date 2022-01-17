@@ -1,10 +1,9 @@
 import React from 'react'
 import style from './style.module.css'
-import img from '../../../task_create_img.png'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { addCommentThunk } from '../../../redux/actions/commentsAc'
+import { addCommentThunk } from '../../../../redux/actions/commentsAc'
 
 function CommentForm () {
 
@@ -26,7 +25,7 @@ function CommentForm () {
   }
 
   return (
-      <form className={style.taskContainer, style.mainContainer} onSubmit={(e) => commentHandler(e)}>
+      <form className={style.mainContainer} onSubmit={(e) => commentHandler(e)}>
         <input 
           className={style.input}
           type='text'

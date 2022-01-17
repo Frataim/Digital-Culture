@@ -14,9 +14,11 @@ import style from './App.module.css'
 import CreateTask from "./components/TaskPage/CrateTask/CreateTask";
 import { allTasks } from './redux/actions/tasksAc'
 import { getAllUsers } from './redux/actions/usersAc'
-import CommentForm from "./components/TaskPage/CommentForm/CommentForm";
 import UserProfile from "./components/UserProfile/UserProfile";
 import EditUserProfile from "./components/UserProfile/EditUserProfile";
+import { allComments } from "./redux/actions/commentsAc";
+import FeedbackList from "./components/TaskPage/FeedbackList/FeebackList";
+import { allFeedbacks } from "./redux/actions/feedbacksAc";
 
 
 
@@ -38,6 +40,14 @@ function App() {
     dispatch(getAllUsers())
   }, [])
 
+  useEffect(() => {
+    dispatch(allComments())
+  }, [])
+
+  useEffect(() => {
+    dispatch(allFeedbacks())
+  }, [])
+
 
   return (
     <div className={style.content}>
@@ -47,7 +57,7 @@ function App() {
           <Route path="/" element={<Greet />} />
           <Route path="signin" element={<Signin />} />
           <Route path="/create" element={<CreateTask />} />
-          <Route path="/commentCreateTest" element={<CommentForm />} />
+          <Route path="/commentCreateTest" element={<FeedbackList />} />
           <Route path="create" element={<CreateTask />} />
           <Route path="profile" element={<UserProfile />} />
           <Route path="edit" element={<EditUserProfile />} />
