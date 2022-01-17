@@ -64,7 +64,7 @@ function CreateTask () {
         />
         <div id="emailHelp" class="form-text">указывайте тэги через запятую, не более 3-х</div>
         <br/>
-        <button type="submit">ОПУБЛИКОВАТЬ</button>
+        <button className={style.btn} type="submit">ОПУБЛИКОВАТЬ</button>
       </form>
       <div className={style.taskImg}>
         <img src={img}/>
