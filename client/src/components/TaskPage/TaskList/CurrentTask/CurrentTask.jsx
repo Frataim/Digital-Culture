@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import style from './style.module.css'
 import sanya from '../../../../sanya.jpg'
 
@@ -10,8 +10,15 @@ import FeedbackList from '../../FeedbackList/FeebackList'
 
 function CurrentTask() {
   const { id } = useParams()
-  const task = useSelector(store => store.tasks.find((el) => el.id === +id))
+  const [status, setStatus] = useState(1)
+  const task = useSelector(state => state.tasks.find((el) => el.id === +id))
   console.log('----------------------->', task);
+  useEffect(() => {
+    if(task){
+      setStatus(task.status)
+    }
+  }, [task])
+  console.log('setStatus done------->', task);
   return (
     <>
     {task &&
@@ -82,13 +89,13 @@ function CurrentTask() {
 
           </div>
           <br />
-          {task.status === 1 && (
+          {status === 1 && (
             <CommentList />
           )}
-          {task.status === 2 && (
+          {status === 2 && (
             <Chat />
           )}
-          {task.status === 3 && (
+          {status === 3 && (
             <FeedbackList />
           )}
         </div>
