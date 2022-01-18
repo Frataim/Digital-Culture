@@ -10,9 +10,14 @@ function TaskList() {
   console.log(tasks);
 
   return (
-    <div className={style.taskListContainer}>
-      {tasks.map((el) => <Task key={el.id} {...el} />)}
-    </div>
+    <>
+      {tasks && (
+        <div className={style.taskListContainer}>
+          {tasks.map((el) => <Task key={el.id} {...el} />)}
+        </div>
+
+      )}
+    </>
   )
 }
 

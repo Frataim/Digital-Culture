@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom';
 import Feedback from './Feedback/Feedback';
@@ -9,8 +9,12 @@ export default function FeedbackList() {
   const {id} = useParams()
   const task_id = +id
   const feedbacks = useSelector((state) => state.feedbacks)
-  const actualFeedbacks = feedbacks.filter(el => el.task_id === task_id)
+  const [actualFeedbacks, setActualFeedbacks] = useState([])
+  useEffect(() => {
+    setActualFeedbacks(feedbacks.filter(el => el.task_id === task_id).reverse())
+  }, [feedbacks])
 
+  console.log(actualFeedbacks);
   return (
     <div>
       <FeedbackForm />
