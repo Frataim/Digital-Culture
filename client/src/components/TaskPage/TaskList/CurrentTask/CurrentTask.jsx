@@ -5,13 +5,18 @@ import sanya from '../../../../sanya.jpg'
 import CommentList from '../../CommentList/CommentList'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import Chat from '../../Chat/Chat'
+import FeedbackList from '../../FeedbackList/FeebackList'
 
 function CurrentTask() {
   const { id } = useParams()
   const task = useSelector(store => store.tasks.find((el) => el.id === +id))
-  console.log(task);
+  console.log('----------------------->', task);
   return (
-    <div className={style.currentContainer}>
+    <>
+    {task &&
+    
+    (<div className={style.currentContainer}>
       <div>
         <div className={style.currentRole}>Помощь нужна</div>
         <div className={style.currentOwnerInfoCard}>
@@ -77,10 +82,20 @@ function CurrentTask() {
 
           </div>
           <br />
-          <CommentList />
+          {task.status === 1 && (
+            <CommentList />
+          )}
+          {task.status === 2 && (
+            <Chat />
+          )}
+          {task.status === 3 && (
+            <FeedbackList />
+          )}
         </div>
       </div>
-    </div>
+    </div>)
+    }
+    </>
   )
 }
 

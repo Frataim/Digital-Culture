@@ -1,21 +1,21 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom';
 import Feedback from './Feedback/Feedback';
 import FeedbackForm from './FeedbackForm/FeedbackForm'
 
 export default function FeedbackList() {
 
-  const task_id = 1
-
+  const {id} = useParams()
+  const task_id = +id
   const feedbacks = useSelector((state) => state.feedbacks)
-
-  console.log(feedbacks);
+  const actualFeedbacks = feedbacks.filter(el => el.task_id === task_id)
 
   return (
     <div>
       <FeedbackForm />
       <br/>
-        {feedbacks.map((el) => <Feedback key={el.id} {...el} />)}
+        {actualFeedbacks.map((el) => <Feedback key={el.id} {...el} />)}
     </div>
   )
 }

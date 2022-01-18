@@ -10,21 +10,29 @@ export default function CommentList() {
   const task_id = +id
 
   const comments = useSelector((state) => state.comments)
+  console.log(comments);
   const user = useSelector((state) => state.user)
-  console.log('user role ========', user.role);
-
-  const actualComments = comments.filter(el => el.task_id === task_id)
+  const actualComments = []
+  if(comments){
+    const actualComments = comments.filter(el => el.task_id === task_id)
+  }
 
   return (
-    <div>
-      {
-        user.role === 3 && (
-          <CommentForm />
-        )
-      }
-      <br/>
-      {actualComments.map((el) => <Comment key={el.id} {...el} />)}
-    </div>
+
+    <>
+      {actualComments !== [] && user && (
+        <div>
+          {
+            user.role === 3 && (
+              <CommentForm />
+            )
+          }
+          <br/>
+          {actualComments.map((el) => <Comment key={el.id} {...el} />)}
+        </div>
+      )
+    }
+    </>
   )
 }
 
