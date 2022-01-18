@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import style from './style.module.css'
+import TaskUser from './TaskUser/TaskUser';
 
 const UserProfile = () => {
   const navigate = useNavigate()
@@ -9,9 +10,9 @@ const UserProfile = () => {
   // // пользователь который зарегестрирован/авторизирован
   const user = useSelector((state) => state.user)
   useEffect(() => {
-
   }, [])
   
+
 
   return (  
   <div className={style.userProfileContainer}> 
@@ -43,6 +44,7 @@ const UserProfile = () => {
         </button>
       </div>
     </form>
+    <TaskUser />
   </div>
   );
 }
