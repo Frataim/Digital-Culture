@@ -16,7 +16,7 @@ export const addTask = (response) => ({
 
 export const addUserThunk = (task) => async (dispatch) => {
   console.log('thunk check ---------->', task)
-  const userFromBack = await axios.post('http://localhost:3001/tasks', {task})
+  const userFromBack = await axios.post('http://localhost:3001/tasks', { task })
   const response = userFromBack.data
   dispatch(addTask(response))
 }

@@ -22,10 +22,6 @@ function Greet() {
     }
   }))
 
-
-  console.log(tasks)
-
-
   return (
     <>
       <div className={style.greetContainer}>

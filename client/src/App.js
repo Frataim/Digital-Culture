@@ -24,12 +24,12 @@ import CurrentTask from "./components/TaskPage/TaskList/CurrentTask/CurrentTask"
 function App() {
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user)
-
   useEffect(() => {
     dispatch(checkUser());
   }, []);
 
   useEffect(() => {
+    console.log(123);
     dispatch(allTasks())
   }, [])
 
