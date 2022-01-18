@@ -65,7 +65,7 @@ const EditUserProfile = () => {
         onChange={(e) => setProfile({...profile, resume: e.target.value})} 
         className={style.input}/>
       </div>
-      <div className={style.container}>
+      {/* <div className={style.container}>
         <label className={style.label}>Роль</label>
         <select
           type="role"
@@ -75,7 +75,7 @@ const EditUserProfile = () => {
           className={style.select}
         >
         </select>
-        </div>
+        </div> */}
         <div className={style.container}>
           <button onClick={(e) => {
             editHandler(e)
