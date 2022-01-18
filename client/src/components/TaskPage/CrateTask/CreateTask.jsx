@@ -22,7 +22,7 @@ function CreateTask () {
     e.preventDefault()
     console.log('send form >>>>>>', task)
     dispatch(addTaskThunk(task))
-    navigate('/')
+    navigate('/tasks')
   }
 
   return (

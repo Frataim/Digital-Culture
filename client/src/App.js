@@ -17,9 +17,9 @@ import { getAllUsers } from './redux/actions/usersAc'
 import UserProfile from "./components/UserProfile/UserProfile";
 import EditUserProfile from "./components/UserProfile/EditUserProfile";
 import { allComments } from "./redux/actions/commentsAc";
-import FeedbackList from "./components/TaskPage/FeedbackList/FeebackList";
 import { allFeedbacks } from "./redux/actions/feedbacksAc";
 import CurrentTask from "./components/TaskPage/TaskList/CurrentTask/CurrentTask";
+import Chat from "./components/TaskPage/Chat/Chat";
 
 function App() {
   const dispatch = useDispatch()
@@ -28,7 +28,7 @@ function App() {
   useEffect(() => {
     dispatch(checkUser());
   }, []);
-
+  
   useEffect(() => {
     dispatch(allTasks())
   }, [])
@@ -53,7 +53,7 @@ function App() {
           <Route path="/" element={<Greet />} />
           <Route path="signin" element={<Signin />} />
           <Route path="/create" element={<CreateTask />} />
-          <Route path="/commentCreateTest" element={<FeedbackList />} />
+          <Route path="/commentCreateTest" element={<Chat />} />
           <Route path="create" element={<CreateTask />} />
           <Route path="profile" element={<UserProfile />} />
           <Route path="edit" element={<EditUserProfile />} />

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ADD_TASK, ALL_TASKS } from '../types/tasksTypes'
+import { ADD_TASK, ALL_TASKS, TASK_UP } from '../types/tasksTypes'
 
 export const allTasks = () => (dispatch) => {
   fetch('http://localhost:3001/tasks')
@@ -22,7 +22,7 @@ export const addTaskThunk = (task) => async (dispatch) => {
 }
 
 export const upTask = (response) => ({
-  type: ADD_TASK,
+  type: TASK_UP,
   payload: response,
 })
 

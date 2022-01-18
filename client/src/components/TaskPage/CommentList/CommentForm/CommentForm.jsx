@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import style from './style.module.css'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addCommentThunk } from '../../../../redux/actions/commentsAc'
 
 function CommentForm () {
 
   const {id} = useParams()
 
+  // const comments = useSelector((state) => state.comments)
+
   const [comment, setComment] = useState('')
-  const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const inputChange = (e) => {
@@ -21,10 +22,13 @@ function CommentForm () {
 
   const commentHandler = (e) => {
     e.preventDefault()
-    console.log('send form >>>>>>', comment)
     dispatch(addCommentThunk(comment , task_id))
-    navigate('/')
+    setComment('')
   }
+
+  // useEffect(() => {
+   
+  // }, [comments])
 
   return (
       <form className={style.mainContainer} onSubmit={(e) => commentHandler(e)}>
@@ -35,7 +39,7 @@ function CommentForm () {
           value={comment}
           onChange={inputChange}
         />
-        <div id="emailHelp" class="form-text">напишите кратко о себе, опыте, оставьте ссылку на резюме, портфолио</div>
+        <div id="emailHelp" className="form-text">напишите кратко о себе, опыте, оставьте ссылку на резюме, портфолио</div>
         <button className={style.btn} type="submit">ПОДПИСАТЬСЯ НА ЗАДАНИЕ</button>
       </form>
   )

@@ -78,8 +78,28 @@ router.route('/').post(async (req, res) => {
     const tagToPush = await Tag.create({ tag: tags[i] });
     await TaskTag.create({ tag_id: tagToPush.id, task_id: newTask.id });
   }
-  console.log(newTask);
-  res.json(newTask);
+  const taskToSend = await Task.findOne({
+    where: { id: newTask.id },
+    include: [{
+      model: User,
+      required: false,
+    },
+    {
+      model: Comment,
+      required: false,
+    },
+    {
+      model: Tag,
+      required: false,
+    },
+    {
+      model: Status,
+      required: false,
+    },
+    ],
+  });
+  console.log('THIS --------->', taskToSend);
+  res.json(taskToSend);
 
   // if (req.session?.user) {
   //   const {

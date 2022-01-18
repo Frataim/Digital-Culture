@@ -112,7 +112,7 @@ router.route('/signout').get((req, res) => {
   res.clearCookie('smth')
 })
 
-router.route('/users').get(async (req, res) => {
+router.route('/').get(async (req, res) => {
   const users = await User.findAll({
     include: [
       {

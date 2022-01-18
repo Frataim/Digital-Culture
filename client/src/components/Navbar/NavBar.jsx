@@ -19,9 +19,11 @@ function NavBar() {
   return user ? (
     <div className={style.navBar}>
       <div>
+        {user.role === 2 && (
         <Link to={'/create'} className={style.link}>
           Создать задачу
         </Link>
+        )}
         <Link to={'/tasks'} className={style.link}>
           Задачи
         </Link>
