@@ -7,14 +7,7 @@ function validateEmail(email) {
   const re = /\S+@\S+\.\S+/
   return re.test(email)
 }
-router.route('/edit/:id').patch(async (req, res) => {
-  console.log('--->>>>edit17', req.body)
-  const { name, email, resume, role } = req.body
-  await User.update({name, email, resume, role}, {
-    where: { id: req.session.user.id },
-  })
-  res.json({name, email, resume, role})
-})
+
 router.route('/signup').post(async (req, res) => {
   console.log('------------------->', req.body)
   const { name, email, password, resume, role } = req.body.formData
@@ -65,34 +58,43 @@ router.route('/signin').post(async (req, res) => {
       if (
         currentUser &&
         (await bcrypt.compare(password, currentUser.password))
-      ) {
-        req.session.user = {
-          id: currentUser.id,
-          name: currentUser.name,
-          resume: currentUser.resume,
-          email: currentUser.email,
-          role: currentUser.role,
-          avatar: currentUser.avatar,
+        ) {
+          req.session.user = {
+            id: currentUser.id,
+            name: currentUser.name,
+            resume: currentUser.resume,
+            email: currentUser.email,
+            role: currentUser.role,
+            avatar: currentUser.avatar,
+          }
+          return res.json({
+            id: currentUser.id,
+            name: currentUser.name,
+            resume: currentUser.resume,
+            email: currentUser.email,
+            role: currentUser.role,
+            avatar: currentUser.avatar,
+          })
         }
-        return res.json({
-          id: currentUser.id,
-          name: currentUser.name,
-          resume: currentUser.resume,
-          email: currentUser.email,
-          role: currentUser.role,
-          avatar: currentUser.avatar,
-        })
+        return res.sendStatus(401)
+      } catch (err) {
+        return res.sendStatus(401)
       }
-      return res.sendStatus(401)
-    } catch (err) {
+    } else {
       return res.sendStatus(401)
     }
-  } else {
-    return res.sendStatus(401)
-  }
-})
-
-router.route('/check').get((req, res) => {
+  })
+  
+  router.route('/edit/:id').patch(async (req, res) => {
+    console.log('--->>>>edit17', req.body)
+    const { name, email, resume, role } = req.body
+    await User.update({name, email, resume, role}, {
+      where: { id: req.session.user.id },
+    })
+    res.json({name, email, resume, role})
+  })
+  
+  router.route('/check').get((req, res) => {
   if (req.session?.user) {
     return res.json({
       id: req.session.user.id,

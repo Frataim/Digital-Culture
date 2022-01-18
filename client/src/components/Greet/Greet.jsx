@@ -46,15 +46,15 @@ function Greet() {
         <div className={style.hotTask}>
           <img src={one} className={style.hotImage} alt="" />
           <div className={style.hotDescription}>
-            <h2>{tasks[0].title}</h2>
-            <p>{tasks[0].description}</p>
+            <h2></h2>
+            <p></p>
           </div>
         </div>
         <div className={style.hotTask}>
           <img src={two} className={style.hotImage} alt="" />
           <div className={style.hotDescription}>
-            <h2>{tasks[1].title}</h2>
-            <p>{tasks[1].description}</p>
+            <h2></h2>
+            <p></p>
           </div>
         </div>
         <div className={style.hotTask}>
@@ -62,8 +62,8 @@ function Greet() {
           </div>
           <img src={three} alt="" className={style.hotImage} />
           <div className={style.hotDescription}>
-            <h2>{tasks[2].title}</h2>
-            <p>{tasks[2].description}</p>
+            <h2></h2>
+            <p></p>
           </div>
         </div>
         <img className={style.bestHot} src={hot} alt="" />
