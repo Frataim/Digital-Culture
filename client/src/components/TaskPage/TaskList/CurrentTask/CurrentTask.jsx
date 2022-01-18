@@ -5,7 +5,6 @@ import sanya from '../../../../sanya.jpg'
 import CommentList from '../../CommentList/CommentList'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import Chat from '../../Chat/Chat'
 import FeedbackList from '../../FeedbackList/FeebackList'
 
 function CurrentTask() {
@@ -93,7 +92,7 @@ function CurrentTask() {
             <CommentList />
           )}
           {status === 2 && (
-            <Chat />
+            <FeedbackList />
           )}
           {status === 3 && (
             <FeedbackList />

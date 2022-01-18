@@ -19,7 +19,7 @@ import EditUserProfile from "./components/UserProfile/EditUserProfile";
 import { allComments } from "./redux/actions/commentsAc";
 import { allFeedbacks } from "./redux/actions/feedbacksAc";
 import CurrentTask from "./components/TaskPage/TaskList/CurrentTask/CurrentTask";
-import Chat from "./components/TaskPage/Chat/Chat";
+import Chat from "./components/Chat/Chat";
 
 function App() {
   const dispatch = useDispatch()
