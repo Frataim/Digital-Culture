@@ -19,7 +19,12 @@ export const taskReducer = (state = [], action) => {
 
     case TASK_UP: {
       console.log('reducer ========>', payload);
-      return state
+      return state = state.map((prev) => {
+        if(prev.id === payload.id){
+          return payload
+        }
+        return prev
+      })
     }
 
     default: {
