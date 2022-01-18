@@ -1,9 +1,15 @@
 import React from 'react'
 import style from './style.module.css'
 import sanya from '../../../../sanya.jpg'
+
 import CommentList from '../../CommentList/CommentList'
+import { useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 function CurrentTask() {
+  const { id } = useParams()
+  const task = useSelector(store => store.tasks.find((el) => el.id === +id))
+  console.log(task);
   return (
     <div className={style.currentContainer}>
       <div>
@@ -13,8 +19,8 @@ function CurrentTask() {
           <img className={style.currentOwnerImg} src={sanya} alt="" />
           <div className={style.currentOwnerInfo}>
             <div className={style.currentOwnerRole}>Заказчик</div>
-            <div className={style.currentOwnerName}>Елизавета Мизёва</div>
-            <div className={style.currentOwnerReviews}>0 отзывов</div>
+            <div className={style.currentOwnerName}>{task.User.name}</div>
+            <div className={style.currentOwnerReviews}>Отзывы: 2</div>
           </div>
         </div>
       </div>
@@ -23,24 +29,25 @@ function CurrentTask() {
         <div className={style.currentTaskContainer}>
 
 
-          <div className={style.currentTaskHeader}>Привлечение президентского гранта</div>
+          <div className={style.currentTaskHeader}>{task.title}</div>
 
           <div className={style.currentTaskInfoContainer}>
-            <div className={style.currentTaskDeadline}>Дедлайн 6 марта 2022</div>
+            <div className={style.currentTaskDeadline}>{task.deadline.slice(0, 10)}</div>
             <div className={style.currentTaskTime}>Открыто 44 минуты назад</div>
-            <div className={style.currentTaskResponse}>0 откликов</div>
+            <div className={style.currentTaskResponse}>Отклики: {task.Comments.length}</div>
           </div>
           <div className={style.currentTaskCategoryContainer}>
             <div className={style.currentTaskCategory}>Фандрайзинг</div>
-            <div className={style.currentTaskTag}>Доступ к образованию</div>
+            <div className={style.currentTaskTag}>{task.Tags.map((el) => {
+              return <div className={style.tag}>{el.tag}</div>
+            })}</div>
           </div>
           <div className={style.currentTaskSeparator}></div>
           <div className={style.currentTaskMainInfoContainer}>
             <div className={style.currentTaskMainHeader}>Суть задачи
             </div>
             <div className={style.currentTaskMainDescription}>
-              Мы заинтересованы в сотрудничестве со специалистом по подготовке заявки на президентский грант. В 2021 году АНО выиграла грант для одного из наших проектов, в связи с этим мы планируем привлечь грант на развитие платформы.
-              Сотрудничество с АНО “Платформа образовательных проектов”- это вклад в развитие первой в нашей стране интернет площадки, где школы и отдельные учителя могут заявить широкой аудитории о своих потребностях для улучшения образовательного процесса, а доноры (партнеры проектов) выбрать проекты, которые они поддержат, и отследить результаты их реализации.
+              {task.description}
             </div>
           </div>
           <div className={style.currentTaskSeparator}></div>
@@ -69,8 +76,8 @@ function CurrentTask() {
             </div>
 
           </div>
-      <br/>
-      <CommentList />
+          <br />
+          <CommentList />
         </div>
       </div>
     </div>

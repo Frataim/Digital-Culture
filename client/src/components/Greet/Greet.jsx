@@ -10,15 +10,20 @@ import sanya from '../../sanya.jpg'
 import talgat from '../../Talgat.jpg'
 import vanya from '../../Vanya.jpg'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { useState } from 'react'
 function Greet() {
 
-  const base = [
-    { title: 'Сделать сайт' },
-    { title: 'Сделать сайт' },
-    { title: 'Сделать сайт' },
-    { title: 'Сделать сайт' },
-  ]
 
+  const tasks = useSelector(store => store.tasks.map((el, i) => {
+    return {
+      title: el.title,
+      description: el.description
+    }
+  }))
+
+
+  console.log(tasks)
 
 
   return (
@@ -41,17 +46,15 @@ function Greet() {
         <div className={style.hotTask}>
           <img src={one} className={style.hotImage} alt="" />
           <div className={style.hotDescription}>
-            <h2>Разработка логотипов для экологического проекта.</h2>
-            <p>Наша организация разработала и реализовывает несколько экологических проектов. Некоторые из этих проектов начнут реализовываться в 2022г.
-              Мы хотим всех их объединить под брендом "Россия Экологическая"
-              Нужно придумать сам логотип; название проекта в строчку; в две строчки; вертикально; сокращённый лого РЭ; лого в ч/б цвете для печати.</p>
+            <h2>{tasks[0].title}</h2>
+            <p>{tasks[0].description}</p>
           </div>
         </div>
         <div className={style.hotTask}>
           <img src={two} className={style.hotImage} alt="" />
           <div className={style.hotDescription}>
-            <h2>Корректировка баннера и текста</h2>
-            <p>Корректировка баннера и текста на титульной странице экстранета и интранета портала на коробочной версии Битрикс-24</p>
+            <h2>{tasks[1].title}</h2>
+            <p>{tasks[1].description}</p>
           </div>
         </div>
         <div className={style.hotTask}>
@@ -59,8 +62,8 @@ function Greet() {
           </div>
           <img src={three} alt="" className={style.hotImage} />
           <div className={style.hotDescription}>
-            <h2>Создание сайта</h2>
-            <p>Наша организация РОО ЦСИ ВЕЛИКОЕ ДЕЛО наша нко зарегистрирована с декабря 2019 года. Наша главная миссия это социальная и благотворительная помощь людям оказавшимся в трудной жизненной ситуации из сельской местности. Мы ещё молодая организация в сфере благотворительности и у нас пока катастрофически не хватает финансов, чтобы создать полноценный сайт. Сайт поможет нам помочь большему количеству людей. Мы очень надеемся на вашу помощь.</p>
+            <h2>{tasks[2].title}</h2>
+            <p>{tasks[2].description}</p>
           </div>
         </div>
         <img className={style.bestHot} src={hot} alt="" />
