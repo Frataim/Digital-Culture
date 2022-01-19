@@ -2,13 +2,11 @@
   display: flex;
   flex-direction: column;
   padding: 25px;
-  border: 1px solid black ;
+  border: 1px solid black;
   border-radius: 25px;
   margin-bottom: 25px;
-  min-width: 550px;
-  
+  width: 100%;
 }
-
 
 .taskDescription {
   display: inline-block;
@@ -20,12 +18,11 @@
 }
 
 .ownerContainer {
-  display: flex
+  display: flex;
 }
 .taskAbout {
   font-size: 9px;
 }
-
 
 .taskAboutOwner {
   font-size: 10px;
@@ -41,19 +38,19 @@
 
 .taskHeader {
   font-family: Roboto;
-font-style: normal;
-font-weight: bold;
-font-size: 25px;
-line-height: 57px;
-margin-bottom: 15px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 57px;
+  margin-bottom: 15px;
 }
 
 .taskDescription {
   font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 11px;
-line-height: 27px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 27px;
 }
 
 .taskAbout {
@@ -61,7 +58,7 @@ line-height: 27px;
   margin-bottom: 15px;
 }
 
-.taskDeadline{
+.taskDeadline {
   color: #e64825;
   margin-right: 15px;
 }

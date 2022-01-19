@@ -1,6 +1,6 @@
 .navBar {
   display: flex;
-  justify-content:flex-end;
+  justify-content: flex-end;
   padding-top: 25px;
 }
 
@@ -15,26 +15,28 @@
   min-width: 100px;
   padding: 4px 10px;
   margin-right: 10px;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .link:last-child {
   margin-right: 0;
-  background-color: #99FF91;
-} 
+  background-color: #99ff91;
+}
 
 .link:last-child:hover {
   margin-right: 0;
   background-color: #18b30d;
-} 
-
+}
 
 .link:hover {
- color: black;
- background-color: #99FF91;
+  color: black;
+  background-color: #99ff91;
 }
 
 .functionContainer {
   margin-right: 30px;
 }
 
+.active {
+  background-color: #99ff91;
+}
