@@ -8,7 +8,7 @@ const Chat = () => {
     socket.onopen = () => {
       console.log("sadas", input) 
     }
-  }, [input])
+  }, [])
   const handleClick = (e) => {
     e.preventDefault()
     setInput(e.currentTarget.mess.value)
