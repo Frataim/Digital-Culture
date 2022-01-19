@@ -36,7 +36,7 @@ const EditUserProfile = () => {
   }
 
   return (
-  <div className={style.userProfileContainer}> 
+    <div className={style.userProfileContainer}> 
     <form className={style.form} >
       <div className={style.container}>
         <label className={style.label}>Имя</label>
