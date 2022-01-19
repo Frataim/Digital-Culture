@@ -15,7 +15,7 @@ const UserProfile = () => {
 
 
   return (  
-  <div className={style.userProfileContainer}> 
+  <div className={style.userProfileContainer}>
     <form className={style.form}>
       <div className={style.container}>
         <div className={style.container}>Имя</div>
