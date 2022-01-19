@@ -1,10 +1,67 @@
 import style from './style.module.css'
-import React from 'react'
+import React, {useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { delUser } from '../../redux/actions/userAction'
 
+  const linksList = [
+    {
+      path: '/create',
+      label: 'Создать задачу',
+      isUser: true,
+      role: 2,
+    },
+    {
+      path: '/tasks',
+      label: 'Задачи',
+      isUser: true,
+      role: 3,
+    },
+    {
+      path: '/workers',
+      label: 'Исполнители',
+      isUser: true,
+      role: 3,
+    },
+    {
+      path: '/profile',
+      label: 'Личный кабинет',
+      isUser: true,
+      role: 3,
+    },
+    {
+      path: '/tasks',
+      label: 'Задачи',
+      isUser: false,
+      role: false,
+    },
+    {
+      path: '/workers',
+      label: 'Исполнители',
+      isUser: false,
+      role: false,
+    },
+    {
+      path: '/signin',
+      label: 'Войти',
+      isUser: false,
+      role: false,
+    },
+    {
+      path: '/signup',
+      label: 'Зарегистрироваться',
+      isUser: false,
+      role: false,
+    },
+    {
+      path: '/commentCreateTest',
+      label: 'Тест',
+      isUser: false,
+      role: false,
+    },
+  ]
 function NavBar() {
+  const [links, setLinks] = useState(linksList)
   const user = useSelector((state) => state.user)
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -16,70 +73,35 @@ function NavBar() {
   }
 
 
-  return user ? (
-    <div className={style.navBar}>
-      <div>
-        {user.role === 2 && (
-        <Link to={'/create'} className={style.link}>
-          Создать задачу
-        </Link>
+
+  return (
+    <>
+      <div className={style.navBar}>
+
+        {links.map((el) =>
+          !!user === el.isUser
+            ?
+            (user?.role === el.role || user?.role === 2 || !!user === el.role) && 
+            (
+                <Link key={el.path} to={el.path} className={style.link}>
+                  {el.label}
+                </Link>
+              )
+            : ''
         )}
-        <Link to={'/tasks'} className={style.link}>
-          Задачи
-        </Link>
-        <Link to={'/workers'} className={style.link}>
-          Исполнители
-        </Link>
-        <Link to={'/profile'} className={style.link}>
-          Личный кабинет
-        </Link>
-        <button onClick={signOut} className={style.link}>
-          Выход
-        </button>
+
+        {user && (
+          <button onClick={signOut} className={style.link}>
+            Выход
+          </button>
+        )}
       </div>
-    </div>
-  ) : (
-    <div className={style.navBar}>
-      <div className={style.functionContainer}>
-        <Link to={'/tasks'} className={style.link}>
-          Задачи
-        </Link>
-        <Link to={'/workers'} className={style.link}>
-          Исполнители
-        </Link>
-        <Link to={'/signin'} className={style.link}>
-          Войти
-        </Link>
-        <Link to={'/signup'} className={style.link}>
-          Зарегистрироваться
-        </Link>
-        <Link to={'/commentCreateTest'} className={style.link}>
-          Тест
-        </Link>
-      </div>
-    </div>
+    </>
   )
+
+
 }
 
 export default NavBar
 
-{
-  /* <div className={style.navBar}>
-<div className={style.functionContainer}>
-  {user ? <div>
-    <Link to={'/tasks'} className={style.link}>
-    Задачи
-  </Link>
-  <Link to={'/worker'} className={style.link}>
-    Исполнители
-  </Link>
-  <Link to={'/signout'} className={style.link}>Выход</Link> </div> : <div><Link to={'/signin'} className={style.link}>
-    Войти
-  </Link>
-  <Link to={'/signup'} className={style.link}>
-    Зарегистрироваться
-  </Link></div>}
-</div>
-</div>
-) */
-}
+

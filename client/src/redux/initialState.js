@@ -4,5 +4,6 @@ const initState = {
   users: [],
   comments: [],
   feedbacks: [],
+  chats: []
 };
 export default initState;

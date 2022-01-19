@@ -7,15 +7,14 @@ import style from './style.module.css'
 function Comment( { comment, user_id, task_id }) {
   
   const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const user = useSelector((state) => state.user)
+  const users = useSelector((state) => state.users)
   const tasks = useSelector((state) => state.tasks)
+  const user = users.filter(el => el.id === user_id)[0]
   const task = tasks.filter(el => el.id === task_id)[0]
   const handleMatch = () => {
     dispatch(upTaskThunk(task_id, user_id))
-    navigate('/tasks/'+task_id)
   }
-
+  console.log('==============>', user);
   useEffect(() => {
   
   }, [])
@@ -26,7 +25,7 @@ function Comment( { comment, user_id, task_id }) {
         <div className={style.mainContainer}>
           <div className={style.userContainer}>
             <img className={style.img} src={user.avatar}></img>
-            <div> / волонтёр:</div>
+            <div>{ user.name } / волонтёр:</div>
           </div>
           <div>
             {comment}
