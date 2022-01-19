@@ -2,17 +2,22 @@ module.exports = {
   up: async (queryInterface) => {
     await queryInterface.bulkInsert('Tags', [
       {
-        tag: 'Музей',
+        tag: 'музей',
         createdAt: null,
         updatedAt: null,
       },
       {
-        tag: 'Галерея',
+        tag: 'галерея',
         createdAt: null,
         updatedAt: null,
       },
       {
-        tag: 'Арт-пространство',
+        tag: 'арт-пространство',
+        createdAt: null,
+        updatedAt: null,
+      },
+      {
+        tag: 'экология',
         createdAt: null,
         updatedAt: null,
       },
