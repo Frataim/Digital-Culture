@@ -15,39 +15,40 @@ const UserProfile = () => {
 
 
   return (  
+  <div className={style.lkContainer}>
   <div className={style.userProfileContainer}>
     <form className={style.form}>
       <div className={style.container}>
-        <div className={style.container}>Имя</div>
-        <div className={style.container}>{user.name}</div>
+        <div className={style.name}>Имя</div>
+        <div className={style.name1}>{user.name}</div>
       </div>
       <div className={style.container}>
-        <div className={style.container}>Адрес электронной почты</div>
-        <div className={style.container}>{user.email}</div>
+        <div className={style.email}>Адрес электронной почты</div>
+        <div className={style.email1}>{user.email}</div>
       </div>
       <div className={style.container}>
-        <div className={style.container}>Расскажите о себе</div>
-        <div className={style.container}>{user.resume}</div>
+        <div className={style.about}>Расскажите о себе</div>
+        <div className={style.about1}>{user.resume}</div>
       </div>
       <div className={style.container}>
-        <div className={style.container}>Роль</div>
-        <div className={style.container}>{user.role}</div>
+        <div className={style.role}>Роль</div>
+        <div className={style.role1}>{user.role}</div>
       </div>
-      <div className={style.container}>
+      <div className={style.buttonContainer}>
         <button onClick={() => navigate('/create')} className={style.button} type="submit">
           Создать задачу
         </button>
       </div>
-      <div className={style.container}>
+      <div className={style.buttonContainer}>
         <button onClick={() => navigate('/edit')} className={style.button} type="submit">
           Редактировать
         </button>
       </div>
     </form>
-    <div className={style.taskUserContainer}>
+  </div>
+  <div className={style.taskUserContainer}>
       <TaskUser />
     </div>
-    
   </div>
   );
 }

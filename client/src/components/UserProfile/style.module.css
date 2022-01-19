@@ -1,5 +1,5 @@
 .userProfileContainer {
-  padding-bottom: 120px;
+  padding-bottom: 100px;
   display:flex;
 }
 
@@ -9,17 +9,16 @@
 }
 
 .form {
-  width: 40%;
-
+  width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: relative;
   align-items: center;
   padding: 10px;
   border: 1px solid #333333;
   border-radius: 36px;
-  background: linear-gradient(180deg, #99FF91 0%, #61D1F2 100%)
+  background: linear-gradient(180deg, #99FF91 0%, #61D1F2 100%);
+  height: 500px;
 }
 
 .label {
@@ -50,6 +49,19 @@
 .button hover {
   transform: translateY(-3px);
 }
+
+.buttonContainer {
+  min-width: 400px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+
+}
+
+
 .container {
   min-width: 400px;
   height: 100%;
@@ -58,11 +70,7 @@
   justify-content: space-evenly;
   align-items: center;
   padding: 0 2rem;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  outline: none;
-  text-align: left;
+
 }
 
 .input {
@@ -83,4 +91,71 @@ outline: none;
   padding: 10px;
 }
 
+.lkContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
+.name {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  outline: none;
+  text-align:;
+}
+
+.name1 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 27px;
+}
+
+.email {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  outline: none;
+  text-align: left;
+}
+.email1{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 27px;
+}
+
+.about {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  outline: none;
+  text-align: left;
+}
+
+.about1 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 27px;
+}
+
+.role {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  outline: none;
+  text-align: left;
+}
+
+.role1 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 27px;
+}
