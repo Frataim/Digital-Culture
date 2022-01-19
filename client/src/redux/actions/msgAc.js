@@ -1,8 +1,8 @@
-import axios from "axios"
 import {ALL_MSG } from "../types/chatTypes"
 
 export const allMsg = () => (dispatch) => {
-  fetch("http://localhost:3001/comment")
+      console.log('YA action');
+  fetch("http://localhost:3001/msgs")
     .then((res) => res.json())
     .then((data) =>
       dispatch({
@@ -11,3 +11,4 @@ export const allMsg = () => (dispatch) => {
       })
     )
 }
+
