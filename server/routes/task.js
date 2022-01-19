@@ -42,7 +42,28 @@ router.route('/').patch(async (req, res) => {
       },
       { where: { id: task_id } },
     );
-    console.log(updatedTask);
+    const taskToSend = await Task.findOne({
+      where: { id: task_id },
+      include: [{
+        model: User,
+        required: false,
+      },
+      {
+        model: Comment,
+        required: false,
+      },
+      {
+        model: Tag,
+        required: false,
+      },
+      {
+        model: Status,
+        required: false,
+      },
+      ],
+    });
+    console.log('task------------>', taskToSend);
+    res.json(taskToSend);
   }
   if (status === 3) {
     const updatedTask = await Task.update(
@@ -52,9 +73,29 @@ router.route('/').patch(async (req, res) => {
       },
       { where: { id: task_id } },
     );
-    console.log(updatedTask);
+    const taskToSend = await Task.findOne({
+      where: { id: task_id },
+      include: [{
+        model: User,
+        required: false,
+      },
+      {
+        model: Comment,
+        required: false,
+      },
+      {
+        model: Tag,
+        required: false,
+      },
+      {
+        model: Status,
+        required: false,
+      },
+      ],
+    });
+    console.log('task------------>', taskToSend);
+    res.json(taskToSend);
   }
-  res.sendStatus(200);
 });
 
 router.route('/').post(async (req, res) => {
@@ -78,8 +119,28 @@ router.route('/').post(async (req, res) => {
     const tagToPush = await Tag.create({ tag: tags[i] });
     await TaskTag.create({ tag_id: tagToPush.id, task_id: newTask.id });
   }
-  console.log(newTask);
-  res.json(newTask);
+  const taskToSend = await Task.findOne({
+    where: { id: newTask.id },
+    include: [{
+      model: User,
+      required: false,
+    },
+    {
+      model: Comment,
+      required: false,
+    },
+    {
+      model: Tag,
+      required: false,
+    },
+    {
+      model: Status,
+      required: false,
+    },
+    ],
+  });
+  console.log('THIS --------->', taskToSend);
+  res.json(taskToSend);
 
   // if (req.session?.user) {
   //   const {

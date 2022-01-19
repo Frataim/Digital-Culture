@@ -14,9 +14,10 @@ router.get('/', (req, res, next) => {
 
 router.post('/feedback', async (req, res, next) => {
   const { feedback, task_id } = req.body;
-  const newFeedback = await Comment.create({ feedback, task_id, user_id: req.session.user.id });
-  console.log('коммент ------------>', newFeedback);
+  const newFeedback = await Feedback.create({ feedback, task_id, user_id: req.session.user.id });
+  console.log('фидбэк ------------>', feedback, task_id);
   res.json({
+    id: newFeedback.id,
     feedback: newFeedback.feedback,
     task_id: newFeedback.task_id,
     user_id: newFeedback.user_id,
@@ -42,6 +43,7 @@ router.post('/comment', async (req, res, next) => {
   const newComment = await Comment.create({ comment, task_id, user_id: req.session.user.id });
   console.log('коммент ------------>', newComment);
   res.json({
+    id: newComment.id,
     comment: newComment.comment,
     task_id: newComment.task_id,
     user_id: newComment.user_id,

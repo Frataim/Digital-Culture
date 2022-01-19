@@ -1,17 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import style from './style.module.css'
 import sanya from '../../../../sanya.jpg'
 
 import CommentList from '../../CommentList/CommentList'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import FeedbackList from '../../FeedbackList/FeebackList'
 
 function CurrentTask() {
   const { id } = useParams()
-  const task = useSelector(store => store.tasks.find((el) => el.id === +id))
-  console.log(task);
+  const [status, setStatus] = useState(1)
+  const task = useSelector(state => state.tasks.find((el) => el.id === +id))
+  console.log('----------------------->', task);
+  useEffect(() => {
+    if(task){
+      setStatus(task.status)
+    }
+  }, [task])
+  console.log('setStatus done------->', task);
   return (
-    <div className={style.currentContainer}>
+    <>
+    {task &&
+    
+    (<div className={style.currentContainer}>
       <div>
         <div className={style.currentRole}>Помощь нужна</div>
         <div className={style.currentOwnerInfoCard}>
@@ -77,10 +88,20 @@ function CurrentTask() {
 
           </div>
           <br />
-          <CommentList />
+          {status === 1 && (
+            <CommentList />
+          )}
+          {status === 2 && (
+            <FeedbackList />
+          )}
+          {status === 3 && (
+            <FeedbackList />
+          )}
         </div>
       </div>
-    </div>
+    </div>)
+    }
+    </>
   )
 }
 
