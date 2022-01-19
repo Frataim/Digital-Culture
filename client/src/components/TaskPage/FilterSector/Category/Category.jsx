@@ -14,6 +14,7 @@ function Category() {
   return (
     <>
       <div className={style.categorySeparator}></div>
+      <h2 className={style.categoryHeader}>Выберите категорию</h2>
       <div className={style.categoryContainer}>
         {category.map((el) => {
           return <div className={style.currentCategory}>{el.title}</div>

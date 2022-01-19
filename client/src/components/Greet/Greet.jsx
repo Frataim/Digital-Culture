@@ -69,7 +69,7 @@ function Greet() {
           </div>
 
           <div className={style.separatorAbout}></div>
-          <h2 className={style.wsorkerHeader}>Разработчики приложения</h2>
+          <h2 className={style.workerHeader}>Разработчики приложения</h2>
           <div className={style.aboutContainer}>
             <div className={style.aboutBlock}>
               <img className={style.aboutImg} src={sanya} alt="" />
