@@ -5,7 +5,7 @@ import { upTaskThunk } from "../../redux/actions/tasksAc"
 import style from './style.module.css'
 const Chat = ({task}) => {
   const socket = new WebSocket("ws://localhost:3001")
-  console.log({ socket })
+  
   const [input, setInput] = useState("")
   useEffect(() => {
     socket.onopen = () => {
@@ -17,7 +17,6 @@ const Chat = ({task}) => {
     e.preventDefault()
     setInput(e.currentTarget.mess.value)
     console.log(e.currentTarget.mess.value)
-
     e.currentTarget.mess.value = ""
   }
   const navigate = useNavigate()
@@ -27,6 +26,7 @@ const Chat = ({task}) => {
     dispatch(upTaskThunk(task.id, 0))
     navigate("/tasks/" + task.id)
   }
+  
   return (
     <div>
       <button type="button" onClick={handleMatch} className={style.btn}>
@@ -34,7 +34,8 @@ const Chat = ({task}) => {
       </button>
       <form onSubmit={handleClick} >
         <div className="chatBox">
-          <p className='currentMsg'>"currTime" </p>
+          <p className='currentMsg'>"currTime"</p>
+          <p></p>
         </div>
         <input className={style.input} name="mess" autocomplete="off"></input>
         <button className={style.btnMsg}>отправить сообщение</button>
