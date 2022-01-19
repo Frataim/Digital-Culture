@@ -24,7 +24,7 @@ function CreateTask () {
     dispatch(addTaskThunk(task))
     navigate('/tasks')
   }
-
+  console.log(task.category);
   return (
     <div className={style.mainContainer}>
       <form className={style.taskContainer} onSubmit={(e) => taskHandler(e)}>
@@ -44,8 +44,17 @@ function CreateTask () {
           value={task.description}
           onChange={inputChange}
         ></textarea>
-        {/* <label className={style.label}>КАТЕГОРИЯ</label>
-        <select className={style.input}></select> */}
+        <label className={style.label}>КАТЕГОРИЯ</label>
+        <select className={style.input} value={task.category} name='category' onChange={inputChange}>
+          <option disabled value='Выбирите категорию'>Выбирите категорию</option>
+          <option selected value="Веб-сайты">Веб-сайты</option>
+          <option value="Мобильные приложения">Мобильные приложения</option>
+          <option value="Виртуальная реальность">Виртуальная реальность</option>
+          <option value="Игры">Игры</option>
+          <option value="Чат-боты">Чат-боты</option>
+          <option value="Робототехника">Робототехника!</option>
+          <option value="Другое">Другое!</option>
+        </select>
         <label className={style.label}>СРОКИ</label>
         <input 
           type="date"

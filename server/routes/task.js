@@ -100,14 +100,14 @@ router.route('/').patch(async (req, res) => {
 
 router.route('/').post(async (req, res) => {
   const {
-    title, description, deadline,
+    title, description, deadline, category,
   } = req.body.task;
   let { tags } = req.body.task;
   tags = tags.split(',').map((el) => el.trim());
   console.log('task ------------ >', title, description, deadline, tags);
   const newTask = await Task.create({
     title,
-    category: 1,
+    category,
     description,
     deadline,
     isDone: false,
