@@ -25,7 +25,7 @@ function NavBar() {
         <Link to={'/tasks'} className={style.link}>
           Задачи
         </Link>
-        <Link to={'/worker'} className={style.link}>
+        <Link to={'/workers'} className={style.link}>
           Исполнители
         </Link>
         <Link to={'/profile'} className={style.link}>
@@ -42,7 +42,7 @@ function NavBar() {
         <Link to={'/tasks'} className={style.link}>
           Задачи
         </Link>
-        <Link to={'/worker'} className={style.link}>
+        <Link to={'/workers'} className={style.link}>
           Исполнители
         </Link>
         <Link to={'/signin'} className={style.link}>
