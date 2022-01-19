@@ -13,7 +13,6 @@ function Comment( { comment, user_id, task_id }) {
   const task = tasks.filter(el => el.id === task_id)[0]
   const handleMatch = () => {
     dispatch(upTaskThunk(task_id, user_id))
-    navigate('/tasks/'+task_id)
   }
 
   useEffect(() => {

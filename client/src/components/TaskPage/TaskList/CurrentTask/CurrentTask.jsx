@@ -93,7 +93,7 @@ function CurrentTask() {
                 <CommentList />
               )}
               {status === 2 && (
-                <FeedbackList />
+                <Chat task={task} />
               )}
               {status === 3 && (
                 <FeedbackList />
