@@ -62,7 +62,6 @@ router.route('/').patch(async (req, res) => {
       },
       ],
     });
-    console.log('task------------>', taskToSend);
     res.json(taskToSend);
   }
   if (status === 3) {
@@ -139,7 +138,6 @@ router.route('/').post(async (req, res) => {
     },
     ],
   });
-  console.log('THIS --------->', taskToSend);
   res.json(taskToSend);
 
   // if (req.session?.user) {

@@ -44,7 +44,10 @@ const UserProfile = () => {
         </button>
       </div>
     </form>
-    <TaskUser />
+    <div className={style.taskUserContainer}>
+      <TaskUser />
+    </div>
+    
   </div>
   );
 }
