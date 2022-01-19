@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
       Status, User, Comment, Feedback, Tag, TaskTag,
     }) {
       this.belongsTo(Status, { foreignKey: 'status' });
-      this.belongsTo(User, { foreignKey: 'worker' });
       this.belongsTo(User, { foreignKey: 'owner' });
       this.hasMany(Comment, { foreignKey: 'task_id' });
       this.hasMany(Feedback, { foreignKey: 'task_id' });

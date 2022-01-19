@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 function TaskList() {
   const tasks = useSelector(store => store.tasks)
-
+  console.log(tasks);
 
 
   return (
@@ -14,7 +14,6 @@ function TaskList() {
         <div className={style.taskListContainer}>
           {tasks.map((el) => <Task key={el.id} {...el} />)}
         </div>
-
       )}
     </>
   )

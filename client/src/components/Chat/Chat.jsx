@@ -9,7 +9,7 @@ const Chat = () => {
       console.log("sssss", input)
       socket.send(JSON.stringify({ id: '2', msg: input }))
     }
-  }, [input])
+  }, [])
   const handleClick = (e) => {
     e.preventDefault()
     setInput(e.currentTarget.mess.value)

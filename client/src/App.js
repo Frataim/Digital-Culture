@@ -19,17 +19,19 @@ import EditUserProfile from "./components/UserProfile/EditUserProfile";
 import { allComments } from "./redux/actions/commentsAc";
 import { allFeedbacks } from "./redux/actions/feedbacksAc";
 import CurrentTask from "./components/TaskPage/TaskList/CurrentTask/CurrentTask";
+import Workers from "./components/Workers/Workers";
 import Chat from "./components/Chat/Chat";
 
 function App() {
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user)
-
   useEffect(() => {
+
     dispatch(checkUser());
   }, []);
   
   useEffect(() => {
+
     dispatch(allTasks())
   }, [])
 
@@ -62,6 +64,7 @@ function App() {
             <Route path="signin" element={<Signin />} /> &&
             <Route path="signup" element={<Signup />} />
           }
+          <Route path='workers' element={<Workers />} />
           <Route path="tasks" element={<TaskPage />} />
         </Routes>
         <Footer />
