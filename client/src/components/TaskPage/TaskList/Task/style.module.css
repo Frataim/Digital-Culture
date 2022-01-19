@@ -6,6 +6,7 @@
   border-radius: 25px;
   margin-bottom: 25px;
   width: 100%;
+
 }
 
 .taskDescription {
@@ -72,3 +73,13 @@
   justify-content: space-between;
   margin-top: 10px;
 }
+
+.taskTag {
+  display: flex;
+}
+
+.tag {
+  margin-right: 15px;
+}
+
+

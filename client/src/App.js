@@ -1,5 +1,5 @@
 import TaskPage from "./components/TaskPage/HomePage"
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Routes, Route } from 'react-router-dom'
 import Signin from './components/Authentication/Signin/Signin';
@@ -29,7 +29,7 @@ function App() {
 
     dispatch(checkUser());
   }, []);
-  
+
   useEffect(() => {
 
     dispatch(allTasks())
@@ -46,6 +46,11 @@ function App() {
   useEffect(() => {
     dispatch(allFeedbacks())
   }, [])
+
+  const [location, setLocation] = useState(window.location.pathname)
+
+  console.log(location);
+
 
   return (
     <div className={style.content}>
