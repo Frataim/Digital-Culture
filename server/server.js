@@ -1,3 +1,6 @@
+const express = require('express')
+const { Chat } = require("./db/models")
+
 const { createServer, request } = require('http');
 const WebSocket = require('ws');
 const { app } = require('./app.js');
@@ -15,7 +18,11 @@ server.on('upgrade', (request, socket, head) => {
 
 wss.on('connection', (ws, request) => {
   ws.on('message', async (message) => {
-    console.log(JSON.parse(message));
+    console.log('Сообщение: ', JSON.parse(message))
+    const { task, user, name, msg } = JSON.parse(message)
+    const newComment = await Chat.create({ task, user, name, msg })
+    console.log(newComment)
+    
   });
 });
 
