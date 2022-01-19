@@ -1,5 +1,5 @@
 .btn {
-  background: #99FF91;
+  background: #99ff91;
   border: 1px solid #000000;
   box-sizing: border-box;
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
@@ -7,4 +7,21 @@
   width: 230px;
   font-weight: 600;
   margin-top: 10px;
-  }
+}
+
+.btnMsg {
+  margin-left: 10px;
+  background: #000000;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 10px;
+  color: white;
+  height: 45px;
+}
+
+.input {
+  border-radius: 5px;
+  padding: 10px;
+  border: none;
+  background-color: rgb(231, 231, 231);
+}

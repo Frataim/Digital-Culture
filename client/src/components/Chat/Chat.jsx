@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react"
-
+import { useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import { upTaskThunk } from "../../redux/actions/tasksAc"
+import style from './style.module.css'
 const Chat = ({task}) => {
   const socket = new WebSocket("ws://localhost:3001")
   console.log({ socket })
@@ -29,13 +32,12 @@ const Chat = ({task}) => {
       <button type="button" onClick={handleMatch} className={style.btn}>
         ПРИНЯТЬ РАБОТУ
       </button>
-      <form onSubmit={handleClick}>
-        <div>
-          окно чата конкетной таски, фиксированный размер
-          <p>здесь каждое сообщение конкретно</p>
+      <form onSubmit={handleClick} >
+        <div className="chatBox">
+          <p className='currentMsg'>"currTime" </p>
         </div>
-        <input name="mess"></input>
-        <button>отправить сообщение</button>
+        <input className={style.input} name="mess" autocomplete="off"></input>
+        <button className={style.btnMsg}>отправить сообщение</button>
       </form>
     </div>
   )
