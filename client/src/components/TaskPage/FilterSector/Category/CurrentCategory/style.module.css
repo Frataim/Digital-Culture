@@ -1,0 +1,23 @@
+.currentCategory {
+  font-size: 13px;
+  border-bottom: 1px dashed ;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.currentCategory:hover {
+  border: 1px dashed ;
+  border-radius: 36px;
+  transition: .5s;
+}
+
+.activeCategory {
+  border: 1px dashed ;
+  border-radius: 36px;
+  font-size: 13px;
+  border-bottom: 1px dashed ;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

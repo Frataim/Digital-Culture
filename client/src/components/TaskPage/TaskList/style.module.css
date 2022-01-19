@@ -5,3 +5,7 @@
   flex-direction: column;
 
 }
+
+.noTask {
+  font-size: large;
+}

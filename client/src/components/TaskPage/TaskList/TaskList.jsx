@@ -9,7 +9,9 @@ function TaskList() {
 
 
   return (
-    <>
+    <>{tasks.length === 0 &&
+      <div className={style.noTask}>Упс, по такой категории задач нету !</div>
+    }
       {tasks && (
         <div className={style.taskListContainer}>
           {tasks.map((el) => <Task key={el.id} {...el} />)}
