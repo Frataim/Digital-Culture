@@ -17,7 +17,8 @@ const Chat = () => {
 
     e.currentTarget.mess.value = ''
   }
-
+// asdsdsadsadsad
+  const news = 'dasdsadasdsadsadas'
   return (
     <div>
       <form onSubmit={handleClick}>
