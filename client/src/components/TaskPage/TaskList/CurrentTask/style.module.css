@@ -129,6 +129,8 @@ margin-left: 15px;
   border: 1px solid black;
   border-radius: 15px;
   border-right: 20px solid black transparent;
+  text-decoration: line-through;
+  background-color: #b1b1b1;
 }
 
 .currentTaskLevel::after {
@@ -137,4 +139,11 @@ margin-left: 15px;
 
 .tag {
   margin-left: 15px;
+}
+
+.currentTaskLevelDone {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color:#99FF91; ;
 }

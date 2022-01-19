@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 
 
 function Task({ id, title, category, description, deadline, status, owner, createdAt, Comments, Tags, User }) {
-  
+
 
   return (
     <div className={style.taskContainer}>
@@ -32,7 +32,7 @@ function Task({ id, title, category, description, deadline, status, owner, creat
       <div className={style.taskTagContainer}>
         <div className={style.taskCategory}>{category}</div>
         <div className={style.taskTag}>{Tags.map((el) => {
-          return <div>{el.tag}</div>
+          return <div className={style.tag}>{el.tag}</div>
         })}</div>
       </div>
     </div>
