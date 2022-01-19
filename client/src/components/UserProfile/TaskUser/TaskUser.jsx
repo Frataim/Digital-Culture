@@ -23,8 +23,8 @@ const TaskUser = () => {
 
   return (
 
-    <div>
-          <>
+    <>
+    <div className={style.container}>Мои задачи</div>
       {tasks && (
         <div className={style.taskListContainer}>
           {arr.map((el) => <Task key={el.id} {...el} />)}
@@ -32,7 +32,6 @@ const TaskUser = () => {
 
       )}
     </>
-    </div>
   );
 }
 
