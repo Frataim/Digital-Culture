@@ -6,6 +6,7 @@ import CommentList from '../../CommentList/CommentList'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import FeedbackList from '../../FeedbackList/FeebackList'
+import Chat from '../../../Chat/Chat'
 
 function CurrentTask() {
   const { id } = useParams()
@@ -92,7 +93,7 @@ function CurrentTask() {
             <CommentList />
           )}
           {status === 2 && (
-            <FeedbackList />
+            <Chat task={task} />
           )}
           {status === 3 && (
             <FeedbackList />
