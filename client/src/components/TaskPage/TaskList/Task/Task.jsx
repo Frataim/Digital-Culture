@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 
 
 function Task({ id, title, category, description, deadline, status, owner, createdAt, Comments, Tags, User }) {
-
+  
 
   return (
     <div className={style.taskContainer}>
