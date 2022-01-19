@@ -14,9 +14,9 @@ export const addFeedback = (response) => ({
   payload: response,
 })
 
-export const addFeedbackThunk = (feedback, task_id) => async (dispatch) => {
+export const addFeedbackThunk = (feedback , task_id, currentUser, stars) => async (dispatch) => {
   console.log('thunk check ---------->', feedback, task_id)
-  const userFromBack = await axios.post('http://localhost:3001/feedback', {feedback, task_id})
+  const userFromBack = await axios.post('http://localhost:3001/feedback', {feedback, task_id, currentUser, stars})
   const response = userFromBack.data
   dispatch(addFeedback(response))
 }

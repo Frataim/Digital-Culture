@@ -13,9 +13,14 @@ router.get('/', (req, res, next) => {
 // FEEDBACK
 
 router.post('/feedback', async (req, res, next) => {
-  const { feedback, task_id } = req.body;
+  const {
+    feedback, task_id, currentUser, stars,
+  } = req.body;
+  const user_id = +currentUser;
+  const star = +stars;
   const newFeedback = await Feedback.create({ feedback, task_id, user_id: req.session.user.id });
-  console.log('фидбэк ------------>', feedback, task_id);
+  const newRating = await Rate.create({ rate: star, user_id });
+  console.log('RATING', newRating);
   res.json({
     id: newFeedback.id,
     feedback: newFeedback.feedback,
