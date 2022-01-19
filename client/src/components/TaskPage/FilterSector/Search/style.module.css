@@ -1,8 +1,9 @@
 .input {
-  background: linear-gradient(180deg, #99FF91 0%, #61D1F2 100%);
-border: 1px solid #333333;
+  border: none;
+background-color: #a19e9e;
+border: 1px solid grey;
 box-sizing: border-box;
-border-radius: 36px;
+border-radius: 10px;
 width: 300px;
 }
 

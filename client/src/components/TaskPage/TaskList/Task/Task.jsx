@@ -18,8 +18,8 @@ function Task({ id, title, category, description, deadline, status, owner, creat
       </div>
       <div className={style.taskHeader}>{title}</div>
       <div className={style.taskAbout}>
-        <div className={style.taskDeadline}>{deadline}</div>
-        <div className={style.taskBorn}>{createdAt}</div>
+        <div className={style.taskDeadline}>Дедлайн: {deadline.slice(0, 10)}</div>
+        <div className={style.taskBorn}>Задача открыта: {createdAt.slice(0, 10)}</div>
         <div className={style.taskFeedBack}>Отклики: {Comments.length}</div>
       </div>
       <Link to={`/tasks/${id}`}>
