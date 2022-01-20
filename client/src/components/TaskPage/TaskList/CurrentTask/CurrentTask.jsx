@@ -3,13 +3,16 @@ import style from './style.module.css'
 import sanya from '../../../../sanya.jpg'
 
 import CommentList from '../../CommentList/CommentList'
-import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import FeedbackList from '../../FeedbackList/FeebackList'
 import Chat from '../../../Chat/Chat'
+import { deleteTaskThunk } from '../../../../redux/actions/tasksAc'
 
 function CurrentTask() {
   const { id } = useParams()
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [status, setStatus] = useState(1)
   const task = useSelector(state => state.tasks.find((el) => el.id === +id))
   console.log(task);
@@ -18,6 +21,11 @@ function CurrentTask() {
       setStatus(task.status)
     }
   }, [task])
+
+  const clickHandler = () => {
+    dispatch(deleteTaskThunk(id))
+    navigate('/')
+  }
 
   return (
     <>
@@ -98,9 +106,9 @@ function CurrentTask() {
               {status === 3 && (
                 <FeedbackList />
               )}
+          <button onClick={clickHandler} className={style.btn}>Удалить задачу</button>
             </div>
           </div>
-
         </div>)
       }
     </>

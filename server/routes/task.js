@@ -97,6 +97,39 @@ router.route('/').patch(async (req, res) => {
   }
 });
 
+router.route('/delete').patch(async (req, res) => {
+  const { task_id } = req.body;
+  console.log('PATCH ------------> id', task_id);
+  const idDone = true;
+  const updatedTask = await Task.update(
+    {
+      idDone,
+    },
+    { where: { id: task_id } },
+  );
+  const taskToSend = await Task.findOne({
+    where: { id: task_id },
+    include: [{
+      model: User,
+      required: false,
+    },
+    {
+      model: Comment,
+      required: false,
+    },
+    {
+      model: Tag,
+      required: false,
+    },
+    {
+      model: Status,
+      required: false,
+    },
+    ],
+  });
+  res.json(taskToSend);
+});
+
 router.route('/').post(async (req, res) => {
   const {
     title, description, deadline, category,

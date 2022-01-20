@@ -147,3 +147,15 @@ margin-left: 15px;
   border-radius: 15px;
   background-color:#99FF91; ;
 }
+
+.btn {
+  background: #99FF91;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 100px;
+  width: 150px;
+  }
+  .btn:hover {
+    background: #ffffff;
+  }

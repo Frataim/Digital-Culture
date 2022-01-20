@@ -47,3 +47,15 @@ export const searchTask = (data) => (dispatch) => {
     payload: data
   })
 }
+
+export const deleteTask = (response) => ({
+  type: TASK_UP,
+  payload: response,
+})
+
+export const deleteTaskThunk = (task_id) => async (dispatch) => {
+
+  const userFromBack = await axios.patch('http://localhost:3001/tasks/delete', { task_id })
+  const response = userFromBack.data
+  dispatch(deleteTask(response))
+}
