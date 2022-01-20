@@ -18,10 +18,14 @@ const UserProfile = () => {
         <div className={style.lkContainer}>
           <div className={style.userProfileContainer}>
             <form className={style.form}>
+              <img src={user.avatar} className={style.img} alt="" />
+
+              <div className={style.separator}></div>
               <div className={style.container}>
                 <div className={style.name}>Имя</div>
                 <div className={style.name1}>{user.name}</div>
               </div>
+              <div className={style.separator}></div>
               <div className={style.container}>
                 <div className={style.email}>Адрес электронной почты</div>
                 <div className={style.email1}>{user.email}</div>
@@ -30,10 +34,12 @@ const UserProfile = () => {
                 <div className={style.about}>Расскажите о себе</div>
                 <div className={style.about1}>{user.resume}</div>
               </div>
+              <div className={style.separator}></div>
               <div className={style.container}>
                 <div className={style.role}>Роль</div>
                 <div className={style.role1}>{user.role === 3 ? 'Исполнитель' : 'Заказчик'}</div>
               </div>
+              <div className={style.separator}></div>
               <div className={style.buttonContainer}>
                 <button
                   onClick={() => navigate('/create')}

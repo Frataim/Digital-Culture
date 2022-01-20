@@ -8,3 +8,5 @@ export const SIGNIN_USER = 'SIGNIN_USER'; // вход пользователя
 export const EDIT_USER = 'EDIT_USER'; // редактирование пользователя
 
 export const UPLOAD = 'UPLOAD'; // залить аву
+
+export const SEARCH_WORKER = 'SEARCH_WORKER'
