@@ -26,7 +26,7 @@ router.route('/edit/:id').patch(async (req, res) => {
 router.route('/signup').post(async (req, res) => {
   console.log('------------------->', req.body);
   const {
-    name, email, password, resume, role,
+    name, email, password, resume, role, avatar,
   } = req.body.formData;
   req.session.user = {};
   if (validateEmail(email) && password) {
@@ -36,7 +36,7 @@ router.route('/signup').post(async (req, res) => {
         name,
         email,
         password: hashPass,
-        avatar: 'https://cs6.pikabu.ru/avatars/1576/v1576985-1962120878.jpg',
+        avatar: `http://localhost:3001/${avatar}`,
         resume,
         role: +role,
       });
@@ -73,46 +73,51 @@ router.route('/signin').post(async (req, res) => {
     try {
       const currentUser = await User.findOne({ where: { email } });
       if (
-        currentUser &&
-        (await bcrypt.compare(password, currentUser.password))
-        ) {
-          req.session.user = {
-            id: currentUser.id,
-            name: currentUser.name,
-            resume: currentUser.resume,
-            email: currentUser.email,
-            role: currentUser.role,
-            avatar: currentUser.avatar,
-          }
-          return res.json({
-            id: currentUser.id,
-            name: currentUser.name,
-            resume: currentUser.resume,
-            email: currentUser.email,
-            role: currentUser.role,
-            avatar: currentUser.avatar,
-          })
-        }
-        return res.sendStatus(401)
-      } catch (err) {
-        return res.sendStatus(401)
+        currentUser
+        && (await bcrypt.compare(password, currentUser.password))
+      ) {
+        req.session.user = {
+          id: currentUser.id,
+          name: currentUser.name,
+          resume: currentUser.resume,
+          email: currentUser.email,
+          role: currentUser.role,
+          avatar: currentUser.avatar,
+        };
+        return res.json({
+          id: currentUser.id,
+          name: currentUser.name,
+          resume: currentUser.resume,
+          email: currentUser.email,
+          role: currentUser.role,
+          avatar: currentUser.avatar,
+        });
       }
-    } else {
-      return res.sendStatus(401)
+      return res.sendStatus(401);
+    } catch (err) {
+      return res.sendStatus(401);
     }
-  })
-  
-  router.route('/edit/:id').patch(async (req, res) => {
-    console.log('--->>>>edit17', req.body)
-    const { name, email, resume, role } = req.body
-    await User.update({name, email, resume, role}, {
-      where: { id: req.session.user.id },
-    })
-    res.json({name, email, resume, role})
-  })
-  
-  router.route('/check').get((req, res) => {
+  } else {
+    return res.sendStatus(401);
+  }
+});
 
+router.route('/edit/:id').patch(async (req, res) => {
+  console.log('--->>>>edit17', req.body);
+  const {
+    name, email, resume, role,
+  } = req.body;
+  await User.update({
+    name, email, resume, role,
+  }, {
+    where: { id: req.session.user.id },
+  });
+  res.json({
+    name, email, resume, role,
+  });
+});
+
+router.route('/check').get((req, res) => {
   if (req.session?.user) {
     return res.json({
       id: req.session.user.id,
