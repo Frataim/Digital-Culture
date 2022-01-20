@@ -37,7 +37,7 @@ function CurrentTask() {
             <div className={style.currentRole}>Помощь нужна</div>
             <div className={style.currentOwnerInfoCard}>
 
-              <img className={style.currentOwnerImg} src={sanya} alt="" />
+              <img className={style.currentOwnerImg} src={task.User.avatar} alt="" />
               <div className={style.currentOwnerInfo}>
                 <div className={style.currentOwnerRole}>Заказчик</div>
                 <div className={style.currentOwnerName}>{task.User.name}</div>

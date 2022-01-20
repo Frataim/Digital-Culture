@@ -42,6 +42,7 @@ export const filteredTask = (data) => (dispatch) => {
 }
 
 export const searchTask = (data) => (dispatch) => {
+  console.log('ACTIOOOOOONS', data);
   dispatch({
     type: SEARCH_TASK,
     payload: data

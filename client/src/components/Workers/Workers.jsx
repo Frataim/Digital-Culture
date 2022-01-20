@@ -13,17 +13,16 @@ function Workers() {
 
   const dispatch = useDispatch()
 
-  // let [input, setInput] = useState('')
-
-  // useEffect(() => {
-  //   if (input = '') {
-  //     dispatch(getAllUsers())
-  //   }
-  //   console.log(input);
-  //   dispatch(searchUser(input))
-  // }, [input])
+  let [input, setInput] = useState('')
 
 
+  useEffect(() => {
+    if (input == '') {
+      dispatch(getAllUsers())
+    }
+    dispatch(searchUser(input))
+
+  }, [input])
 
 
   return (
@@ -32,7 +31,7 @@ function Workers() {
       <div className={style.workersContainer}>
         <h2 className={style.workerSearchHeader}>Поиск по исполнителю</h2>
         <div className={style.filterContainer}>
-          <input className={style.input} type="text" />
+          <input value={input} onChange={(e) => setInput(e.target.value)} className={style.input} type="text" />
         </div>
         {workers.map((el) => {
           return <div id={el.id} className={style.currentWorker}>
