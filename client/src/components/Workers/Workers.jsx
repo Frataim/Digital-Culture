@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import style from './style.module.css'
 import { Link } from 'react-router-dom'
 
 
 function Workers() {
+  const workers = useSelector(store => store.users.reverse())
 
-  const workers = useSelector(store => store.users.slice(0, 5))
-  console.log(workers);
+  const tasks = useSelector(store => store.tasks)
+
+  const arr = []
+
+  function rating(arr) {
+    const one = arr.reduce((acc, cur) => {
+      if (cur.Rates.rate === 5) {
+        return cur + acc
+      }
+    }, 0)
+  }
+
+
   return (
     <>{workers &&
 
@@ -31,7 +43,7 @@ function Workers() {
             <div className={style.infoWorkerContainer}>
               <div className={style.doneContainer}>
                 <div className={style.rating}>1</div>
-                <div className={style.done}>5 здач</div>
+                <div className={style.done}>Решенных задач: {tasks.filter(task => el.id === task.worker && task.isDone === true).length} </div>
               </div>
             </div>
           </div>
