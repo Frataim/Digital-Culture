@@ -9,6 +9,8 @@ export default function FeedbackList() {
   const {id} = useParams()
   const task_id = +id
   const feedbacks = useSelector((state) => state.feedbacks)
+  const user = useSelector((state) => state.user)
+  console.log(user);
   const [actualFeedbacks, setActualFeedbacks] = useState([])
   useEffect(() => {
     setActualFeedbacks(feedbacks.filter(el => el.task_id === task_id).reverse())
@@ -17,7 +19,9 @@ export default function FeedbackList() {
   console.log(actualFeedbacks);
   return (
     <div>
-      <FeedbackForm />
+      {user !== null && (
+        <FeedbackForm />
+      )}
       <br/>
         {actualFeedbacks.map((el) => <Feedback key={el.id} {...el} />)}
     </div>

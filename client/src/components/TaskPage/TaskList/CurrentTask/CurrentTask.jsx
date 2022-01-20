@@ -14,8 +14,9 @@ function CurrentTask() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [status, setStatus] = useState(1)
+  const user = useSelector((state) => state.user)
   const task = useSelector(state => state.tasks.find((el) => el.id === +id))
-  console.log(task);
+  console.log('this task -------->', task);
   useEffect(() => {
     if (task) {
       setStatus(task.status)
@@ -106,7 +107,9 @@ function CurrentTask() {
               {status === 3 && (
                 <FeedbackList />
               )}
-          <button onClick={clickHandler} className={style.btn}>Удалить задачу</button>
+          {user !==null && task.owner === user.id && (
+            <button onClick={clickHandler} className={style.btn}>Удалить задачу</button>
+          )}
             </div>
           </div>
         </div>)
