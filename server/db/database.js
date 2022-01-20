@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config()
 
 module.exports = {
   development: {
@@ -22,4 +22,4 @@ module.exports = {
     host: '127.0.0.1',
     dialect: 'mysql',
   },
-};
+}

@@ -1,5 +1,6 @@
 .currentWorkerContainer {
   display: flex;
+  justify-content: space-evenly;
 }
 
 .currentWorkerInfoContainer {
@@ -26,6 +27,13 @@
   font-weight: 300;
 }
 
+.avatar {
+  height: 130px;
+  width: 135px;
+  border-radius: 40px;
+  border: 1px solid black;
+}
+
 .aboutEmail {
   margin-bottom: 15px;
   font-size: 19px;
@@ -50,4 +58,8 @@
 
 .role {
   font-weight: 300;
+}
+
+.currentTaskContainer {
+  
 }
