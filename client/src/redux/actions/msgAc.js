@@ -11,7 +11,6 @@ export const allMsg = () => (dispatch) => {
             payload: data,
           })
         )
-  }, 35)
-
+  }, 1000)
 }
 
