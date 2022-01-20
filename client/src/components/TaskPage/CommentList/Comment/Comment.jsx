@@ -9,6 +9,7 @@ function Comment( { comment, user_id, task_id }) {
   const dispatch = useDispatch()
   const users = useSelector((state) => state.users)
   const tasks = useSelector((state) => state.tasks)
+  const owner = useSelector((state) => state.user)
   const user = users.filter(el => el.id === user_id)[0]
   const task = tasks.filter(el => el.id === task_id)[0]
   const handleMatch = () => {
@@ -31,7 +32,7 @@ function Comment( { comment, user_id, task_id }) {
             {comment}
           </div>
           {
-            user.role === 2 && task.owner === user.id && (
+            owner.role === 2 && task.owner === owner.id && (
               <button type='button' onClick={handleMatch} className={style.btn}>
                 ВЫБРАТЬ ИСПОЛНИТЕЛЯ
               </button>
