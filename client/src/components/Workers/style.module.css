@@ -74,3 +74,8 @@
 .workerSearchHeader {
   margin-bottom: 25px;
 }
+
+.img {
+  height: 100px;
+  border-radius: 36px;
+}
