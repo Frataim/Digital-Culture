@@ -1,22 +1,19 @@
-import React from 'react';
-import { useMatch, useResolvedPath } from "react-router-dom";
-import { LinkProps } from "react-router-dom";
+import { Link, useMatch } from 'react-router-dom';
 
+const CustomLink = ({children, to, ...props}) => {
+    const match = useMatch(to);
 
-function CustomLink({el.path, el.label}: LinkProps) {
-  let resolved = useResolvedPath (to);
-  let match = useMatch ({ path: resolved.pathname, end: true });
-
-  return (
-    <div>
-      <Link
-        style={{ textDecoration: match ? "underline" : "none" }}
-        to={to}
-        {...props}
-      >
-        {children}
-      </Link>
-      {match && " (active)"}
-    </div>
-  );
+    return (
+        <Link
+            to={to}
+            style={{
+              backgroundColor: match ? 'var(--background-color)' : '',
+            }}
+            {...props}
+        >
+            {children}
+        </Link>
+    )
 }
+
+export {CustomLink};

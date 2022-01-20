@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { delUser } from '../../redux/actions/userAction'
+import { CustomLink } from './CustomLink/CustomLink'
 
   const linksList = [
     {
@@ -83,9 +84,9 @@ function NavBar() {
             ?
             (user?.role === el.role || user?.role === 2 || !!user === el.role) && 
             (
-                <Link key={el.path} to={el.path} className={style.link}>
+                <CustomLink key={el.path} to={el.path} className={style.link}>
                   {el.label}
-                </Link>
+                </CustomLink>
               )
             : ''
         )}
