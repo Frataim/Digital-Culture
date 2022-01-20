@@ -6,3 +6,5 @@ export const AUTH_CHECK = 'AUTH_CHECK'; // проверка пользовате
 export const SIGNIN_USER = 'SIGNIN_USER'; // вход пользователя
 
 export const EDIT_USER = 'EDIT_USER'; // редактирование пользователя
+
+export const UPLOAD = 'UPLOAD'; // залить аву

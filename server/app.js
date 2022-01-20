@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const morgan = require('morgan');
+const fileUpload = require('express-fileupload');
 
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
@@ -25,6 +26,8 @@ const sessionConfig = {
   httpOnly: true, // нельзя изменить куки с фронта
 };
 
+app.use(express.static('public'));
+app.use(fileUpload());
 app.use(session(sessionConfig));
 app.use(morgan('dev'));
 app.use(express.json());

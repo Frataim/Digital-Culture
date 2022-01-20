@@ -16,6 +16,8 @@
   padding: 4px 10px;
   margin-right: 10px;
   transition: 0.3s;
+  --background-color:#99ff91;
+  --color-active:black;
 }
 
 .link:last-child {
@@ -37,4 +39,8 @@
   margin-right: 30px;
 }
 
+.active {
+  background-color: var(--background-color);
+  cursor: default;
+}
 
