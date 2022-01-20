@@ -11,25 +11,16 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/upload', async (req, res, next) => {
-  console.log(req.files);
+  console.log('----------> reqbody', req.files);
   if (!req.files) {
     return res.status(500).send({ msg: 'file is not found' });
   }
   // accessing the file
   const myFile = req.files.file;
-  console.log('FILE---->', myFile);
+  console.log('FILE---->', req.files);
   // mv() method places the file inside public directory
 
-  myFile.mv(`${__dirname}/../public/${myFile.name}`, (err) => {
-    if (err) {
-      console.log(err);
-      return res.status(500).send({ msg: 'Error occured' });
-    }
-
-    // returing the response with file path and name
-
-    return res.send({ name: myFile.name, path: `/${myFile.name}` });
-  });
+  myFile.mv(`${__dirname}/../public/${myFile.name}`);
 });
 
 // FEEDBACK

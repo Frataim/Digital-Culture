@@ -8,7 +8,6 @@ export const addUserAction = (responce) => ({
 })
 
 export const addUser = (formData) => async (dispatch) => {
-  console.log(formData)
   const userFromBack = await axios.post('http://localhost:3001/users/signup', { formData })
   const responce = userFromBack.data
   dispatch(addUserAction(responce))

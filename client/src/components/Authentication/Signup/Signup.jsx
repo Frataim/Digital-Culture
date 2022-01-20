@@ -1,11 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import style from './style.module.css'
 import { addUser, checkUser } from '../../../redux/actions/userAction'
+import axios from 'axios'
 
 // зарегистрироваться
 const Signup = () => {
+  const [file, setFile] = useState('')
+  const [data, getFile] = useState({ name: "", path: "" });
+  const el = useRef(); // accesing input element
+
+  const handleChange = (e) => {
+    const file = e.target.files[0]; // accessing file
+    setFile(file); // storing file
+  }
+
   const [reg, setReg] = useState({}) // состояние регистрации
   const navigate = useNavigate()
   const dispatch = useDispatch() // чтоб изменить состояние внутри компонента получаем диспатч
@@ -24,14 +34,16 @@ const Signup = () => {
 
   const [select, setSelect] = useState('')
 
-  console.log('-------->> seletc', select)
-
   const regHandler = (e) => {
     e.preventDefault()
-    console.log('=>>>>>>', reg)
+    const avatar = file.name
+    const fileData = new FormData();
+    fileData.append('file', file);
+    axios.post('http://localhost:3001/upload', fileData)
     dispatch(addUser({
       ...reg,
-      role: select
+      role: select,
+      avatar: avatar
     }))
     dispatch(checkUser())
     navigate('/')
@@ -103,6 +115,10 @@ const Signup = () => {
             className={style.input}
           />
         </div>
+        <div className={style.fileupload}>
+                <label className={style.label}> Загрузите аватарку</label>
+                <input className={style.any} type="file" ref={el} onChange={handleChange} />
+            </div>
         <div className={style.container}>
           <button className={style.button} type="submit">
             Поехали
