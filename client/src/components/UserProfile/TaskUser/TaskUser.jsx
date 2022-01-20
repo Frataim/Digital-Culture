@@ -19,11 +19,11 @@ const TaskUser = () => {
       setArr(tasks.filter((e) => e.worker === user.id))
     }
   }, [])
-  
+
   console.log(arr)
   return (
     <div>
-      <h3 className={style.container}>Мои задачи</h3>
+      <h3 className={style.container}>Мои задачи: </h3>
       {tasks.length > 0 && (
         <div className={style.taskListContainer}>
           {arr.map((el) => (

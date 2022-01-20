@@ -68,8 +68,11 @@ margin-bottom: 25px;
   position: absolute;
   z-index: 0;
   left: 550px;
-  width: 800px;
-  height: 850px;
+  width: 850px;
+  height: 950px;
+}
+.aboutHeader {
+  margin-top: 25px;
 }
 
 .hotDescription {

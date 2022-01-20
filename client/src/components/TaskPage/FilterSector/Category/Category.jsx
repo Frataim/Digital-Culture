@@ -10,6 +10,7 @@ import CurrentCategory from './CurrentCategory/CurrentCategory'
 function Category() {
 
   const [categories, setCategories] = useState([
+    { title: 'Веб-сайты' },
     { title: 'Мобильные приложения' },
 
     { title: 'Виртуальная реальность' },
