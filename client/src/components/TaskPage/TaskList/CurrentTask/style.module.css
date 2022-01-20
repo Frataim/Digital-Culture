@@ -159,3 +159,21 @@ margin-left: 15px;
   .btn:hover {
     background: #ffffff;
   }
+
+  .currentTaskDeadline {
+    color: rgb(226, 63, 63);
+    font-size: 11px;
+  }
+
+  .currentTaskHeader {
+    font-size: 20px;
+  }
+  .currentTaskMainHeader {
+    font-size: 18px;
+  }
+.currentTaskTime {
+  font-size: 11px;
+}
+.currentTaskResponse {
+  font-size: 11px;
+}
