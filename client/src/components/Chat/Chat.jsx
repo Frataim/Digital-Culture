@@ -7,13 +7,11 @@ import style from "./style.module.css"
 const Chat = ({ task }) => {
   console.log(task)
   const socket = new WebSocket("ws://localhost:3001")
-
   const user = useSelector((state) => state.user)
   const chats = useSelector((state) => state.chats)
 
   console.log("curr", {...chats})
   const [input, setInput] = useState("")
-  const [oldChat, setOldChat] = useState(chats)
   useEffect(() => {
     socket.onopen = () => {
       console.log("my life, my rulzzz: ", input)
@@ -21,18 +19,8 @@ const Chat = ({ task }) => {
         socket.send(JSON.stringify({ task: task.id, msg: input, user: user.id, name: user.name }))
       }
     }
-    dispatch(allMsg())
-    setOldChat(chats)
-    
+    dispatch(allMsg())    
   }, [input])
-  console.log('_____', chats, oldChat)
-
-  useEffect(() => {
-    if (JSON.stringify(chats) !== JSON.stringify(oldChat)) {
-    dispatch(allMsg())
-  }
-}, [oldChat])
-
 
   const handleClick = (e) => {
     e.preventDefault()

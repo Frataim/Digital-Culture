@@ -54,12 +54,6 @@ import { CustomLink } from './CustomLink/CustomLink'
       isUser: false,
       role: false,
     },
-    {
-      path: '/commentCreateTest',
-      label: 'Тест',
-      isUser: false,
-      role: false,
-    },
   ]
 function NavBar() {
   const [links, setLinks] = useState(linksList)
