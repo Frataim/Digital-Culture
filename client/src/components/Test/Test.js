@@ -35,15 +35,6 @@ export default function Test() {
     <div>
             <div className={style.fileupload}>
                 <input className={style.any} type="file" ref={el} onChange={handleChange} />
-                <div className={style.progessBar} style={{ width: progress }}>
-                   {progress}
-                </div>
-                <button className={style.any} onClick={uploadFile} className={style.upbutton}>
-                   Upload
-                </button>
-            <hr />
-            {/* displaying received image*/}
-            {data.path && <img className={style.img} src={data.path} alt={data.name} />}
             </div>
         </div>
   )
