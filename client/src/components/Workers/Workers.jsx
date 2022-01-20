@@ -31,7 +31,7 @@ function Workers() {
         {workers.map((el) => {
           return <div id={el.id} className={style.currentWorker}>
             <div className={style.imgContainer}>
-              <img src={el.avatar} alt="" />
+              <img className={style.img} src={el.avatar} alt="" />
             </div>
             <div className={style.ratingContainer}>
               <Link to={`/workers/${el.id}`} className={style.currentName}><div>{el.name}</div></Link>

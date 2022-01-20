@@ -14,8 +14,9 @@ function CurrentTask() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [status, setStatus] = useState(1)
+  const user = useSelector((state) => state.user)
   const task = useSelector(state => state.tasks.find((el) => el.id === +id))
-  console.log(task);
+  console.log('this task -------->', task);
   useEffect(() => {
     if (task) {
       setStatus(task.status)
@@ -52,8 +53,8 @@ function CurrentTask() {
               <div className={style.currentTaskHeader}>{task.title}</div>
 
               <div className={style.currentTaskInfoContainer}>
-                <div className={style.currentTaskDeadline}>{task.deadline.slice(0, 10)}</div>
-                <div className={style.currentTaskTime}>Открыто 44 минуты назад</div>
+                <div className={style.currentTaskDeadline}>Дедлайн: {task.deadline.slice(0, 10)}</div>
+                <div className={style.currentTaskTime}>Задание открыто: {task.createdAt.slice(0, 10)}</div>
                 <div className={style.currentTaskResponse}>Отклики: {task.Comments.length}</div>
               </div>
               <div className={style.currentTaskCategoryContainer}>
@@ -64,7 +65,7 @@ function CurrentTask() {
               </div>
               <div className={style.currentTaskSeparator}></div>
               <div className={style.currentTaskMainInfoContainer}>
-                <div className={style.currentTaskMainHeader}>Суть задачи
+                <div className={style.currentTaskMainHeader}>Суть задачи:
                 </div>
                 <div className={style.currentTaskMainDescription}>
                   {task.description}
@@ -106,7 +107,9 @@ function CurrentTask() {
               {status === 3 && (
                 <FeedbackList />
               )}
-          <button onClick={clickHandler} className={style.btn}>Удалить задачу</button>
+              {user !== null && task.owner === user.id && (
+                <button onClick={clickHandler} className={style.btn}>Удалить задачу</button>
+              )}
             </div>
           </div>
         </div>)
