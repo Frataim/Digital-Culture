@@ -1,4 +1,4 @@
-import { ADD_TASK, ALL_TASKS, FILTER_TASK, SEARCH_TASK, TASK_UP } from '../types/tasksTypes'
+import { ADD_TASK, ALL_TASKS, DELETE_TASK, FILTER_TASK, SEARCH_TASK, TASK_UP } from '../types/tasksTypes'
 
 
 export const taskReducer = (state = [], action) => {
@@ -26,6 +26,15 @@ export const taskReducer = (state = [], action) => {
         return prev
       })
     }
+    case DELETE_TASK: {
+      return state = state.map((prev) => {
+        if (prev.id === payload.id) {
+          return payload
+        }
+        return prev
+      })
+    }
+
     case FILTER_TASK: {
 
       return state.filter((el) => el.category === payload)

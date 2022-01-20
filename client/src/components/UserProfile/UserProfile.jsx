@@ -12,6 +12,9 @@ const UserProfile = () => {
   useEffect(() => {}, [])
 
   return (
+    <>
+    {user && (
+
     <div className={style.lkContainer}>
       <div className={style.userProfileContainer}>
         <form className={style.form}>
@@ -55,6 +58,8 @@ const UserProfile = () => {
         <TaskUser />
       </div>
     </div>
+    )}
+    </>
   )
 }
 
