@@ -11,7 +11,9 @@ const UserProfile = () => {
   const user = useSelector((state) => state.user)
   useEffect(() => {}, [])
 
-  return (
+  return ( 
+    <>
+    {user && (
     <div className={style.lkContainer}>
       <div className={style.userProfileContainer}>
         <form className={style.form}>
@@ -55,6 +57,8 @@ const UserProfile = () => {
         <TaskUser />
       </div>
     </div>
+      )}
+  </>
   )
 }
 
