@@ -22,6 +22,7 @@ import CurrentTask from "./components/TaskPage/TaskList/CurrentTask/CurrentTask"
 import Workers from "./components/Workers/Workers"
 import Chat from "./components/Chat/Chat"
 import { allMsg } from "./redux/actions/msgAc"
+import CurrentWorker from "./components/Workers/CurrentWorker/CurrentWorker"
 
 function App() {
   const dispatch = useDispatch()
@@ -73,6 +74,7 @@ function App() {
           )}
           <Route path="workers" element={<Workers />} />
           <Route path="tasks" element={<TaskPage />} />
+          <Route path='workers/:id' element={<CurrentWorker />}></Route>
         </Routes>
         <Footer />
       </Container>
