@@ -22,6 +22,7 @@ import CurrentTask from "./components/TaskPage/TaskList/CurrentTask/CurrentTask"
 import Workers from "./components/Workers/Workers"
 import Chat from "./components/Chat/Chat"
 import { allMsg } from "./redux/actions/msgAc"
+import Test from "./components/Test/Test"
 
 function App() {
   const dispatch = useDispatch()
@@ -61,7 +62,7 @@ function App() {
           <Route path="/" element={<Greet />} />
           <Route path="signin" element={<Signin />} />
           <Route path="/create" element={<CreateTask />} />
-          <Route path="/commentCreateTest" element={<Chat />} />
+          <Route path="/commentCreateTest" element={<Test />} />
           <Route path="create" element={<CreateTask />} />
           <Route path="profile" element={<UserProfile />} />
           <Route path="edit" element={<EditUserProfile />} />
