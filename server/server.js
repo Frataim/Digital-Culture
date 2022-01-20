@@ -22,7 +22,6 @@ wss.on('connection', (ws, request) => {
     const { task, user, name, msg } = JSON.parse(message)
     const newComment = await Chat.create({ task, user, name, msg })
     console.log(newComment)
-    
   });
 });
 

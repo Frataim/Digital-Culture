@@ -1,35 +1,49 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import { allMsg } from "../../redux/actions/msgAc"
 import { upTaskThunk } from "../../redux/actions/tasksAc"
 import style from "./style.module.css"
 const Chat = ({ task }) => {
   console.log(task)
-
   const socket = new WebSocket("ws://localhost:3001")
-  const { user, chats } = useSelector((state) => state)
 
-  const currentMSG = chats.filter(el => el.task == task.id)
-  console.log('curr', currentMSG);
+  const user = useSelector((state) => state.user)
+  const chats = useSelector((state) => state.chats)
+
+  console.log("curr", {...chats})
   const [input, setInput] = useState("")
+  const [oldChat, setOldChat] = useState(chats)
   useEffect(() => {
     socket.onopen = () => {
       console.log("my life, my rulzzz: ", input)
       if (input.length > 0) {
-        
         socket.send(JSON.stringify({ task: task.id, msg: input, user: user.id, name: user.name }))
-      } 
+      }
     }
+    dispatch(allMsg())
+    setOldChat(chats)
+    
   }, [input])
+  console.log('_____', chats, oldChat)
+
+  useEffect(() => {
+    if (JSON.stringify(chats) !== JSON.stringify(oldChat)) {
+    dispatch(allMsg())
+  }
+}, [oldChat])
+
 
   const handleClick = (e) => {
     e.preventDefault()
     if (e.currentTarget.mess.value.length > 0) {
       setInput(e.currentTarget.mess.value)
-      console.log('pfgbcfyj', e.currentTarget.mess.value)
+      console.log("pfgbcfyj", e.currentTarget.mess.value)
       e.currentTarget.mess.value = ""
+      
     }
   }
+  const messagesRef = useRef(null)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -37,22 +51,33 @@ const Chat = ({ task }) => {
     dispatch(upTaskThunk(task.id, 0))
     navigate("/tasks/" + task.id)
   }
-
+  useEffect(() => {
+    messagesRef.current.scrollTo(0, 99999)
+  }, [chats])
   return (
     <div>
       <button type="button" onClick={handleMatch} className={style.btn}>
         ПРИНЯТЬ РАБОТУ
       </button>
-      <form onSubmit={handleClick}>
-        <div className="chatBox">
-          {currentMSG.map(el => {
-            return (<p className="currentMsg">{el.msg}</p>)
-          })}
-         
+      
+      <div className={style.chat}>
+        <div className={style.chatMessages}>
+          <div ref={messagesRef} className={style.messages}>
+            {chats.filter((el)=>el.task === task.id).map((el) => (
+              <div className={style.message}>
+                <p>{el.msg}</p>
+                <div>
+                  <span>{el.name}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <form onSubmit={handleClick}>
+            <input className={style.input} name="mess" autocomplete="off" placeholder="введите соообщение"></input>
+            <button className={style.btnMsg}>отправить сообщение</button>
+          </form>
         </div>
-        <input className={style.input} name="mess" autocomplete="off"></input>
-        <button className={style.btnMsg}>отправить сообщение</button>
-      </form>
+      </div>
     </div>
   )
 }
