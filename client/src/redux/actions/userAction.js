@@ -64,7 +64,7 @@ export const checkUser = () => async (dispatch) => {
 export const editUser = (data) => async(dispatch) => {
   try {
     const reductUser = await editUserToServer(data)
-console.log(reductUser)
+    console.log(reductUser)
     dispatch({
       type: EDIT_USER,
       payload: reductUser

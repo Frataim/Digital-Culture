@@ -18,7 +18,7 @@ function Search() {
   }, [input])
   return (
     <div className={style.inputContainer}>
-      <input onChange={(e) => setInput(e.target.value)} value={input} type="text" className={style.input} />
+      <input placeholder='поиск...' onChange={(e) => setInput(e.target.value)} value={input} type="text" className={style.input} />
     </div>
   )
 }

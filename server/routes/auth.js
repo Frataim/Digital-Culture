@@ -9,7 +9,7 @@ function validateEmail(email) {
 }
 
 router.route('/edit/:id').patch(async (req, res) => {
-  console.log('--->>>>edit17', req.body);
+  console.log('--->>>>id', req.params.id);
   const {
     name, email, resume, role,
   } = req.body;
@@ -18,9 +18,9 @@ router.route('/edit/:id').patch(async (req, res) => {
   }, {
     where: { id: req.session.user.id },
   });
-  res.json({
-    name, email, resume, role,
-  });
+  const newUser = await User.findOne({ where: { id: req.params.id } });
+  console.log(newUser);
+  res.json(newUser);
 });
 
 router.route('/signup').post(async (req, res) => {
@@ -100,21 +100,6 @@ router.route('/signin').post(async (req, res) => {
   } else {
     return res.sendStatus(401);
   }
-});
-
-router.route('/edit/:id').patch(async (req, res) => {
-  console.log('--->>>>edit17', req.body);
-  const {
-    name, email, resume, role,
-  } = req.body;
-  await User.update({
-    name, email, resume, role,
-  }, {
-    where: { id: req.session.user.id },
-  });
-  res.json({
-    name, email, resume, role,
-  });
 });
 
 router.route('/check').get((req, res) => {

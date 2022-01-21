@@ -43,10 +43,14 @@ const Chat = ({ task }) => {
     messagesRef.current.scrollTo(0, 99999)
   }, [chats])
   return (
+    <>
+    
     <div>
-      <button type="button" onClick={handleMatch} className={style.btn}>
-        ПРИНЯТЬ РАБОТУ
-      </button>
+      {user && user.role === 2 && (
+        <button type="button" onClick={handleMatch} className={style.btn}>
+          ПРИНЯТЬ РАБОТУ
+        </button>
+      )}
       
       <div className={style.chat}>
         <div className={style.chatMessages}>
@@ -67,6 +71,7 @@ const Chat = ({ task }) => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 
