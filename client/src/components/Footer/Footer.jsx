@@ -14,7 +14,7 @@ function Footer() {
           <Link className={style.link} to={'/'}>DC</Link>
         </div>
         <div className={style.footerStat}>
-          Всего проектов в работе: {tasks.length}
+          Всего проектов: {tasks.length}
         </div>
         <div className={style.social}>
           <p></p>
