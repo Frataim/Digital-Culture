@@ -55,7 +55,7 @@ module.exports = {
         name: 'Феофан Гусев',
         email: 'http://localhost:3001/gusev@gmail.com',
         role: 3,
-        avatar: 'gusev.jpeg',
+        avatar: 'http://localhost:3001/gusev.jpeg',
         password: '123',
         resume: 'Разработка, сопровождение и поисковая оптимизация сайтов на WordPress и не только',
         createdAt: '2013-10-27 02:00:00',

@@ -114,11 +114,13 @@ const Signup = () => {
             onChange={inputChange}
             className={style.input}
           />
-        </div>
-        <div className={style.fileupload}>
-                <label className={style.label}> Загрузите аватарку</label>
+          <label className={style.label}> Загрузите аватарку</label>
+          <div className={style.container}>
+            <div className={style.fileupload}>
                 <input className={style.any} type="file" ref={el} onChange={handleChange} />
             </div>
+          </div>
+        </div>
         <div className={style.container}>
           <button className={style.button} type="submit">
             Поехали
