@@ -166,6 +166,7 @@ outline: none;
   height: 130px;
   border: 1px solid black;
   border-radius: 35px;
+  margin-bottom: 10px;
 }
 
 .separator {

@@ -18,13 +18,17 @@ export default function FeedbackList() {
 
   console.log(actualFeedbacks);
   return (
-    <div>
-      {user !== null && (
-        <FeedbackForm />
+    <>
+      {user && feedbacks && (
+        <div>
+          {user !== null && (
+            <FeedbackForm />
+          )}
+          <br/>
+            {actualFeedbacks.map((el) => <Feedback key={el.id} {...el} />)}
+        </div>
       )}
-      <br/>
-        {actualFeedbacks.map((el) => <Feedback key={el.id} {...el} />)}
-    </div>
+    </>
   )
 }
 

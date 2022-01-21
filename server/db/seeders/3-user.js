@@ -82,16 +82,6 @@ module.exports = {
         updatedAt: '2013-10-27 02:00:00',
       },
       {
-        name: 'Иван Лысенков',
-        email: 'ivan@mail.ru',
-        role: 3,
-        avatar: 'http://localhost:3001/ivan.jpg',
-        password: '123',
-        resume: 'Программист с 10-летним стажем, фуллстак JS',
-        createdAt: '2013-10-27 02:00:00',
-        updatedAt: '2013-10-27 02:00:00',
-      },
-      {
         name: 'Карим Колотов',
         email: 'karim@mail.ru',
         role: 3,

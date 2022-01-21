@@ -14,15 +14,19 @@ function Feedback( { feedback, user_id, task_id }) {
     role = 'волонтер'
   }
   return (
-    <div className={style.mainContainer}>
-      <div className={style.userContainer}>
-        <img className={style.img} src={user.avatar}></img>
-        <div>{user.name} / { role }:</div>
-      </div>
-      <div>
-        {feedback}
-      </div>
-    </div>
+    <>
+      {users && (
+        <div className={style.mainContainer}>
+          <div className={style.userContainer}>
+            <img className={style.img} src={user.avatar}></img>
+            <div>{user.name} / { role }:</div>
+          </div>
+          <div>
+            {feedback}
+          </div>
+        </div>
+      )}
+    </>
   )
 }
 
