@@ -9,22 +9,12 @@ import ilya from '../../Ilya.jpg'
 import sanya from '../../sanya.jpg'
 import talgat from '../../Talgat.jpg'
 import vanya from '../../Vanya.jpg'
-import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { useState } from 'react'
+
 function Greet() {
-
-
-
   const tasks = useSelector(store => store.tasks)
-  console.log(tasks);
-
-
-
-
   return (
     <>
-
       {tasks && tasks.length > 0 &&
         <>
           <div className={style.greetContainer}>
@@ -67,7 +57,6 @@ function Greet() {
             </div>
             <img className={style.bestHot} src={hot} alt="" />
           </div>
-
           <div className={style.separatorAbout}></div>
           <h2 className={style.workerHeader}>Разработчики приложения</h2>
           <div className={style.aboutContainer}>
@@ -98,7 +87,6 @@ function Greet() {
           </div>
         </>
       }
-
     </>
   )
 }

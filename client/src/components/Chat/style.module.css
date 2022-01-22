@@ -27,9 +27,7 @@
   border: none;
   background-color: rgb(231, 231, 231);
 }
-/* .chatBox {
-  height: 50%;
-} */
+
 
 
 .chatMessages {
@@ -56,7 +54,6 @@
 .message p {
   display: inline-flex;
   border-radius: 10px;
-   
   background-color: #b1b1b1;
   padding: 10px 15px 15px;
   color:rgb(0, 0, 0);

@@ -8,26 +8,20 @@ import { getAllUsers, searchUser } from '../../redux/actions/usersAc'
 
 function Workers() {
   const workers = useSelector(store => store.users.reverse())
-
   const tasks = useSelector(store => store.tasks)
-
   const dispatch = useDispatch()
-
   let [input, setInput] = useState('')
-
 
   useEffect(() => {
     if (input == '') {
       dispatch(getAllUsers())
     }
     dispatch(searchUser(input))
-
   }, [input])
 
 
   return (
     <>{workers &&
-
       <div className={style.workersContainer}>
         <h2 className={style.workerSearchHeader}>Поиск по исполнителю</h2>
         <div className={style.filterContainer}>

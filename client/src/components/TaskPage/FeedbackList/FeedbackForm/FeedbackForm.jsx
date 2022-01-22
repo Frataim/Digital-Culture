@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addFeedbackThunk } from '../../../../redux/actions/feedbacksAc'
 
 function FeedbackForm () {
-
   const {id} = useParams()
   const task_id = +id
   let currentUser = null
@@ -24,7 +23,6 @@ function FeedbackForm () {
   const [stars, setStars] = useState("5")
   const dispatch = useDispatch()
 
-
   const inputChange = (e) => {
     setFeedback(e.target.value)
   }
@@ -33,12 +31,8 @@ function FeedbackForm () {
     setStars(e.target.value)
   }
   
-  console.log(task);
-
-
   const feedbackHandler = (e) => {
     e.preventDefault()
-    console.log('send form >>>>>>', feedback)
     dispatch(addFeedbackThunk(feedback , task_id, currentUser, stars))
     setFeedback('')
   }
@@ -58,16 +52,12 @@ function FeedbackForm () {
           <div className={style.starRating}>
             <input onChange={inputChange2} type="radio" name="stars" id="star-a" value="5"/>
             <label for="star-a"></label>
-
             <input onChange={inputChange2} type="radio" name="stars" id="star-b" value="4"/>
             <label for="star-b"></label>
-        
             <input onChange={inputChange2} type="radio" name="stars" id="star-c" value="3"/>
             <label for="star-c"></label>
-        
             <input onChange={inputChange2} type="radio" name="stars" id="star-d" value="2"/>
             <label for="star-d"></label>
-        
             <input onChange={inputChange2} type="radio" name="stars" id="star-e" value="1"/>
             <label for="star-e"></label>
           </div>

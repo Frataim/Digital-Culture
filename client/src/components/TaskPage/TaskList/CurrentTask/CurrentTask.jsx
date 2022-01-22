@@ -16,7 +16,6 @@ function CurrentTask() {
   const [status, setStatus] = useState(1)
   const user = useSelector((state) => state.user)
   const task = useSelector(state => state.tasks.find((el) => el.id === +id))
-  console.log('this task -------->', task);
   useEffect(() => {
     if (task) {
       setStatus(task.status)

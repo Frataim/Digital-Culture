@@ -11,15 +11,7 @@ export const userReducer = (state = null, action) => {
 
     case EDIT_USER:
       return payload
-      // state.map((user) => {
-      //   if (user.id === payload.id) {
-      //     return payload
-      //   }
-      //   return user
-      // })
       
-      
-
     case AUTH_CHECK:
       return payload
 

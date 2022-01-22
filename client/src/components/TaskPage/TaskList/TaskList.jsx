@@ -6,9 +6,6 @@ import { useSelector } from 'react-redux'
 function TaskList() {
   const tasks = useSelector(store => store.tasks)
 
-  console.log(tasks);
-
-
   return (
     <>{tasks.length === 0 &&
       <div className={style.noTask}>Упс, по такой категории задач нету !</div>

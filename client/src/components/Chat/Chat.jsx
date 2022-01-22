@@ -4,17 +4,16 @@ import { useNavigate } from "react-router-dom"
 import { allMsg } from "../../redux/actions/msgAc"
 import { upTaskThunk } from "../../redux/actions/tasksAc"
 import style from "./style.module.css"
+
+
 const Chat = ({ task }) => {
-  console.log(task)
   const socket = new WebSocket("ws://localhost:3001")
   const user = useSelector((state) => state.user)
   const chats = useSelector((state) => state.chats)
-
-  console.log("curr", {...chats})
   const [input, setInput] = useState("")
+
   useEffect(() => {
     socket.onopen = () => {
-      console.log("my life, my rulzzz: ", input)
       if (input.length > 0) {
         socket.send(JSON.stringify({ task: task.id, msg: input, user: user.id, name: user.name }))
       }
@@ -26,7 +25,6 @@ const Chat = ({ task }) => {
     e.preventDefault()
     if (e.currentTarget.mess.value.length > 0) {
       setInput(e.currentTarget.mess.value)
-      console.log("pfgbcfyj", e.currentTarget.mess.value)
       e.currentTarget.mess.value = ""
       
     }

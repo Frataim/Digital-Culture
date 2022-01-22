@@ -30,7 +30,6 @@ function Category() {
   const dispatch = useDispatch()
 
   const cancelFilter = (e) => {
-    console.log("cancelFilter");
     dispatch(allTasks())
     setFiltered(!filtered)
   }

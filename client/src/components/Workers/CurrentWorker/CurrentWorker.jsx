@@ -6,13 +6,7 @@ import { useState } from 'react'
 
 function CurrentWorker() {
   const { id } = useParams()
-
-
   const tasks = useSelector(store => store.tasks)
-
-
-  console.log('EGO TASKI', tasks);
-
   const user = useSelector(store => store.users)
     .find(el => el.id === +id)
 
@@ -39,19 +33,13 @@ function CurrentWorker() {
           <div className={style.role}>{user.role === 2 ? 'Заказчик' : 'Исполнитель'}</div>
         </div>
       </div>
-
-
-
       <div className={style.currentTaskContainer}>
         <h2>Завершенные задачи: </h2>
-
-
         {
           tasks.map((el) => {
             return <div key={el.id} className={style.worker}></div>
           })
         }
-
       </div>
     </div>
   )

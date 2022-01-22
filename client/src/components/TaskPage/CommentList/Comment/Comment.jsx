@@ -15,7 +15,6 @@ function Comment( { comment, user_id, task_id }) {
   const handleMatch = () => {
     dispatch(upTaskThunk(task_id, user_id))
   }
-  console.log('==============>', user);
   useEffect(() => {
   
   }, [])

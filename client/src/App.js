@@ -53,7 +53,6 @@ function App() {
 
   const [location, setLocation] = useState(window.location.pathname)
 
-  console.log(location)
 
   return (
     <div className={style.content}>

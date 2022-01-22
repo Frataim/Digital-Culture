@@ -12,7 +12,6 @@ export const getAllUsers = () => (dispatch) => {
 }
 
 export const searchUser = (data) => (dispatch) => {
-  console.log(data);
   dispatch({
     type: SEARCH_WORKER,
     payload: data

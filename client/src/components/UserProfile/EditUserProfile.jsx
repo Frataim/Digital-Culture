@@ -7,11 +7,7 @@ import {editUser} from './../../redux/actions/userAction'
 const EditUserProfile = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  // // пользователь который зарегестрирован/авторизирован
   const user = useSelector((state) => state.user)
-  // const qwerty = useSelector((state) => state.user)
-
-
 
   const [profile, setProfile] = useState({
     id: user.id,
@@ -21,16 +17,7 @@ const EditUserProfile = () => {
     role: user.role,
   })
 
-  // const [valid, setValid] = useState(false)
-  // проверка на авторизированного пользователя
-  // если данные авторизированного пользователя соответствует то true иначе false
-  // useEffect (() => {
-  //   if () {}
-
-  // })
-
   const editHandler = (e) => {
-    console.log('editHandler', profile)
     e.preventDefault();
     dispatch(editUser(profile))
   }
@@ -65,17 +52,6 @@ const EditUserProfile = () => {
         onChange={(e) => setProfile({...profile, resume: e.target.value})} 
         className={style.input}/>
       </div>
-      {/* <div className={style.container}>
-        <label className={style.label}>Роль</label>
-        <select
-          type="role"
-          name="role"
-          value={profile.role}
-          onChange={(e) => setProfile({...profile, role: e.target.value})}
-          className={style.select}
-        >
-        </select>
-        </div> */}
         <div className={style.container}>
           <button onClick={(e) => {
             editHandler(e)
