@@ -7,6 +7,16 @@ Digital-Culture - это приложение создано для выполн
 ## Скриншот:
 ![DG culture](https://user-images.githubusercontent.com/84536810/149894192-1dd188e3-8b1d-4cdc-8a43-2466da635704.gif)
 
+Личный кабинет заказчика
+<img width="1424" alt="Снимок экрана 2022-01-22 в 11 17 21" src="https://user-images.githubusercontent.com/84536810/150631025-91cf758c-e32a-4c1e-ba63-7fa1dbb6cf58.png">
+Выбор исполнителя
+<img width="1422" alt="Снимок экрана 2022-01-22 в 11 21 23" src="https://user-images.githubusercontent.com/84536810/150631050-3b0b0c64-c76c-4ba9-bf37-8c584fc2d99c.png">
+Переписка с исполнителем
+<img width="1420" alt="Снимок экрана 2022-01-22 в 11 24 41" src="https://user-images.githubusercontent.com/84536810/150631056-741fdc98-0dfc-411e-b6b9-db11f2d78775.png">
+Закрытие работы и оценка исполнителя
+<img width="1437" alt="Снимок экрана 2022-01-22 в 11 25 45" src="https://user-images.githubusercontent.com/84536810/150631070-505099bd-92cc-4ed4-9ff9-33dcaf8aaf63.png">
+
+
 ### На проекте были использованы следующие технологии:
 
 [![React](https://shields.io/badge/-React-f9fbfa?logo=react&style=for-the-badge)](https://reactjs.org/)&nbsp;
