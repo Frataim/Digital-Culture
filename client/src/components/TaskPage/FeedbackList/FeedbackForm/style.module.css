@@ -1,0 +1,113 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  border-radius: 5px;
+  padding: 10px;
+  border: none;
+  background-color: rgb(231, 231, 231);
+}
+
+.btn {
+  background: #99FF91;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 100px;
+  width: 200px;
+  font-weight: 600;
+  margin-top: 10px;
+  }
+
+.btn:hover {
+  background: #ffffff;
+}
+
+.taskContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border: 1px solid black ;
+  border-radius: 25px;
+  margin-bottom: 25px;
+  width: 55%;
+  font-family: Roboto;
+}
+
+.label {
+  margin-top: 20px;
+  font-family: Roboto;
+}
+
+.taskImg {
+  width: 40%;
+}
+
+IMG {
+  width: 100%;
+}
+
+
+
+
+/*STAR*/
+
+
+/* use reverse flexbox to take advantage of flex-direction: reverse */
+.starRating {
+  display: flex;
+  align-items: center;
+  width: 120px;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+/* hide the inputs */
+.starRating input {
+  display: none;
+}
+/* set properties of all labels */
+.starRating > label {
+  width: 30px;
+  height: 30px;
+  font-family: Arial;
+  font-size: 30px;
+  transition: 0.2s ease;
+  color: rgb(0, 0, 0);
+}
+/* give label a hover state */
+.starRating label:hover {
+  color: #00ff22;
+  transition: 0.2s ease;
+}
+.starRating label:active::before {
+  transform:scale(1.1);
+}
+
+/* set shape of unselected label */
+.starRating label::before {
+  content: '\2606';
+  position: absolute;
+  top: 0px;
+  line-height: 26px;
+}
+/* set full star shape for checked label and those that come after it */
+.starRating input:checked ~ label:before {
+  content:'\2605';
+}
+
+@-moz-document url-prefix() {
+  .starRating input:checked ~ label:before {
+  font-size: 36px;
+  line-height: 21px;
+  }
+}  
+
+.containerbutton{
+  display: flex;
+  
+}

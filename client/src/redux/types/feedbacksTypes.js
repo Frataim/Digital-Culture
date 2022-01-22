@@ -1,0 +1,2 @@
+export const ALL_FEEDBACKS = 'ALL_FEEDBACKS'
+export const ADD_FEEDBACK = 'ADD_FEEDBACK'

@@ -1,0 +1,41 @@
+.headerContainer {
+  height: 347px;
+  position: relative;
+}
+
+.logoContainer {
+  position: relative;
+  z-index: 2;
+  font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 98px;
+line-height: 98px;
+margin-top: 55px;
+letter-spacing: 2.8px;
+text-transform: uppercase;
+color: #000000;
+margin-bottom: 95px;
+text-align: center;
+}
+
+.logo {
+  z-index: 1;
+  width: 147px;
+  height: 79px;
+  left: 110px;
+  top: 65px;
+  position: absolute;
+  background: #99FF91;
+transform: rotate(-16.95deg);
+font-size: 45px;
+text-align: center;
+}
+
+.link {
+  color: black;
+}
+
+.link:hover {
+  color: black;
+}

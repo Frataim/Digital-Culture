@@ -1,0 +1,78 @@
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.input {
+  border-radius: 5px;
+  padding: 10px;
+  border: none;
+  background-color: rgb(231, 231, 231);
+}
+
+.btn {
+  background: #000000;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 10px;
+  color: white;
+  height: 65px;
+}
+
+.btn:hover {
+  background: #272727;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  height: 65px;
+}
+
+.taskContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border: 1px solid black ;
+  border-radius: 25px;
+  margin-bottom: 25px;
+  width: 55%;
+  font-family: Roboto;
+}
+
+.label {
+  margin-top: 20px;
+  font-family: Roboto;
+}
+
+.taskImg {
+  width: 40%;
+}
+
+IMG {
+  width: 100%;
+}
+
+.taskAboutOwner {
+  font-size: 10px;
+  margin-left: 15px;
+  font-family: Roboto;
+}
+
+.taskHeader {
+  font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 25px;
+line-height: 57px;
+margin-bottom: 15px;
+}
+
+.taskDescription {
+  font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 11px;
+line-height: 27px;
+}
+

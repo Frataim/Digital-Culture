@@ -1,0 +1,185 @@
+.currentContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.currentOwnerInfoCard {
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 25px;
+}
+
+.currentRole {
+  margin-bottom: 15px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 23px;
+line-height: 79px;
+/* or 110% */
+
+letter-spacing: 0.5px;
+text-transform: uppercase;
+}
+
+.currentOwnerImg {
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
+}
+
+.currentOwnerInfo {
+  display: flex;
+  flex-direction: column;
+margin-left: 15px;
+}
+
+.currentTaskContainer {
+  display: flex;
+  flex-direction: column;
+  width: 650px;
+  border: 1px solid black;
+  border-radius: 25px;
+  padding: 15px;
+}
+
+.currentRole {
+  margin-bottom: 25px;
+}
+
+.currentTaskInfoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.currentTaskHeader {
+  margin-bottom: 15px;
+}
+
+.currentTaskDeadline {
+  padding-right: 10px;
+}
+
+.currentTaskMainHeader {
+  margin-bottom: 15px;
+}
+
+.currentTaskTime {
+  padding-right: 10px;
+}
+
+.currentTaskCategoryContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.currentTaskSeparator {
+  height: 1px;
+  background-color: black;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.currentTaskStatusContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.currentTaskStatusLevels {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.currentTaskStatus {
+  display: flex;
+  flex-direction: row;
+}
+
+.currentTaskCategoryContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  
+}
+
+.currentTaskCategory {
+  font-size: 13px;
+  font-weight: 600;
+
+}
+.currentTaskTag{
+  font-size: 13px;
+  display: flex;
+  
+}
+
+
+.currentTaskLevels {
+  display: flex;
+  justify-content: row;
+  margin-right: 10px;
+}
+
+.currentTaskLevel {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 15px;
+  border-right: 20px solid black transparent;
+  background-color: #b1b1b1;
+}
+
+.currentTaskLevel::after {
+  border-left: 1px solid black;
+}
+
+.tag {
+  margin-left: 15px;
+  font-style: italic;
+}
+
+.currentTaskLevelDone {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color:#99FF91; ;
+}
+
+.btn {
+  background: #99FF91;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 100px;
+  width: 150px;
+  }
+  .btn:hover {
+    background: #ffffff;
+  }
+
+  .currentTaskDeadline {
+    color: rgb(226, 63, 63);
+    font-size: 11px;
+  }
+
+  .currentTaskHeader {
+    font-size: 20px;
+  }
+  .currentTaskMainHeader {
+    font-size: 18px;
+  }
+.currentTaskTime {
+  font-size: 11px;
+}
+.currentTaskResponse {
+  font-size: 11px;
+}
+
+.tasksvg {
+  margin-right: 5px;
+  color: rgb(0, 0, 0);
+}

@@ -1,0 +1,8 @@
+.filterSectorContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.filterHeader {
+  margin-bottom: 35px;
+}

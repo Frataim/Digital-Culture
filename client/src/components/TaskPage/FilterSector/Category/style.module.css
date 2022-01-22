@@ -1,0 +1,27 @@
+
+
+.categorySeparator {
+  height: 1px;
+  background-color: black;
+  margin-bottom: 50px;
+}
+
+.categoryHeader {
+  margin-bottom: 25px;
+}
+
+.currentCategorySelect {
+  font-size: 13px;
+  border-bottom: 1px dashed ;
+  background-color: hotpink;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.cancelFilter {
+  margin-top: 15px;
+  border: none;
+  border-radius: 15px;
+}
+

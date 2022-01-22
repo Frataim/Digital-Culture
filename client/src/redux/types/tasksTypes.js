@@ -1,0 +1,7 @@
+export const ALL_TASKS = 'ALL_TASKS'
+export const TASK_USER = 'TASK_USER'
+export const ADD_TASK = 'ADD_TASK'
+export const TASK_UP = 'TASK_UP'
+export const FILTER_TASK = 'FILTER_TASK'
+export const SEARCH_TASK = 'SEARCH_TASK'
+export const DELETE_TASK = 'DELETE_TASK'

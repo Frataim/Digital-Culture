@@ -1,0 +1,96 @@
+.taskContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border: 1px solid black;
+  border-radius: 25px;
+  margin-bottom: 25px;
+  width: 650px;
+
+}
+
+.taskDescription {
+  display: inline-block;
+  color: black;
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+.taskDescription:hover {
+  color: black;
+}
+
+.ownerContainer {
+  display: flex;
+}
+.taskAbout {
+  font-size: 12px;
+}
+
+.taskAboutOwner {
+  font-size: 16px;
+  margin-left: 15px;
+  font-family: Roboto;
+  margin-bottom: 1px;
+}
+
+.ownerImg {
+  border-radius: 36px;
+  width: 20px;
+  height: 20px;
+}
+
+.taskHeader {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 36px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.taskDescription {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.taskAbout {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.taskDeadline {
+  color: #e64825;
+  margin-right: 15px;
+}
+
+.taskBorn {
+  margin-right: 15px;
+}
+
+.taskTagContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.taskTag {
+  display: flex;
+}
+
+.tag {
+  margin-right: 15px;
+  font-style: italic;
+}
+
+.tasksvg {
+  margin-right: 15px;
+  color: rgb(0, 0, 0);
+}
+
+.taskCategory {
+  font-weight: 700;
+}

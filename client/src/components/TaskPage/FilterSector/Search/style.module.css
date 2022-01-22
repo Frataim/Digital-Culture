@@ -1,0 +1,12 @@
+.input {
+  border: none;
+background-color: #a19e9e;
+border: 1px solid grey;
+box-sizing: border-box;
+border-radius: 10px;
+width: 300px;
+}
+
+.inputContainer {
+  margin-bottom: 100px;
+}

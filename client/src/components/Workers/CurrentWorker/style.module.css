@@ -1,0 +1,61 @@
+.currentWorkerContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.currentWorkerInfoContainer {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    180deg
+    , #99FF91 0%, #61D1F2 100%);;
+  height: 450px;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid #333333;
+  width: 350px;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.aboutName {
+  margin-bottom: 15px;
+  font-size: 19px;
+}
+
+.name {
+  font-weight: 300;
+}
+
+.avatar {
+  height: 130px;
+  width: 135px;
+  border-radius: 40px;
+  border: 1px solid black;
+}
+
+.aboutEmail {
+  margin-bottom: 15px;
+  font-size: 19px;
+}
+
+.email {
+  font-weight: 300;
+}
+
+.aboutHeader {
+  margin-bottom: 15px;
+  font-size: 19px;
+}
+.about {
+  font-weight: 300;
+}
+
+.roleHead {
+  margin-bottom: 15px;
+  font-size: 19px;
+}
+
+.role {
+  font-weight: 300;
+}

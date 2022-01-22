@@ -1,0 +1,21 @@
+.taskListContainer {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  flex-direction: column;
+
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #000;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
