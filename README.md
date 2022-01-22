@@ -45,9 +45,9 @@ Digital-Culture - это приложение создано для выполн
 [![Node](https://shields.io/badge/-Node-333?logo=node.js&style=for-the-badge)](https://nodejs.org/en/)&nbsp;
 
 
-### Создатели:
+### Разработчики:
 
 <p><a href='https://github.com/Frataim'>Fullstack, Талгат Аймбетов </a></p>
 <p><a href='https://github.com/rogovenko'>Fullstack, Илья Роговенко </a></p>
 <p><a href='https://github.com/sanytar'>Fullstack, Александр Рязанов </a></p>
-<p><a href='https://github.com/IvanWolve'>Fullstack,Иван Лысенков </a></p>
+<p><a href='https://github.com/IvanWolve'>Fullstack, Иван Лысенков </a></p>
