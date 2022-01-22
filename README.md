@@ -24,6 +24,7 @@ Digital-Culture - это приложение создано для выполн
 
 ### Создатели:
 
+<p><a href='https://github.com/Frataim'>Fullstack, Талгат Аймбетов </a></p>
 <p><a href='https://github.com/rogovenko'>Fullstack, Илья Роговенко </a></p>
 <p><a href='https://github.com/sanytar'>Fullstack, Александр Рязанов </a></p>
 <p><a href='https://github.com/IvanWolve'>Fullstack,Иван Лысенков </a></p>
