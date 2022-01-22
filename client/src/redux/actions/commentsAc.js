@@ -15,7 +15,6 @@ export const addComment = (response) => ({
 })
 
 export const addCommentThunk = (comment, task_id) => async (dispatch) => {
-  console.log('thunk check ---------->', comment, task_id)
   const userFromBack = await axios.post('http://localhost:3001/comment', {comment, task_id})
   const response = userFromBack.data
   dispatch(addComment(response))

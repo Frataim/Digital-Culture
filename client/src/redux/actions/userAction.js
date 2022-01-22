@@ -20,7 +20,6 @@ export const delUserAction = (user) => ({
 })
 
 export const delUser = () => (dispatch) => {
-  console.log('===>>>>delAct')
   axios.get('http://localhost:3001/users/signout')
   dispatch(delUserAction())
 }
@@ -49,22 +48,9 @@ export const checkUser = () => async (dispatch) => {
   dispatch(checkUserAction(responce))
 }
 
-// // редактирование
-// export const editUserAction = (responce) => ({
-//   type: EDIT_USER,
-//   payload: responce,
-// })
-
-// export const editUser = () => async (dispatch) => {
-//   const userFromBack = await axios('http://localhost:3001/users')
-//   const responce = userFromBack.data
-//   dispatch(editUserAction(responce))
-// }
-
 export const editUser = (data) => async(dispatch) => {
   try {
     const reductUser = await editUserToServer(data)
-    console.log(reductUser)
     dispatch({
       type: EDIT_USER,
       payload: reductUser
@@ -86,7 +72,6 @@ export const editUserToServer = async (data) => {
     credentials: 'include',
     body: JSON.stringify(data)
   })
-  console.log(response)
   if (response.ok) {
     return await response.json()
   } else {

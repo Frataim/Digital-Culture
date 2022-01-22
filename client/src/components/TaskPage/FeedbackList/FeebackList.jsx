@@ -5,18 +5,17 @@ import Feedback from './Feedback/Feedback';
 import FeedbackForm from './FeedbackForm/FeedbackForm'
 
 export default function FeedbackList() {
-
   const {id} = useParams()
   const task_id = +id
   const feedbacks = useSelector((state) => state.feedbacks)
   const user = useSelector((state) => state.user)
-  console.log(user);
   const [actualFeedbacks, setActualFeedbacks] = useState([])
+
   useEffect(() => {
     setActualFeedbacks(feedbacks.filter(el => el.task_id === task_id).reverse())
   }, [feedbacks])
 
-  console.log(actualFeedbacks);
+
   return (
     <>
       {user && feedbacks && (

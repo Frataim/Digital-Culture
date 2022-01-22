@@ -6,7 +6,6 @@ import style from './style.module.css'
 
 
 function Header() {
-  // const user = useSelector ((state) => state.user)
   return (
     <div className={style.headerContainer}>
       <NavBar />

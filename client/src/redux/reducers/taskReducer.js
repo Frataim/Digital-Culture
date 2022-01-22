@@ -3,10 +3,8 @@ import { ADD_TASK, ALL_TASKS, DELETE_TASK, FILTER_TASK, SEARCH_TASK, TASK_UP } f
 
 export const taskReducer = (state = [], action) => {
   const { type, payload } = action
-  // console.log('вот они летят----', payload);
   switch (type) {
     case ALL_TASKS: {
-      console.log('сработало');
       return payload
     }
 

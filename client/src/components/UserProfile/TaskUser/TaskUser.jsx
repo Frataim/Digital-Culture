@@ -8,7 +8,6 @@ const TaskUser = () => {
   const user = useSelector((state) => state.user)
 
   const [arr, setArr] = useState([])
-  console.log('---->>>', tasks)
 
   useEffect(() => {
     if (user.role === 2) {
@@ -20,7 +19,6 @@ const TaskUser = () => {
     }
   }, [])
 
-  console.log(arr)
   return (
     <div>
       <h3 className={style.container}>Мои задачи: </h3>

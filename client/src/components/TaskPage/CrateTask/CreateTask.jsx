@@ -16,15 +16,12 @@ function CreateTask () {
     setTask((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  console.log('-----------> task', task);
-
   const taskHandler = (e) => {
     e.preventDefault()
-    console.log('send form >>>>>>', task)
     dispatch(addTaskThunk(task))
     navigate('/tasks')
   }
-  console.log(task.category);
+ 
   return (
     <div className={style.mainContainer}>
       <form className={style.taskContainer} onSubmit={(e) => taskHandler(e)}>
