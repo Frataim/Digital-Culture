@@ -20,3 +20,10 @@ Digital-Culture - это приложение создано для выполн
 [![ExpressJS](https://img.shields.io/badge/-Express.js-333?logo=express&style=for-the-badge)](https://expressjs.com/ru/)
 [![Sequelize](https://img.shields.io/badge/-Sequelize-f9fbfa?logo=Sequelize&style=for-the-badge)](https://sequelize.org/master/)
 [![Node](https://shields.io/badge/-Node-333?logo=node.js&style=for-the-badge)](https://nodejs.org/en/)&nbsp;
+
+
+### Создатели:
+
+<p><a href='https://github.com/rogovenko'>Fullstack, Илья Роговенко </a></p>
+<p><a href='https://github.com/sanytar'>Fullstack, Александр Рязанов </a></p>
+<p><a href='https://github.com/IvanWolve'>Fullstack,Иван Лысенков </a></p>
