@@ -13,7 +13,9 @@ function CurrentTask() {
   const { id } = useParams()
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const user = useSelector(state => state.user)
   const [status, setStatus] = useState(1)
+
   const task = useSelector(state => state.tasks.find((el) => el.id === +id))
   console.log(task);
   useEffect(() => {
