@@ -21,7 +21,6 @@ function CurrentCategory({ title, cancelButton, setFiltered, filtered }) {
     dispatch(filteredTask(e.target.innerText))
     setCurrentFilter(!currentFilter)
     setFiltered(!filtered)
-    console.log('сделал фильтры', filtered, currentFilter);
   }
 
   return (

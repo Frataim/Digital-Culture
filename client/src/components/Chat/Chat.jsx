@@ -47,11 +47,15 @@ const Chat = ({ task }) => {
   }, [messages])
 
   return (
+    <>
+    
     <div>
-      <button type="button" onClick={handleMatch} className={style.btn}>
-        ПРИНЯТЬ РАБОТУ
-      </button>
-
+      {user && user.role === 2 && (
+        <button type="button" onClick={handleMatch} className={style.btn}>
+          ПРИНЯТЬ РАБОТУ
+        </button>
+      )}
+      
       <div className={style.chat}>
         <div className={style.chatMessages}>
           <div ref={messagesRef} className={style.messages}>
@@ -85,6 +89,7 @@ const Chat = ({ task }) => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

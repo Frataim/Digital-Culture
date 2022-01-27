@@ -9,31 +9,21 @@ import ilya from '../../Ilya.jpg'
 import sanya from '../../sanya.jpg'
 import talgat from '../../Talgat.jpg'
 import vanya from '../../Vanya.jpg'
-import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { useState } from 'react'
+
 function Greet() {
-
-
-
   const tasks = useSelector(store => store.tasks)
-  console.log(tasks);
-
-
-
-
   return (
     <>
-
       {tasks && tasks.length > 0 &&
         <>
           <div className={style.greetContainer}>
             <div>
-              <h1>Что такое волонтер?</h1>
+              <h1>Как программист поможет искусству?</h1>
               <h4 className={style.description}>
-                Это платформа, на которой встречаются IT-специалисты и гражданские активисты.
-                Специалисты помогают активистам решать задачи, чтобы те могли делать свою работу лучше.</h4>
-              <p className={style.description}>Мы верим, что в людях есть большой потенциал создания коллективного блага. Мы знаем, что если создать соответствующие инструменты, то люди смогут реализовывать этот потенциал с взаимной выгодой.</p>
+                Музеи, галереи и театры сегодня стремяться стать частью цифровой действительности, войти в новый век высоких технологий. Но им нужна твоя помощь, программист!
+                </h4>
+              <p className={style.description}>Помоги культурным учереждениям с реализацией действительно инновационных проектов и ворвись таким образом в мир искусства</p>
             </div>
             <div>
               <img className={style.img} src={logo} alt="" />
@@ -67,7 +57,6 @@ function Greet() {
             </div>
             <img className={style.bestHot} src={hot} alt="" />
           </div>
-
           <div className={style.separatorAbout}></div>
           <h2 className={style.workerHeader}>Разработчики приложения</h2>
           <div className={style.aboutContainer}>
@@ -98,7 +87,6 @@ function Greet() {
           </div>
         </>
       }
-
     </>
   )
 }

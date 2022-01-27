@@ -109,6 +109,7 @@ margin-left: 15px;
 
 .currentTaskCategory {
   font-size: 13px;
+  font-weight: 600;
 
 }
 .currentTaskTag{
@@ -129,7 +130,6 @@ margin-left: 15px;
   border: 1px solid black;
   border-radius: 15px;
   border-right: 20px solid black transparent;
-  text-decoration: line-through;
   background-color: #b1b1b1;
 }
 
@@ -139,6 +139,7 @@ margin-left: 15px;
 
 .tag {
   margin-left: 15px;
+  font-style: italic;
 }
 
 .currentTaskLevelDone {
@@ -159,3 +160,26 @@ margin-left: 15px;
   .btn:hover {
     background: #ffffff;
   }
+
+  .currentTaskDeadline {
+    color: rgb(226, 63, 63);
+    font-size: 11px;
+  }
+
+  .currentTaskHeader {
+    font-size: 20px;
+  }
+  .currentTaskMainHeader {
+    font-size: 18px;
+  }
+.currentTaskTime {
+  font-size: 11px;
+}
+.currentTaskResponse {
+  font-size: 11px;
+}
+
+.tasksvg {
+  margin-right: 5px;
+  color: rgb(0, 0, 0);
+}

@@ -11,7 +11,7 @@ export const userReducer = (state = null, action) => {
 
     case EDIT_USER:
       return payload
-
+      
     case AUTH_CHECK:
       return payload
 

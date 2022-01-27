@@ -22,12 +22,12 @@
 
 .link:last-child {
   margin-right: 0;
-  background-color: #99ff91;
+  background-color: rgb(221, 78, 78);
 }
 
 .link:last-child:hover {
   margin-right: 0;
-  background-color: #18b30d;
+  background-color: #a32913;
 }
 
 .link:hover {

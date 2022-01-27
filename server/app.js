@@ -34,7 +34,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: ['http://localhost:3000', 'ws://localhost:3001'], credentials: true }));
 app.use((req, res, next) => {
-  console.log(req.session.user);
   res.locals.user = req.session.user;
   next();
 });

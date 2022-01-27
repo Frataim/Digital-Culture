@@ -6,17 +6,16 @@ import { useState } from 'react'
 
 function CurrentWorker() {
   const { id } = useParams()
-
-
   const tasks = useSelector(store => store.tasks)
-    .filter(el => el.owner === + id)
-
   const user = useSelector(store => store.users)
     .find(el => el.id === +id)
 
   return (
     <div className={style.currentWorkerContainer}>
       <div className={style.currentWorkerInfoContainer}>
+        <div className={style.currentWorkerAvatar}>
+          <img className={style.avatar} src={user.avatar} alt="" />
+        </div>
         <div className={style.currentWorkerName}>
           <div className={style.aboutName}>Имя: </div>
           <div className={style.name}>{user.name}</div>
@@ -34,14 +33,14 @@ function CurrentWorker() {
           <div className={style.role}>{user.role === 2 ? 'Заказчик' : 'Исполнитель'}</div>
         </div>
       </div>
-
-
       <div className={style.currentTaskContainer}>
-        {tasks.map((el) => {
-          return <div key={el.id} className={style.worker}></div>
-        })}
+        <h2>Завершенные задачи: </h2>
+        {
+          tasks.map((el) => {
+            return <div key={el.id} className={style.worker}></div>
+          })
+        }
       </div>
-
     </div>
   )
 }

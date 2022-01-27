@@ -27,7 +27,6 @@ export const upTask = (response) => ({
 })
 
 export const upTaskThunk = (task_id, user_id) => async (dispatch) => {
-
   const userFromBack = await axios.patch('http://localhost:3001/tasks', { task_id, user_id })
   const response = userFromBack.data
   dispatch(upTask(response))
@@ -54,7 +53,6 @@ export const deleteTask = (response) => ({
 })
 
 export const deleteTaskThunk = (task_id) => async (dispatch) => {
-
   const userFromBack = await axios.patch('http://localhost:3001/tasks/delete', { task_id })
   const response = userFromBack.data
   dispatch(deleteTask(response))

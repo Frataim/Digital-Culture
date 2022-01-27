@@ -9,7 +9,7 @@ function CommentForm () {
 
   const {id} = useParams()
 
-  // const comments = useSelector((state) => state.comments)
+
 
   const [comment, setComment] = useState('')
   const dispatch = useDispatch()
@@ -26,9 +26,6 @@ function CommentForm () {
     setComment('')
   }
 
-  // useEffect(() => {
-   
-  // }, [comments])
 
   return (
       <form className={style.mainContainer} onSubmit={(e) => commentHandler(e)}>

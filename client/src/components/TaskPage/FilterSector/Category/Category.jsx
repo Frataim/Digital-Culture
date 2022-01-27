@@ -10,6 +10,7 @@ import CurrentCategory from './CurrentCategory/CurrentCategory'
 function Category() {
 
   const [categories, setCategories] = useState([
+    { title: 'Веб-сайты' },
     { title: 'Мобильные приложения' },
 
     { title: 'Виртуальная реальность' },
@@ -29,7 +30,6 @@ function Category() {
   const dispatch = useDispatch()
 
   const cancelFilter = (e) => {
-    console.log("cancelFilter");
     dispatch(allTasks())
     setFiltered(!filtered)
   }
