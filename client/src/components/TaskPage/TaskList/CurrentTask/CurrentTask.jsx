@@ -13,8 +13,13 @@ function CurrentTask() {
   const { id } = useParams()
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const user = useSelector(state => state.user)
   const [status, setStatus] = useState(1)
+<<<<<<< HEAD
+
+=======
   const user = useSelector((state) => state.user)
+>>>>>>> 6bd576e20e79c0114bbfcf52a05662ffe72f1613
   const task = useSelector(state => state.tasks.find((el) => el.id === +id))
   useEffect(() => {
     if (task) {

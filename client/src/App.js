@@ -21,11 +21,13 @@ import { allFeedbacks } from "./redux/actions/feedbacksAc"
 import CurrentTask from "./components/TaskPage/TaskList/CurrentTask/CurrentTask"
 import Workers from "./components/Workers/Workers"
 import Chat from "./components/Chat/Chat"
-import { allMsg } from "./redux/actions/msgAc"
 import CurrentWorker from "./components/Workers/CurrentWorker/CurrentWorker"
 import Test from "./components/Test/Test"
+import {io} from 'socket.io-client'
+
 
 function App() {
+  
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user)
   useEffect(() => {
@@ -47,9 +49,7 @@ function App() {
   useEffect(() => {
     dispatch(allFeedbacks())
   }, [])
-  useEffect(() => {
-    dispatch(allMsg())
-  }, [])
+
 
   const [location, setLocation] = useState(window.location.pathname)
 

@@ -7,10 +7,10 @@ import style from './style.module.css'
 const Signin = () => {
   const [log, setLog] = useState({})
   const navigate = useNavigate()
-  const dispatch = useDispatch()// чтоб изменить состояние внутри компонента получаем диспатч
-  const user = useSelector((state) => state.user) // получаем состояние 
+  const dispatch = useDispatch()
+  const user = useSelector((state) => state.user) 
 
-// если пользователь зашел под своей учетной записью переходим ...
+
   useEffect (() => {
     if (user) {
       navigate('/')

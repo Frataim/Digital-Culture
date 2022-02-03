@@ -1,30 +1,33 @@
-const express = require('express')
+const http = require("http")
+const { Server } = require("socket.io")
+const { app } = require("./app")
 const { Chat } = require("./db/models")
 
-const { createServer, request } = require('http');
-const WebSocket = require('ws');
-const { app } = require('./app.js');
+const server = http.createServer(app)
 
-const server = createServer(app);
+const io = new Server(server, { cors: { origin: true } })
 
-const wss = new WebSocket.Server({ clientTracking: false, noServer: true });
+// let arr = []
 
-server.on('upgrade', (request, socket, head) => {
-  console.log('Server on');
-  wss.handleUpgrade(request, socket, head, (ws) => {
-    wss.emit('connection', ws, request);
-  });
-});
+let chatUsers = []
 
-wss.on('connection', (ws, request) => {
-  ws.on('message', async (message) => {
-    console.log('Сообщение: ', JSON.parse(message))
-    const { task, user, name, msg } = JSON.parse(message)
-    const newComment = await Chat.create({ task, user, name, msg })
-    console.log(newComment)
-  });
-});
+io.on("connection", async (socket) => {
+  socket.on("getMessages", async (task) => {
+    const tmp = await Chat.findAll({
+      where: {
+        task: task.id,
+      },
+    })
+    io.emit("getMessages", tmp)
+  })
+
+  socket.on("messageF", async ({ user, msg, task }) => {
+    console.log("asdasdsadasdasdasdasd", { user, msg, task })
+    const tmp = await Chat.create({ task: task.id, user: user.id, name: user.name, msg: msg })
+    io.emit("messageB", tmp)
+  })
+})
 
 server.listen(3001, () => {
-  console.log('сервер запущен!');
-});
+  console.log("запущен")
+})
